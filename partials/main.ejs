@@ -1,0 +1,215 @@
+<nav class="col-sm-3 col-md-2 sidebar" id="navbar-payments">
+    <ul class="nav nav-sidebar">
+        <li class="active">
+            <a class="nav-link" href="#bill-on-shop">Выставление счета на сайте партнера<span class="sr-only"></span></a>
+        </li>
+        <li>
+            <a class="nav-link" href="#bill-on-mob-ballance">Оплата с баланса мобильного<span class="sr-only"></span></a>
+        </li>
+    </ul>
+</nav>
+<main class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+    <h1 id="bill-on-shop" class="title-link">
+        <a href="#bill-on-shop">Выставление счета на сайте <span class="glyphicon glyphicon-link link-tag"></span></a>
+    </h1>
+    <div class="panel panel-default panel-primary">
+        <div class="panel-body">
+            <h2>Корзина</h2>
+        </div>
+        <div class="panel-body">
+            <div id="carousel-payment" class="carousel slide" data-ride="carousel" data-interval="0">
+                <!-- Wrapper for slides -->
+                <div class="carousel-inner" role="listbox">
+                    <div class="item active">
+                        <div class="panel-container">
+                            <h3>Наименование и описание товара</h3>
+                        </div>
+                        <div class="panel-container">
+                            <div class="row">
+                                <div class="col-xs-1 col-sm-2 col-md-2 col-lg-2">
+                                    <img src="https://im0-tub-ru.yandex.net/i?id=c485f942b3f7303c63099c63270ed19b&n=33&h=215&w=410" alt="headphones" class="img-thumbnail">
+                                </div>
+                                <div class="col-xs-1 col-sm-6 col-md-6 col-lg-6">
+                                    With up to 40 hours of battery life, Beats Solo3 Wireless is your perfect everyday headphone. With Fast Fuel, a 5-minute charge gives you 3 hours of playback. Enjoy award-winning Beats sound with Class 1 Bluetooth® wireless listening freedom. The on-ear, cushioned ear cups are adjustable so you can customize your fit for all-day comfort.
+                                </div>
+                                <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
+                                    <strong class="text-primary">1 шт.</strong>
+                                </div>
+                                <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">х</div>
+                                <div class="col-xs-1 col-sm-2 col-md-2 col-lg-2">
+                                    <strong class="text-primary">0.01 руб.</strong>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel-container panel-container--nonbordered clearfix">
+                            <div class="text-right">
+                                <h4>Общая сумма: <strong class="text-primary">0.01 руб.</strong></h4>
+                            </div>
+                            <a class="pull-right btn btn-primary btn-lg" href="#carousel-payment" role="button" data-slide="next">Подтвердить и выбрать способ оплаты</a>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="panel-container panel-container--nonbordered">
+                            <h3>Выбрать способ оплаты</h3>
+                        </div>
+
+                        <div class="panel-container panel-container--nonbordered">
+
+                            <label class="btn btn-default active">
+                                <img src="http://poligon-m.com/images/shop/QIWI/QIWI_Wallet_logotype_en_hor.png" height="30">
+                                <input type="radio" name="payments" id="qiwi-payment" checked>
+                            </label>
+
+                            <label class="btn btn-default disabled">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Visa_2014_logo_detail.svg/1200px-Visa_2014_logo_detail.svg.png" alt="QIWI" height="30">
+                                <input type="radio" name="payments" id="visa-payment"  disabled>
+                            </label>
+
+                            <label class="btn btn-default disabled">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/MasterCard_early_1990s_logo.svg/200px-MasterCard_early_1990s_logo.svg.png" alt="QIWI" height="30">
+                                <input type="radio" name="payments" id="mc-payment"  disabled>
+                            </label>
+
+                        </div>
+                        <div class="panel-container panel-container--nonbordered ">
+
+                            <label for="phone-number-payment-bill"><h4>Введите номер телефона</h4></label>
+                            <div class="form-group form-inline">
+
+                                <div class="input-group">
+                                    <span class="input-group-addon" id="">+7</span>
+                                    <input type="text" class="form-control" id="phone-number-payment-bill" aria-describedby="basic-addon1">
+                                </div>
+
+                                <button type="button" class="btn btn-primary btn-md" id="buy-payment-bill" disabled="true">Оплатить</button>
+                            </div>
+
+
+                        </div>
+                        <a class="btn btn-default btn-md " href="#carousel-payment" role="button" data-slide="prev">Назад</a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="panel panel-default ">
+        <div class="panel-body">
+
+            <div class="panel-container panel-container--nonbordered">
+                <a class="link" href="#" ><span class="glyphicon glyphicon-info-sign"></span> Документация по SDK</a>
+            </div>
+            <div class="panel-container panel-container--nonbordered ">
+                <a class="link" href="#" ><span class="glyphicon glyphicon-link"></span> Demo на Github</a>
+            </div>
+        </div>
+    </div>
+
+
+    <h1 id="bill-on-mob-ballance" class="title-link">
+        <a href="#bill-on-mob-ballance">Оплата с баланса мобильного <span class="glyphicon glyphicon-link link-tag"></span></a>
+    </h1>
+
+    <div class="panel panel-default panel-primary">
+        <div class="panel-body">
+            <h2>Корзина</h2>
+        </div>
+        <div class="panel-body">
+            <div id="carousel-mobile-payment" class="carousel slide" data-ride="carousel" data-interval="0">
+                <!-- Wrapper for slides -->
+                <div class="carousel-inner" role="listbox">
+                    <div class="item active">
+                        <div class="panel-container">
+                            <h3>Наименование и описание товара</h3>
+                        </div>
+                        <div class="panel-container">
+                            <div class="row">
+                                <div class="col-xs-1 col-sm-2 col-md-2 col-lg-2">
+                                    <img src="https://im0-tub-ru.yandex.net/i?id=c485f942b3f7303c63099c63270ed19b&n=33&h=215&w=410" alt="headphones" class="img-thumbnail">
+                                </div>
+                                <div class="col-xs-1 col-sm-6 col-md-6 col-lg-6">
+                                    With up to 40 hours of battery life, Beats Solo3 Wireless is your perfect everyday headphone. With Fast Fuel, a 5-minute charge gives you 3 hours of playback. Enjoy award-winning Beats sound with Class 1 Bluetooth® wireless listening freedom. The on-ear, cushioned ear cups are adjustable so you can customize your fit for all-day comfort.
+                                </div>
+                                <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
+                                    <strong class="text-primary">1 шт.</strong>
+                                </div>
+                                <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">х</div>
+                                <div class="col-xs-1 col-sm-2 col-md-2 col-lg-2">
+                                    <strong class="text-primary">5 руб.</strong>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel-container panel-container--nonbordered clearfix">
+                            <div class="text-right">
+                                <h4>Общая сумма: <strong class="text-primary">5 руб.</strong></h4>
+                            </div>
+                            <a class="pull-right btn btn-primary btn-lg" href="#carousel-mobile-payment" role="button" data-slide="next">Подтвердить и выбрать способ оплаты</a>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="panel-container panel-container--nonbordered">
+                            <h3>Выбрать способ оплаты</h3>
+                        </div>
+
+                        <div class="panel-container panel-container--nonbordered">
+
+                            <label class="btn btn-default active">
+                                <img src="http://poligon-m.com/images/shop/QIWI/QIWI_Wallet_logotype_en_hor.png" height="30">
+                                <input type="radio" name="mobile-payments" id="qiwi-payment-mobile" autocomplete="off" checked>
+                            </label>
+
+
+                            <label class="btn btn-default  disabled">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Visa_2014_logo_detail.svg/1200px-Visa_2014_logo_detail.svg.png" alt="QIWI" height="30">
+                                <input type="radio" name="mobile-payments" id="visa-payment-mobile" autocomplete="off" disabled>
+                            </label>
+
+
+                            <label class="btn btn-default disabled">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/MasterCard_early_1990s_logo.svg/200px-MasterCard_early_1990s_logo.svg.png" alt="QIWI" height="30">
+                                <input type="radio" name="mobile-payments" id="mc-payment-mobile" autocomplete="off" disabled>
+                            </label>
+
+                        </div>
+                        <div class="panel-container panel-container--nonbordered ">
+
+                            <label for="phone-number-payment-bill"><h4>Введите номер телефона</h4></label>
+                            <div class="form-group form-inline">
+
+                                <div class="input-group">
+                                    <span class="input-group-addon" id="">+7</span>
+                                    <input type="text" class="form-control" id="phone-number-payment-mobile" aria-describedby="basic-addon1">
+                                </div>
+
+                                <button type="button" class="btn btn-primary btn-md" id="buy-payment-mobile" disabled="true">Оплатить</button>
+                            </div>
+
+
+                        </div>
+                        <a class="btn btn-default btn-md " href="#carousel-mobile-payment" role="button" data-slide="prev">Назад</a>
+                    </div>
+                    <div class="item">
+                        <div class="panel-container panel-container--nonbordered ">
+                            <div class="text-center">Для оплаты товара на ваш телефон было отправлено смс для подтверждения покупки.</div>
+                        </div>
+                        <div class="panel-body" id="panel-try-again">
+                            <button type="button" class="btn btn-primary btn-lg center-block" id="refresh">Попробовать снова</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="panel panel-default ">
+        <div class="panel-body">
+
+           <div class="panel-container panel-container--nonbordered">
+                <a class="link" href="#" ><span class="glyphicon glyphicon-info-sign"></span> Документация по SDK</a>
+            </div>
+            <div class="panel-container panel-container--nonbordered ">
+                <a class="link" href="#" ><span class="glyphicon glyphicon-link"></span> Demo на Github</a>
+            </div>
+        </div>
+    </div>
+</main>
