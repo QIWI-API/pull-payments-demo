@@ -1,0 +1,170 @@
+/*
+ * Base structure
+ */
+
+/* Move down content because we have a fixed navbar that is 50px tall */
+body {
+  position: relative;
+  padding-top: 70px;
+}
+
+iframe {
+  border:  0;
+}
+
+
+.main {
+  padding: 20px 40px;
+}
+
+/*
+ * Sidebar
+ */
+
+.sidebar {
+    position: fixed;
+    top: 50px;
+    bottom: 0;
+    left: 0;
+    z-index: 1000;
+    display: block;
+    padding: 20px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    background-color: rgb(245, 245, 245);
+    border-right: 1px solid rgb(238, 238, 238);
+}
+
+/* Sidebar navigation */
+.sidebar {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.sidebar .nav {
+  margin-bottom: 20px;
+}
+
+.sidebar .nav-item {
+  width: 100%;
+}
+
+.sidebar .nav-item + .nav-item {
+  margin-left: 0;
+}
+
+.sidebar .nav-link {
+  border-radius: 0;
+}
+
+.sidebar .active a {
+  background-color: rgb(2, 117, 216);
+  color: white;
+}
+
+/*
+ * Dashboard
+ */
+
+ /* Placeholders */
+.placeholders {
+  padding-bottom: 3rem;
+}
+
+.placeholder img {
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+}
+
+
+
+
+.input-hidden {
+  position: absolute;
+  left: -9999px;
+}
+
+input[type=radio]:checked + label>img {
+  border: 1px solid #fff;
+  box-shadow: 0 0 3px 3px  orange;
+}
+
+/* Stuff after this is only to make things more pretty */
+/* input[type=radio] + label>img {
+  width: 90px;
+  cursor: pointer;
+}
+
+input[type=radio]:disabled + label>img {
+  -webkit-filter: grayscale(1);
+  -webkit-filter: grayscale(100%);
+  filter: gray;
+  filter: grayscale(100%);
+  cursor: auto;
+} */
+
+.payment-sys:active {
+  box-shadow: 0 0 3px 3px  orange;
+}
+
+
+.panel-hidden {
+    display: none;
+}
+
+.panel-container {
+  padding: 20px 10px;
+  border-bottom: 1px solid gray;
+  font-size: 16px;
+}
+
+.panel-container--nonbordered {
+  border-bottom: 0;
+}
+
+.vertical-align {
+    position: fixed;
+    top: 30%;
+    left: 0;
+    right: 0;
+
+}
+
+.carousel-inner {
+  min-height: 400px;
+
+}
+
+.btn--placed {
+  position: absolute;
+  left: 20px;
+  bottom: 20px;
+}
+
+.brand-fixed {
+  position: absolute;
+   top: 0;
+}
+
+.panel-info {
+  margin-bottom:  70px;
+}
+
+.link-tag {
+  color:  gray;
+  font-size: 18px;
+  opacity: 0;
+}
+
+.title-link {
+  margin: 40px 0 20px;
+}
+
+.title-link a {
+  color: black;
+  text-decoration: none;
+}
+
+.title-link:hover .link-tag {
+  opacity: 1;
+}
