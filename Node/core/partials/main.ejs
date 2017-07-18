@@ -1,0 +1,46 @@
+<nav class="col-sm-3 col-md-2 sidebar" id="navbar-payments">
+    <ul class="nav nav-sidebar">
+        <li class="active">
+            <a class="nav-link" href="#bill-on-shop">Выставление счета на сайте партнера<span class="sr-only"></span></a>
+        </li>
+        <li>
+            <a class="nav-link" href="#bill-on-mob-ballance">Оплата с баланса мобильного<span class="sr-only"></span></a>
+        </li>
+    </ul>
+</nav>
+<main class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+    <h1 id="bill-on-shop" class="title-link">
+        <a href="#bill-on-shop">Выставление счета на сайте <span class="glyphicon glyphicon-link link-tag"></span></a>
+    </h1>
+    <%- include('../../examples/payment-by-bill-example/index.html') %>
+    <div class="panel panel-default ">
+        <div class="panel-body">
+
+            <div class="panel-container panel-container--nonbordered">
+                <a class="link" href="https://developer.qiwi.com/pullrest/pullrest_ru.html#section" ><span class="glyphicon glyphicon-info-sign"></span> Документация по SDK</a>
+            </div>
+            <div class="panel-container panel-container--nonbordered ">
+                <a class="link" href="https://github.com/QIWI-API/demo-app" ><span class="glyphicon glyphicon-link"></span> Demo на Github</a>
+            </div>
+        </div>
+    </div>
+
+
+    <h1 id="bill-on-mob-ballance" class="title-link">
+        <a href="#bill-on-mob-ballance">Оплата с баланса мобильного <span class="glyphicon glyphicon-link link-tag"></span></a>
+    </h1>
+
+    <%- include('../../examples/payment-for-mobile-example/index.html') %>
+
+    <div class="panel panel-default ">
+        <div class="panel-body">
+
+           <div class="panel-container panel-container--nonbordered">
+                <a class="link" href="https://developer.qiwi.com/pullrest/pullrest_ru.html#section" ><span class="glyphicon glyphicon-info-sign"></span> Документация по SDK</a>
+            </div>
+            <div class="panel-container panel-container--nonbordered ">
+                <a class="link" href="https://github.com/QIWI-API/demo-app" ><span class="glyphicon glyphicon-link"></span> Demo на Github</a>
+            </div>
+        </div>
+    </div>
+</main>
