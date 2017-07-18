@@ -2,5 +2,5 @@
 *.sublime-project
 /bower_components
 /node_modules
-/node/node_modules
-/server/config.js
+/Node/node_modules
+/Node/server/config.js
