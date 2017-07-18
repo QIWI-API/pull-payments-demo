@@ -7,7 +7,7 @@
 
 ~~~shell
 git clone https://github.com/QIWI-API/demo-app.git
-cd demo-app
+cd demo-app/Node
 npm install
 npm start
 ~~~
