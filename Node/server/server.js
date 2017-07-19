@@ -4,8 +4,8 @@ const { generateBillId, getISOTime } = require('./utils');
 const bodyParser = require('body-parser');
 const EJS = require('ejs');
 
-const paymentByBill = require('../examples/payment-by-bill-example/app');
-const paymentForMobile = require('../examples/payment-for-mobile-example/app');
+const paymentByBill = require('../examples/pull-payments-example/app');
+const paymentForMobile = require('../examples/pull-payments-white-label-example/app');
 
 
 const configFileName = './config'

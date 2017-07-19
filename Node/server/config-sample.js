@@ -6,14 +6,14 @@ const config = {
         name: '../partials/main'
     },{
         path: '/successUrl',
-        name: '../examples/payment-by-bill-example/success.html'
+        name: '../examples/pull-payments-example/success.html'
     },{
         path: '/failUrl',
-        name: '../examples/payment-by-bill-example/fail.html'
+        name: '../examples/pull-payments-white-label-example/fail.html'
     }],
     prv_id: '',
     api_id: '',
-    api_password: '',
+    api_password: ''
 };
 
 module.exports = config;
