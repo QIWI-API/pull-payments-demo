@@ -6,10 +6,10 @@ const config = {
         name: '../partials/main'
     },{
         path: '/successUrl',
-        name: '../examples/pull-payments-example/success.html'
+        name: '../../examples/pull-payments-example/success.html'
     },{
         path: '/failUrl',
-        name: '../examples/pull-payments-white-label-example/fail.html'
+        name: '../../examples/pull-payments-white-label-example/fail.html'
     }],
     prv_id: '',
     api_id: '',
