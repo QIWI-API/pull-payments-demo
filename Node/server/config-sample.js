@@ -3,13 +3,13 @@ const config = {
     host: '',
     routes: [{
         path: '/',
-        name: 'main'
+        name: '../partials/main'
     },{
         path: '/successUrl',
-        name: 'success'
+        name: '../examples/payment-by-bill-example/success.html'
     },{
         path: '/failUrl',
-        name: 'fail'
+        name: '../examples/payment-by-bill-example/fail.html'
     }],
     prv_id: '',
     api_id: '',
