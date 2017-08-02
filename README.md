@@ -19,7 +19,7 @@ npm start
 Node/server/config.js
 ~~~
 
-# QIWI pull-payments demo application
+# QIWI pull-payments demo
 Собранные в приложении примеры расположены в папке *node/examples*
 
 API|Описание|Возможности|
