@@ -12,6 +12,6 @@
     "body-parser": "^1.17.2",
     "ejs": "^2.5.6",
     "express": "^4.15.3",
-    "pull-rest-api-node-js-sdk": "git://github.com/QIWI-API/pull-rest-api-node-js-sdk.git"
+    "pull-rest-api-node-js-sdk": "git://github.com/QIWI-API/pull-payments-node-js-sdk.git"
   }
 }
