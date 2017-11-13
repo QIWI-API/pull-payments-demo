@@ -1,0 +1,38 @@
+.menu {
+    position: fixed;
+    left: 0;
+    top: 80px;
+    bottom: 0;
+    width: 230px;
+    height: 100%;
+    background-color: #f8f9fa;
+    border-right: 1px solid #d8d8d8;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 10px 15px;
+    box-sizing: border-box;
+
+    &__item--active {
+        color: #ff8c00;
+    }
+}
+
+.menu ul {
+    margin:0;
+    padding: 0;
+    list-style: none;
+}
+
+.menu li {
+    padding: 10px 0;
+}
+
+.menu li li {
+    padding: 20px 0 0px 10px;
+    font-size: 13px;
+}
+
+ul a {
+    text-decoration: none;
+    color: #000000;
+}

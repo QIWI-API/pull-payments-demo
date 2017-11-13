@@ -26,29 +26,7 @@ const { host, port, routes, prv_id, api_id, api_password } = config;
 const successPath = routes[1].path;
 const failPath = routes[2].path;
 
-
-function generateRenderedRoutes (routes, rootTemp) {
-    routes.forEach(route => {
-        app.get(route.path, (req, res) =>{
-            res.render( rootTemp, { page: route.name});
-        });
-    });
-}
-
-
-app.engine('html', EJS.renderFile);
-
-app.set('view engine', 'ejs');
-
-app.use(bodyParser.json());
-
-app.use(bodyParser.urlencoded({ extended: true }));
-
-app.use('/',express.static('core/public'));
-app.use('/examples',express.static('examples'));
-
-generateRenderedRoutes(routes, '../core/public/index.ejs');
-
+app.use('/',express.static('dist'));
 
 const fieldsTemp = {
     amount: 0.01,

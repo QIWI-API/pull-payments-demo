@@ -60,10 +60,6 @@ module.exports = {
                 use: 'json-loader'
             },
             {
-                test: /\.(xml|html|txt|md)$/,
-                use: 'raw-loader'
-            },
-            {
                 test: /\.(svg|woff|woff2|eot|ttf|otf|ico)$/,
                 use: [{
                     loader: 'url-loader',
@@ -85,7 +81,7 @@ module.exports = {
             'process.env.NODE_ENV': JSON.stringify(ENV)
         }),
         new HtmlWebpackPlugin({
-            template: './index.ejs',
+            template: './index.html',
             inject: 'body'
         }),
         new webpack.ProvidePlugin({
