@@ -45,6 +45,7 @@
     "webpack-dev-server": "^2.5.1"
   },
   "dependencies": {
+    "classnames": "^2.2.5",
     "es6-promise": "^4.1.1",
     "pull-rest-api-node-js-sdk": "git://github.com/QIWI-API/pull-payments-node-js-sdk.git",
     "react": "^16.0.0",

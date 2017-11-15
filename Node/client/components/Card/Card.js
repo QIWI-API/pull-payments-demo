@@ -2,16 +2,15 @@ import React, { Component } from 'react';
 
 import './Card.scss';
 
-export default class Card extends Component {
+const Card = (props) => {
+    return (
+        <div>
+            <h1>{props.title}</h1>
+            <div className="card">
+                {props.children}
+            </div>
+        </div>
+    );
+};
 
-    constructor(props) {
-
-        super(props);
-    }
-
-    render() {
-        return (<div className="card">
-            Card
-        </div>)
-    }
-}
+export default Card;

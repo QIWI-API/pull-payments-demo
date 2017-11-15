@@ -1,16 +1,19 @@
 import React, { Component } from 'react';
+import cn from 'classnames';
 
 import './Header.scss';
 import Logo from './assets/Logo.png';
 
 export default class Header extends Component {
-
-    constructor(props) {
-
-        super(props);
-    }
-
     render() {
+
+        const langClass = (lang) => {
+            return cn({
+                'header__menu-item': true,
+                'header__menu-item--active': this.props.lang === lang
+            });
+        };
+
         return (<header className="header">
 
             <a href="/" className="header__logo">
@@ -32,10 +35,10 @@ export default class Header extends Component {
             </div>
 
             <ul className="header__lang">
-                <li className="header__menu-item">
+                <li className={langClass('en')}>
                     <a href="">En</a>
                 </li>
-                <li className="header__menu-item header__menu-item--active">
+                <li className={langClass('ru')}>
                     <a href="">Ru</a>
                 </li>
             </ul>

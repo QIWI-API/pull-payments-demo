@@ -1,0 +1,75 @@
+.select-payment-method {
+    position: relative;
+    margin-bottom: 15px;
+}
+
+.select-payment-method__label {
+    font-size: 16px;
+    font-weight: 300;
+    text-align: left;
+    color: #000000;
+
+    &--main {
+        margin-bottom: 4px;
+    }
+
+    &--additional {
+        font-size: 15px;
+        font-weight: 300;
+        text-align: left;
+        color: #9b9b9b;
+    }
+
+}
+
+
+.select-payment-method__icons {
+    display: inline-block;
+    margin-left: 15px;
+    vertical-align: top;
+}
+
+[type="radio"]:checked,
+[type="radio"]:not(:checked) {
+    position: absolute;
+    left: -9999px;
+}
+[type="radio"]:checked + label,
+[type="radio"]:not(:checked) + label
+{
+    position: relative;
+    padding-left: 32px;
+    cursor: pointer;
+    display: inline-block;
+}
+.select-payment-method__radio-button {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 16px;
+    height: 16px;
+    border: 1px solid #ddd;
+    border-radius: 100%;
+    background: #fff;
+
+}
+.select-payment-method__radio-button-indicator {
+    width: 8px;
+    height: 8px;
+    background: #00b06b;;
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    border-radius: 100%;
+    transition: all 0.2s ease;
+    opacity: 0;
+}
+[type="radio"]:not(:checked) + label .select-payment-method__radio-button-indicator {
+    opacity: 0;
+    transform: scale(0);
+}
+[type="radio"]:checked + label .select-payment-method__radio-button-indicator {
+    opacity: 1;
+    transform: scale(1);
+}

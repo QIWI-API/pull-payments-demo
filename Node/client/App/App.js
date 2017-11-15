@@ -3,6 +3,9 @@ import React, { Component } from 'react';
 import Header from '../components/Header';
 import Menu from '../components/Menu';
 
+import MobilePayment from '../demos/MobilePayment';
+import QiwiWalletPayment from '../demos/QiwiWalletPayment';
+
 import './App.scss';
 
 /*
@@ -16,17 +19,45 @@ export default class App extends Component {
         super(props);
 
         this.state = {
-            lang: {}
+            lang: 'ru',
+            demos: {
+                mobilePayment: {
+                    view: 'checkingOrder',
+                    info: {
+                        itemCost: 5
+                    }
+                },
+                qiwiWalletPayment: {
+                    view: 'checkingOrder',
+                    info: {
+                        itemCost: 5
+                    }
+                }
+            }
         };
     }
 
+    stateChanger = () => {
+        return () => {
+
+        }
+    }
+
     render() {
+
+        const { mobilePayment, qiwiWalletPayment } = this.state.demos;
+
         return (<div>
-            <Header/>
+            <Header lang={this.state.lang}/>
             <main className="main">
                 <Menu/>
                 <div className="layout">
-                    <h1>Demo</h1>
+
+                    <MobilePayment state={mobilePayment}/>
+
+                    <QiwiWalletPayment state={qiwiWalletPayment} />
+
+
                 </div>
             </main>
         </div>)
