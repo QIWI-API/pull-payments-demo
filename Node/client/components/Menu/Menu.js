@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Scrollspy from 'react-scrollspy';
 
 import './Menu.scss';
 
@@ -10,23 +11,25 @@ export default class Menu extends Component {
     }
 
     render() {
+
+        const order = this.props.order;
+
+        const info = this.props.info;
+
         return (<nav className="menu">
-            <ul>
-                <li>
-                    <a href="#" className="menu__item--active">Оплата с баланса мобильного →</a>
-                    <ul>
-                        <li><a href="#">Документация</a></li>
-                        <li><a href="#">Github</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="#">Выставление счета на сайте партнера →</a>
-                    <ul>
-                        <li><a href="#">Документация</a></li>
-                        <li><a href="#">Github</a></li>
-                    </ul>
-                </li>
-            </ul>
+            <Scrollspy items={order} currentClassName="menu__item--active">
+
+                {order.map((method, index)=>{
+                    return (<li key={index}>
+                        <a href={`#${info[method].id}`}>{info[method].name} →</a>
+                        <ul>
+                            {info[method].doc?<li><a href={info[method].doc}>Документация</a></li>: null}
+                            {info[method].git?<li><a href={info[method].git}>Github</a></li>:null}
+                        </ul>
+                    </li>);
+                })}
+
+             </Scrollspy>
 
 
         </nav>)

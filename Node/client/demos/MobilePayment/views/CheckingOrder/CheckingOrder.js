@@ -46,7 +46,7 @@ const CheckingOrder = (props) => {
             </div>
 
 
-            <Button buttonText={`Оплатить ${props.itemCost} ₽`}/>
+            <Button buttonText={`Оплатить ${props.itemCost} ₽`} onClick={props.stateChanger}/>
         </div>
     );
 };

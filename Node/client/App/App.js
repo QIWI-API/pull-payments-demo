@@ -20,15 +20,24 @@ export default class App extends Component {
 
         this.state = {
             lang: 'ru',
+            order: ['mobilePayment', 'qiwiWalletPayment'],
             demos: {
                 mobilePayment: {
-                    view: 'checkingOrder',
+                    id: 'mobilePayment',
+                    name: 'Оплата с баланса мобильного',
+                    view: 'paymentByMobile',
+                    doc: 'https://developer.qiwi.com',
+                    git: 'https://github.com',
                     info: {
                         itemCost: 5
                     }
                 },
                 qiwiWalletPayment: {
+                    id: 'qiwiWalletPayment',
+                    name: 'Выставление счета на сайте партнера',
                     view: 'checkingOrder',
+                    doc: 'https://developer.qiwi.com',
+                    git: 'https://github.com',
                     info: {
                         itemCost: 5
                     }
@@ -37,10 +46,19 @@ export default class App extends Component {
         };
     }
 
-    stateChanger = () => {
-        return () => {
+    demoStateChanger = (demo) => {
 
+        const demos = this.state.demos;
+
+        return (nextView) => {
+
+            demos[demo].view = nextView;
+
+            this.setState({
+                demos
+            });
         }
+
     }
 
     render() {
@@ -50,12 +68,12 @@ export default class App extends Component {
         return (<div>
             <Header lang={this.state.lang}/>
             <main className="main">
-                <Menu/>
+                <Menu order={this.state.order} info={this.state.demos}/>
                 <div className="layout">
 
-                    <MobilePayment state={mobilePayment}/>
+                    <MobilePayment state={mobilePayment} stateChanger={this.demoStateChanger('mobilePayment')}/>
 
-                    <QiwiWalletPayment state={qiwiWalletPayment} />
+                    <QiwiWalletPayment state={qiwiWalletPayment} stateChanger={this.demoStateChanger('qiwiWalletPayment')}/>
 
 
                 </div>

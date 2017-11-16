@@ -39,7 +39,7 @@ export default class QiwiWalletPayment extends Component {
         };
 
         return (<div>
-            <Card title={'Оплата товаров с помощью QIWI кошелька'}>{statesMap[this.props.state.view].view}
+            <Card title={'Оплата товаров с помощью QIWI кошелька'} id={state.id}>{statesMap[this.props.state.view].view}
             </Card>
         </div>)
     }
