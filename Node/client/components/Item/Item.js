@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 
 import './Item.scss';
 
-import itemPic from './assets/item.png';
-
 const Item = (props) => {
     return (
         <div className="item">
@@ -12,7 +10,7 @@ const Item = (props) => {
 
             <p className="item__about">Стильные и удобные наушники-вкладыши Philips Chromz (SHE3855) с превосходным дизайном обеспечивают воспроизведение насыщенных басов. Цвета матовой отделки, выполненной методом вакуумной металлизации, соответствуют цветам iPhone 6s.</p>
 
-            <img className="item__pic" src={itemPic} alt="Item" height="128"/>
+            <img className="item__pic" src={props.itemPic} alt="Item" height="128"/>
 
             <ul className="values">
                 <li className="values__lines values__lines--dotted">

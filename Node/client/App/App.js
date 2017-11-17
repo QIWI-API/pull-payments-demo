@@ -25,22 +25,16 @@ export default class App extends Component {
                 mobilePayment: {
                     id: 'mobilePayment',
                     name: 'Оплата с баланса мобильного',
-                    view: 'paymentByMobile',
+                    view: 'success',
                     doc: 'https://developer.qiwi.com',
-                    git: 'https://github.com',
-                    info: {
-                        itemCost: 5
-                    }
+                    git: 'https://github.com'
                 },
                 qiwiWalletPayment: {
                     id: 'qiwiWalletPayment',
                     name: 'Выставление счета на сайте партнера',
                     view: 'checkingOrder',
                     doc: 'https://developer.qiwi.com',
-                    git: 'https://github.com',
-                    info: {
-                        itemCost: 5
-                    }
+                    git: 'https://github.com'
                 }
             }
         };

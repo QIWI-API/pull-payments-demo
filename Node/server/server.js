@@ -46,7 +46,7 @@ const redirectOptionsTemp = {
 
 const client = new qiwiRestApi(prv_id, api_id, api_password);
 
-
+/*прокидывать сюда success/error path*/
 app.post('/paymentByBill', paymentByBill({
     fieldsTemp,
     redirectOptionsTemp,

@@ -1,0 +1,71 @@
+.error-form {
+    margin: 19px 0 22px;
+}
+
+
+.error-form__pic {
+    position: absolute;
+    top: 0;
+    right: 52px;
+}
+
+.error-form__status {
+    width: 250px;
+    display: inline-block;
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 1.5;
+    text-align: left;
+    color: #9b9b9b;
+    padding: 0;
+    margin: 0 0 0 20px;
+}
+
+.error-form__item {
+    font-weight: 500;
+    color: #1b1d1c;
+}
+
+.error-form__icon {
+    margin-top: 5px;
+    vertical-align: top;
+}
+
+.error-form__instruction li {
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 1.5;
+    text-align: left;
+    color: #9b9b9b;
+    padding-left: 35px;
+}
+
+.error-form__instruction li::before {
+    content: '•';
+    font-size: 10px;
+    font-weight: 300;
+    line-height: 1.5;
+    color: #000;
+    position: relative;
+    left: -15px;
+}
+
+.error-form__link {
+    margin: 15px 0 0 30px;
+    padding: 0;
+    text-decoration: underline;
+    background-color: transparent;
+    font-size: 13px;
+    font-weight: 300;
+    text-align: left;
+    color: #868e96;
+}
+
+.error-form__about-payment-title {
+    margin: 0 0 12px;
+    padding: 0;
+    font-size: 16px;
+    font-weight: 300;
+    text-align: left;
+    color: #9b9b9b;
+}

@@ -4,6 +4,7 @@ import './MobileForm.scss';
 
 import Field from '../Field';
 import Button from '../Button';
+import IconsRaw from '../IconsRow';
 
 export default class MobileForm extends Component {
     render() {
@@ -13,6 +14,7 @@ export default class MobileForm extends Component {
 
             <div className="mobile-form">
                 <Field id={this.props.id}/>
+                {this.props.icons?<IconsRaw wrapperClassName={'mobile-form__icons-row'} icons={this.props.icons}/>:null}
             </div>
 
             <Button buttonText={`Оплатить ${this.props.itemCost} ₽`} onClick={this.props.stateChanger}/>
