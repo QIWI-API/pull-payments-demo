@@ -1,12 +1,15 @@
 import React, { Component } from 'react';
+import paymentForMobile from '../../../examples/pull-payments-white-label-example/request.js';
 
 import './QiwiWalletPayment.scss';
 
 import itemPic from '../../assets/item.png'
 
 import Card from '../../components/Card';
-import CheckingOrder from './views/CheckingOrder';
+import CheckingOrderView from './views/CheckingOrder';
 import MobileForm from '../../components/MobileForm';
+import SuccessPage from '../../components/SuccessPage';
+import ErrorPage from '../../components/ErrorPage';
 
 /*
  ссылка вида #[метод оплаты]/[номер оплаты]/[success/fail]
@@ -18,63 +21,98 @@ export default class QiwiWalletPayment extends Component {
 
         super(props);
 
+        this.state = {
+            currentPaymentMethod: ''
+        };
+
     }
 
     stateChanger = (state) => {
         return () => this.props.stateChanger(state);
     }
 
-    request = () => {
+    makeRequest = () => {
 
+        const url = 'paymentByBill';
 
-        this.redirect();
+        const phone = `+${this.state.phone}`;
+
+        paymentByBill(url, phone, this.itemCost).then((data) => {
+            this.redirect(data.redirect);
+        });
 
     }
 
-    redirect = () => {
+    makeRedirect = (url) => {
+        window.location.href = url;
+    }
 
+    paymentMethod = (currentPaymentMethod) => {
+
+        return () => {
+            this.setState({
+                currentPaymentMethod
+            })
+        }
     }
 
 
     render() {
 
+        const state = this.props.state;
+
+        const {currentPaymentMethod} = this.state;
+
+        const id = state.id;
+
         const itemCost = 5;
+
+        const orderInfo = {
+            number: '540-201',
+            method: 'мобильный баланс',
+            sum: '5'
+        };
+
+        const errorText = 'Недостаточно средств на счете.';
 
         const radioButtons = [{
             main: 'Картой',
+            disabled: true,
             additional: '1% комиссии',
+            handler: this.paymentMethod('card'),
             icons: []
         }, {
             main: 'Qiwi кошельком',
+            disabled: false,
             additional: '0% комиссии',
+            handler: this.paymentMethod('wallet'),
             icons: []
         }, {
             main: 'Наличными',
+            disabled: true,
             additional: '0% комиссии',
+            handler: this.paymentMethod('cash'),
             icons: []
         }];
 
-        const state = this.props.state;
-
-
-
         const statesMap = {
             checkingOrder:{
-                view: <CheckingOrder itemCost={itemCost} itemPic={itemPic} stateChanger={this.stateChanger('paymentByMobile')} radioButtons={radioButtons} id={state.id}/>
+                view: <CheckingOrderView itemCost={itemCost} itemPic={itemPic} stateChanger={this.stateChanger('paymentByMobile')} radioButtons={radioButtons} id={id} currentPaymentMethod={currentPaymentMethod}/>
             },
             paymentByMobile:{
-                view: <MobileForm itemCost={itemCost} stateChanger={this.request} id={state.id} />
+                view: <MobileForm itemCost={itemCost} stateChanger={this.makeRequest} id={id} />
             },
             success: {
-                view: <div>success</div>
+                view: <SuccessPage stateChanger={this.stateChanger('checkingOrder')} itemPic={itemPic} number={orderInfo.number} method={orderInfo.method} sum={orderInfo.sum}/>
             },
             error: {
-                view: <div>error</div>
+                view: <ErrorPage stateChanger={this.stateChanger('checkingOrder')} requestAgain={this.makeRequest} errorText={errorText}/>
+
             }
         };
 
         return (<div>
-            <Card title={'Оплата товаров с помощью QIWI кошелька'} id={state.id}>{statesMap[this.props.state.view].view}
+            <Card title={'Оплата товаров с помощью QIWI кошелька'} id={id}>{statesMap[state.view].view}
             </Card>
         </div>)
     }

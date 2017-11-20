@@ -4,7 +4,7 @@ module.exports = ({fieldsTemp,generateBillId, client}) => {
 
         const fields = fieldsTemp;
 
-        fields.amount = 5;
+        fields.amount = req.body.amount;;
         fields.pay_source = 'mobile';
         fields.user =  `tel:${req.body.tel}`;
 

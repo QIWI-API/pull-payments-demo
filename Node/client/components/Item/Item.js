@@ -3,6 +3,9 @@ import React, { Component } from 'react';
 import './Item.scss';
 
 const Item = (props) => {
+
+    const deliveryCost = 0;
+
     return (
         <div className="item">
 
@@ -15,15 +18,15 @@ const Item = (props) => {
             <ul className="values">
                 <li className="values__lines values__lines--dotted">
                     <span>1 шт</span>
-                    <span>{props.amount} ₽</span>
+                    <span>{props.itemCost} ₽</span>
                 </li>
                 <li className="values__lines values__lines--dotted values__lines--minor">
                     <span>Доставка</span>
-                    <span>0 ₽</span>
+                    <span>{deliveryCost} ₽</span>
                 </li>
                 <li className="values__lines values__lines--counted">
                     <span>Итог</span>
-                    <span>{props.amount} ₽</span>
+                    <span>{props.itemCost + deliveryCost} ₽</span>
                 </li>
             </ul>
 

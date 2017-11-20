@@ -28,6 +28,8 @@ export default class Field extends Component {
             mask,
             phone
         });
+
+        this.props.handler(phone);
     }
 
     render() {

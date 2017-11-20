@@ -4,7 +4,7 @@ import './Button.scss';
 
 const Button = (props) => {
     return (
-        <button type="button" className={`main-action ${props.classNames}`} onClick={props.onClick}>{props.buttonText}</button>
+        <button type="button" className={`main-action ${props.classNames}`} disabled={props.disabled} onClick={props.onClick}>{props.buttonText}</button>
     );
 };
 

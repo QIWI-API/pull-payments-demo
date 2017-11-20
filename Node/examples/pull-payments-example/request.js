@@ -1,11 +1,12 @@
 /*'/paymentByBill'*/
-export default function(url, phoneNumber) {
+export default function(url, phoneNumber, amount) {
 
     const options = {
         method: 'POST',
         dataType: 'json',
         data: {
-            tel: phoneNumber
+            tel: phoneNumber,
+            amount
         }
     };
 

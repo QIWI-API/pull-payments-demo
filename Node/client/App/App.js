@@ -25,7 +25,7 @@ export default class App extends Component {
                 mobilePayment: {
                     id: 'mobilePayment',
                     name: 'Оплата с баланса мобильного',
-                    view: 'success',
+                    view: 'paymentByMobile',
                     doc: 'https://developer.qiwi.com',
                     git: 'https://github.com'
                 },
@@ -59,17 +59,20 @@ export default class App extends Component {
 
         const { mobilePayment, qiwiWalletPayment } = this.state.demos;
 
+        const demosMap = {
+            mobilePayment: (index) => <MobilePayment state={mobilePayment} stateChanger={this.demoStateChanger('mobilePayment')} key={index}/>,
+            qiwiWalletPayment: (index) => <QiwiWalletPayment state={qiwiWalletPayment} stateChanger={this.demoStateChanger('qiwiWalletPayment')} key={index}/>
+        };
+
+
         return (<div>
             <Header lang={this.state.lang}/>
             <main className="main">
                 <Menu order={this.state.order} info={this.state.demos}/>
                 <div className="layout">
-
-                    <MobilePayment state={mobilePayment} stateChanger={this.demoStateChanger('mobilePayment')}/>
-
-                    <QiwiWalletPayment state={qiwiWalletPayment} stateChanger={this.demoStateChanger('qiwiWalletPayment')}/>
-
-
+                    {this.state.order.map((demo,index)=>{
+                        return demosMap[demo](index);
+                    })}
                 </div>
             </main>
         </div>)

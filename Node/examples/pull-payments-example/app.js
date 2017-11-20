@@ -10,6 +10,8 @@ module.exports = ({fieldsTemp, redirectOptionsTemp,generateBillId, client}) => {
 
         fields.user = `tel:${req.body.tel}`;
 
+        fields.amount = req.body.amount;
+
         client.createBill(bill_id, fields).then(data => {
 
             redirectOptions.transaction = bill_id;
