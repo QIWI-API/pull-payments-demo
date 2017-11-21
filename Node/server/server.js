@@ -2,6 +2,7 @@ const express = require('express');
 const qiwiRestApi = require('pull-rest-api-node-js-sdk');
 const { generateBillId, getISOTime } = require('./utils');
 const bodyParser = require('body-parser');
+const cors = require('cors');
 const EJS = require('ejs');
 
 const paymentByBill = require('../examples/pull-payments-example/app');
@@ -21,12 +22,15 @@ catch (err) {
 
 const app = express();
 
-const { host, port, routes, prv_id, api_id, api_password } = config;
-
-const successPath = routes[1].path;
-const failPath = routes[2].path;
+const { host, port, prv_id, api_id, api_password } = config;
 
 app.use('/',express.static('dist'));
+
+app.use(cors());
+
+app.use(bodyParser.json());
+
+app.use(bodyParser.urlencoded({ extended: true }));
 
 const fieldsTemp = {
     amount: 0.01,
@@ -36,23 +40,21 @@ const fieldsTemp = {
     comment: 'demo'
 };
 
-const redirectOptionsTemp = {
-    transaction: '',
-    shop: prv_id,
-    successUrl:`${host}/${successPath}`,
-    failUrl: `${host}/${failPath}`
-};
 
+const redirectionBlock = (host, prv_id, method ) => {
+
+    return {
+        transaction: '',
+        shop: prv_id,
+        successUrl:`${host}/?method=${method}&status=success#${method}`,
+        failUrl: `${host}/?method=${method}&status=error#${method}`
+    };
+}
 
 const client = new qiwiRestApi(prv_id, api_id, api_password);
 
 /*прокидывать сюда success/error path*/
-app.post('/paymentByBill', paymentByBill({
-    fieldsTemp,
-    redirectOptionsTemp,
-    generateBillId,
-    client
-}));
+app.post('/paymentByBill', paymentByBill(fieldsTemp, redirectionBlock(host, prv_id, 'qiwiWalletPayment'),generateBillId, client));
 
 
 app.post('/paymentForMobile', paymentForMobile({

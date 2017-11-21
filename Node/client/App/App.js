@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import 'url-search-params-polyfill';
 
 import Header from '../components/Header';
 import Menu from '../components/Menu';
@@ -9,7 +10,7 @@ import QiwiWalletPayment from '../demos/QiwiWalletPayment';
 import './App.scss';
 
 /*
- ссылка вида #[метод оплаты]/[номер оплаты]/[success/fail]
+ http://localhost:5005/?method=mobilePayment&status=success#mobilePayment
  */
 
 export default class App extends Component {
@@ -25,7 +26,7 @@ export default class App extends Component {
                 mobilePayment: {
                     id: 'mobilePayment',
                     name: 'Оплата с баланса мобильного',
-                    view: 'paymentByMobile',
+                    view: 'checkingOrder',
                     doc: 'https://developer.qiwi.com',
                     git: 'https://github.com'
                 },
@@ -38,6 +39,29 @@ export default class App extends Component {
                 }
             }
         };
+    }
+
+    componentDidMount() {
+
+        let demos = this.state.demos;
+
+        const search = new URLSearchParams(window.location.search);
+
+        const method = search.get('method');
+
+        const status = search.get('status');
+
+        if(demos[method]) {
+
+            if(status ==='success' || status ==='error') {
+
+                demos[method].view = status;
+
+                this.setState({
+                    demos
+                })
+            }
+        }
     }
 
     demoStateChanger = (demo) => {

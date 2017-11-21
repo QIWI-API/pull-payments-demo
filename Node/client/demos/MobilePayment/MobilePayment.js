@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import paymentByBill from '../../../examples/pull-payments-example/request.js';
+import paymentByBill from '../../../examples/pull-payments-white-label-example/request.js';
 
 import './MobilePayment.scss';
 
@@ -27,7 +27,8 @@ export default class MobilePayment extends Component {
 
         this.state = {
             currentPaymentMethod: '',
-            phone: ''
+            phone: '',
+            numberError: ''
         };
 
         this.itemCost = 5;
@@ -40,21 +41,45 @@ export default class MobilePayment extends Component {
     getPhoneNumber = (phone) =>{
 
         this.setState({
-            phone
+            phone,
+            numberError: ''
         });
     }
 
 
     makeRequest = () => {
 
-        const url = 'paymentByBill';
+        let url = 'paymentForMobile';
+
+        if(__DEV__) {
+            url = `http://localhost:5000/${url}`;
+        }
 
         const phone = `+${this.state.phone}`;
 
-        paymentByBill(url, phone, this.itemCost).then((data) => {
+        return paymentByBill(url, phone, this.itemCost).then(response => response.json());
 
+    }
+
+    toConfirmation = () => {
+
+        const self = this;
+
+        const stateChanger = this.stateChanger('confirmation');
+
+        this.makeRequest().then((data)=>{
+
+            if(data.response.result_code === 200) {
+
+                stateChanger();
+            }
+            if(data.response.result_code === 300) {
+
+                self.setState({
+                    numberError: 'Ошибка! Ваш оператор не поддерживается.'
+                });
+            }
         });
-
     }
 
     paymentMethod = (currentPaymentMethod) => {
@@ -71,7 +96,7 @@ export default class MobilePayment extends Component {
 
         const state = this.props.state;
 
-        const {currentPaymentMethod, phone} = this.state;
+        const {currentPaymentMethod, phone, numberError} = this.state;
 
         const id = state.id;
 
@@ -82,7 +107,7 @@ export default class MobilePayment extends Component {
         const orderInfo = {
             number: '540-201',
             method: 'мобильный баланс',
-            sum: '5'
+            sum: itemCost
         };
 
         const errorText = 'Недостаточно средств на счете.';
@@ -112,7 +137,7 @@ export default class MobilePayment extends Component {
                 view: <CheckingOrderView itemCost={itemCost} itemPic={itemPic} stateChanger={this.stateChanger('paymentByMobile')} id={id} radioButtons={radioButtons} currentPaymentMethod={currentPaymentMethod}/>
             },
             paymentByMobile:{
-                view: <MobileForm itemCost={itemCost} stateChanger={this.stateChanger('confirmation')} getPhoneNumber={this.getPhoneNumber} phone={phone} id={id} icons={icons}/>
+                view: <MobileForm itemCost={itemCost} stateChanger={this.toConfirmation} getPhoneNumber={this.getPhoneNumber} phone={phone} id={id} icons={icons} numberError={numberError}/>
             },
             confirmation:{
                 view: <ConfirmForm stateChanger={this.makeRequest}/>

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import cn from 'classnames';
 import MaskedInput from 'react-input-mask';
 
 import './Field.scss';
@@ -34,9 +35,16 @@ export default class Field extends Component {
 
     render() {
 
+        const fieldClass = () => {
+            return cn({
+                'field': true,
+                'field__field--error': this.props.error
+            });
+        };
+
         const defaultValue = '+7';
 
-        return (<div className="field">
+        return (<div className={fieldClass()}>
             <MaskedInput
             maskChar={null}
             mask={this.state.mask}
@@ -53,7 +61,7 @@ export default class Field extends Component {
             <label className="field__label" htmlFor={this.props.id}>Номер телефона:</label>
 
             <div className="field__bar"></div>
-            <div className="field__message">Введите сумму</div>
+            <div className="field__message">{this.props.error}</div>
         </div>);
     }
 }

@@ -78,7 +78,8 @@ module.exports = {
     plugins: ([
         new webpack.NoEmitOnErrorsPlugin(),
         new webpack.DefinePlugin({
-            'process.env.NODE_ENV': JSON.stringify(ENV)
+            __PRODUCTION__: ENV === 'production',
+            __DEV__: ENV === 'development'
         }),
         new HtmlWebpackPlugin({
             template: './index.html',
@@ -106,7 +107,7 @@ module.exports = {
     devtool: ENV === 'production' ? 'source-map' : 'cheap-module-eval-source-map',
 
     devServer: {
-        port: process.env.PORT || 5000,
+        port: process.env.PORT || 5005,
         hot: true,
         publicPath: '/',
         contentBase: './client',

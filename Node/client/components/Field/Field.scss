@@ -8,11 +8,11 @@
 
 .field__field--error .field__bar::before,
 .field__field--error .field__bar::after   {
-    background: #ff8191;
+    background: #d0021b;
 }
 
 .field__field--error .field__input   {
-    border-bottom: 1px solid #ff8191;
+    border-bottom: 1px solid #d0021b;
 }
 
 .field__field--error .field__message {
@@ -24,13 +24,15 @@
 .field__message {
     position: absolute;
     left: 0;
+    min-width: 300px;
     bottom: -14px;
     height: 13px;
-    font-size: 11px;
-    font-weight: 300;
     text-align: left;
     color: #717171;
     opacity: 0;
+    font-size: 13px;
+    font-weight: 300;
+    line-height: 1.29;
 }
 
 

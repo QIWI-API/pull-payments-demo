@@ -19,7 +19,7 @@ export default class MobileForm extends Component {
 
             <div className="mobile-form">
 
-                <Field id={this.props.id} handler={this.props.getPhoneNumber}/>
+                <Field id={this.props.id} error={this.props.numberError} handler={this.props.getPhoneNumber}/>
 
                 {this.props.icons?<IconsRaw wrapperClassName={'mobile-form__icons-row'} icons={this.props.icons}/>:null}
             </div>
