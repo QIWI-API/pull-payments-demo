@@ -18,9 +18,7 @@ export default class ErrorPage extends Component {
                 <p className="error-form__status" >Не удалось совершить платеж. <span className="error-form__item">{this.props.errorText}</span></p>
             </div>
 
-            <Button buttonText={'Повторить платеж'} onClick={this.props.requestAgain}/>
-
-            <Button buttonText={'Вернуться на главную страницу'} onClick={this.props.stateChanger} classNames={'error-form__link'}/>
+            <Button buttonText={'Повторить платеж'} onClick={this.props.stateChanger}/>
         </div>)
     }
 }

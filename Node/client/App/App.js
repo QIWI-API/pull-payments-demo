@@ -27,6 +27,7 @@ export default class App extends Component {
                     id: 'mobilePayment',
                     name: 'Оплата с баланса мобильного',
                     view: 'checkingOrder',
+                    acceptedViews: ['success'],
                     doc: 'https://developer.qiwi.com',
                     git: 'https://github.com'
                 },
@@ -34,6 +35,7 @@ export default class App extends Component {
                     id: 'qiwiWalletPayment',
                     name: 'Выставление счета на сайте партнера',
                     view: 'checkingOrder',
+                    acceptedViews: ['success', 'error'],
                     doc: 'https://developer.qiwi.com',
                     git: 'https://github.com'
                 }
@@ -53,7 +55,9 @@ export default class App extends Component {
 
         if(demos[method]) {
 
-            if(status ==='success' || status ==='error') {
+            let demo = demos[method];
+
+            if(demo.acceptedViews.includes(status)){
 
                 demos[method].view = status;
 

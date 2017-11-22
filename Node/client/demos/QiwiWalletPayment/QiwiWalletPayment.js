@@ -1,9 +1,13 @@
 import React, { Component } from 'react';
-import paymentForMobile from '../../../examples/pull-payments-white-label-example/request.js';
+import paymentByBill from '../../../examples/pull-payments-white-label-example/request.js';
 
 import './QiwiWalletPayment.scss';
 
-import itemPic from '../../assets/item.png'
+import itemPic from '../../assets/item.png';
+import beeIcon from '../../assets/bee.svg';
+import megaIcon from '../../assets/mega.svg';
+import mtsIcon from '../../assets/mts.svg';
+import teleIcon from '../../assets/tele.svg';
 
 import Card from '../../components/Card';
 import CheckingOrderView from './views/CheckingOrder';
@@ -22,29 +26,59 @@ export default class QiwiWalletPayment extends Component {
         super(props);
 
         this.state = {
-            currentPaymentMethod: ''
+            currentPaymentMethod: '',
+            phone: '',
+            numberError: '',
+            paymentError: 'Недостаточно средств на счете.'
         };
 
+        this.itemCost = 5;
     }
 
     stateChanger = (state) => {
         return () => this.props.stateChanger(state);
     }
 
+    getPhoneNumber = (phone) =>{
+
+        this.setState({
+            phone,
+            numberError: ''
+        });
+    }
+
     makeRequest = () => {
 
-        const url = 'paymentByBill';
+        let url = 'paymentByBill';
+
+        if(__DEV__) {
+            url = `http://localhost:5000/${url}`;
+        }
 
         const phone = `+${this.state.phone}`;
 
-        paymentByBill(url, phone, this.itemCost).then((data) => {
-            this.redirect(data.redirect);
-        });
+        return paymentByBill(url, phone, this.itemCost)
+            .then(response => response.json());
 
     }
 
-    makeRedirect = (url) => {
-        window.location.href = url;
+    makeRedirect = () => {
+
+        const self = this;
+
+        this.makeRequest().then((data)=>{
+
+            if(data.response.result_code === 0) {
+
+                window.location.href = data.redirect;
+            }
+            if(data.response.result_code === 300) {
+
+                self.setState({
+                    numberError: 'Ошибка! Ваш оператор не поддерживается.'
+                });
+            }
+        });
     }
 
     paymentMethod = (currentPaymentMethod) => {
@@ -61,19 +95,17 @@ export default class QiwiWalletPayment extends Component {
 
         const state = this.props.state;
 
-        const {currentPaymentMethod} = this.state;
+        const {currentPaymentMethod, phone, numberError, paymentError} = this.state;
 
         const id = state.id;
 
-        const itemCost = 5;
+        const itemCost = this.itemCost;
 
         const orderInfo = {
             number: '540-201',
-            method: 'мобильный баланс',
-            sum: '5'
+            method: 'Qiwi кошелек',
+            sum: itemCost
         };
-
-        const errorText = 'Недостаточно средств на счете.';
 
         const radioButtons = [{
             main: 'Картой',
@@ -100,14 +132,13 @@ export default class QiwiWalletPayment extends Component {
                 view: <CheckingOrderView itemCost={itemCost} itemPic={itemPic} stateChanger={this.stateChanger('paymentByMobile')} radioButtons={radioButtons} id={id} currentPaymentMethod={currentPaymentMethod}/>
             },
             paymentByMobile:{
-                view: <MobileForm itemCost={itemCost} stateChanger={this.makeRequest} id={id} />
+                view: <MobileForm itemCost={itemCost} stateChanger={this.makeRedirect} getPhoneNumber={this.getPhoneNumber} phone={phone} id={id}numberError={numberError} />
             },
             success: {
                 view: <SuccessPage stateChanger={this.stateChanger('checkingOrder')} itemPic={itemPic} number={orderInfo.number} method={orderInfo.method} sum={orderInfo.sum}/>
             },
             error: {
-                view: <ErrorPage stateChanger={this.stateChanger('checkingOrder')} requestAgain={this.makeRequest} errorText={errorText}/>
-
+                view: <ErrorPage stateChanger={this.stateChanger('paymentByMobile')} errorText={paymentError}/>
             }
         };
 

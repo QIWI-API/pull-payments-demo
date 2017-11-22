@@ -17,8 +17,10 @@ button, input {
     font-family: "Museo","Helvetica Neue","Helvetica","Arial",sans-serif;
 }
 
-button:disabled{
+button:disabled,
+input:disabled {
     opacity: 0.7;
+    cursor: default;
 }
 
 .values {

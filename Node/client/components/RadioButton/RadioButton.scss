@@ -46,6 +46,7 @@
 [type="radio"]:disabled + label
 {
     opacity: 0.7;
+    cursor: default;
 }
 
 .select-payment-method__radio-button {

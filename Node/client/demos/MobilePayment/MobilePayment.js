@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import paymentByBill from '../../../examples/pull-payments-white-label-example/request.js';
+import paymentForMobile from '../../../examples/pull-payments-white-label-example/request.js';
 
 import './MobilePayment.scss';
 
@@ -28,7 +28,8 @@ export default class MobilePayment extends Component {
         this.state = {
             currentPaymentMethod: '',
             phone: '',
-            numberError: ''
+            numberError: '',
+            paymentError: 'Недостаточно средств на счете.'
         };
 
         this.itemCost = 5;
@@ -57,7 +58,8 @@ export default class MobilePayment extends Component {
 
         const phone = `+${this.state.phone}`;
 
-        return paymentByBill(url, phone, this.itemCost).then(response => response.json());
+        return paymentForMobile(url, phone, this.itemCost)
+            .then(response => response.json());
 
     }
 
@@ -69,7 +71,7 @@ export default class MobilePayment extends Component {
 
         this.makeRequest().then((data)=>{
 
-            if(data.response.result_code === 200) {
+            if(data.response.result_code === 0) {
 
                 stateChanger();
             }
@@ -96,7 +98,7 @@ export default class MobilePayment extends Component {
 
         const state = this.props.state;
 
-        const {currentPaymentMethod, phone, numberError} = this.state;
+        const {currentPaymentMethod, phone, numberError, paymentError} = this.state;
 
         const id = state.id;
 
@@ -109,8 +111,6 @@ export default class MobilePayment extends Component {
             method: 'мобильный баланс',
             sum: itemCost
         };
-
-        const errorText = 'Недостаточно средств на счете.';
 
         const radioButtons = [{
             main: 'Картой',
@@ -144,9 +144,6 @@ export default class MobilePayment extends Component {
             },
             success: {
                 view: <SuccessPage stateChanger={this.stateChanger('checkingOrder')} itemPic={itemPic} number={orderInfo.number} method={orderInfo.method} sum={orderInfo.sum}/>
-            },
-            error: {
-                view: <ErrorPage stateChanger={this.stateChanger('checkingOrder')} requestAgain={this.makeRequest} errorText={errorText}/>
             }
         };
 

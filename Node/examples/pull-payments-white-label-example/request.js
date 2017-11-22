@@ -1,4 +1,3 @@
-/*paymentForMobile*/
 export default function(url, phoneNumber, amount) {
 
     const options = {
