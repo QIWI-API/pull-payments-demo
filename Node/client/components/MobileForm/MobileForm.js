@@ -15,7 +15,7 @@ export default class MobileForm extends Component {
     render() {
 
         return (<div>
-            <h2 className="checking-order__title">Введите номер телефона</h2>
+            <h2>Введите номер телефона</h2>
 
             <div className="mobile-form">
 

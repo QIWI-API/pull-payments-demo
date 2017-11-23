@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import paymentForMobile from '../../../examples/pull-payments-white-label-example/request.js';
 
-import './MobilePayment.scss';
-
 import itemPic from '../../assets/item.png';
 import beeIcon from '../../assets/bee.svg';
 import megaIcon from '../../assets/mega.svg';
@@ -10,7 +8,7 @@ import mtsIcon from '../../assets/mts.svg';
 import teleIcon from '../../assets/tele.svg';
 
 import Card from '../../components/Card';
-import CheckingOrderView from './views/CheckingOrder';
+import CheckingOrderView from './views/CheckingOrderView';
 import MobileForm from '../../components/MobileForm';
 import ConfirmForm from '../../components/ConfirmForm';
 import SuccessPage from '../../components/SuccessPage';

@@ -11,7 +11,7 @@ export default class SuccessPage extends Component {
     render() {
 
         return (<div>
-            <h2 className="checking-order__title">Оплата прошла успешно</h2>
+            <h2>Оплата прошла успешно</h2>
 
             <div className="success-form">
                 <img className="success-form__icon" src={successIcon} alt="info" width="32" height="32"/>
