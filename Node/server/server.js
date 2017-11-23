@@ -24,7 +24,7 @@ const app = express();
 
 const { host, port, prv_id, api_id, api_password } = config;
 
-app.use('/',express.static('dist'));
+app.use(express.static('dist'));
 
 app.use(cors());
 
@@ -53,7 +53,11 @@ const redirectionBlock = (host, prv_id, method ) => {
 
 const client = new qiwiRestApi(prv_id, api_id, api_password);
 
-/*прокидывать сюда success/error path*/
+app.get('/', function(req, res) {
+  res.sendFile(path.join(__dirname, 'dist/index.html'));
+});
+
+
 app.post('/paymentByBill', paymentByBill(fieldsTemp, redirectionBlock(host, prv_id, 'qiwiWalletPayment'),generateBillId, client));
 
 

@@ -10,7 +10,7 @@ import mtsIcon from '../../assets/mts.svg';
 import teleIcon from '../../assets/tele.svg';
 
 import Card from '../../components/Card';
-import CheckingOrderView from './views/CheckingOrder';
+import CheckingOrderView from './views/CheckingOrderView';
 import MobileForm from '../../components/MobileForm';
 import SuccessPage from '../../components/SuccessPage';
 import ErrorPage from '../../components/ErrorPage';

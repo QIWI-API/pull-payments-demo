@@ -1,18 +1,10 @@
 import React, { Component } from 'react';
-import cn from 'classnames';
 
 import './Header.scss';
 import Logo from './assets/Logo.png';
 
 export default class Header extends Component {
     render() {
-
-        const langClass = (lang) => {
-            return cn({
-                'header__menu-item': true,
-                'header__menu-item--active': this.props.lang !== lang
-            });
-        };
 
         return (<header className="header">
 

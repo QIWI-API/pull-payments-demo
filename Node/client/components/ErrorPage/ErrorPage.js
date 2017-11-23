@@ -11,7 +11,7 @@ export default class ErrorPage extends Component {
     render() {
 
         return (<div>
-            <h2 className="checking-order__title">Возникла ошибка при оплате</h2>
+            <h2>Возникла ошибка при оплате</h2>
 
             <div className="error-form">
                 <img className="error-form__icon" src={errorIcon} alt="info" width="32" height="32"/>

@@ -11,7 +11,7 @@ export default class ConfirmForm extends Component {
     render() {
 
         return (<div>
-            <h2 className="checking-order__title">Ждем подтверждения по СМС</h2>
+            <h2>Ждем подтверждения по СМС</h2>
 
             <div className="confirm-form">
                 <img className="confirm-form__icon" src={infoIcon} alt="info" width="32" height="32"/>

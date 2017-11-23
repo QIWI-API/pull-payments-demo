@@ -10,7 +10,7 @@ import QiwiWalletPayment from '../demos/QiwiWalletPayment';
 import './App.scss';
 
 /*
- http://localhost:5005/?method=mobilePayment&status=success#mobilePayment
+Пример ссылки: http://localhost:5005/?method=mobilePayment&status=success#mobilePayment
  */
 
 export default class App extends Component {
