@@ -68,11 +68,31 @@ export default class App extends Component {
         }
     }
 
+    changeLang = (lang) => {
+        this.setState({
+            lang
+        });
+    }
+
+    changeHash = (demo) => {
+
+        const hash = `#${demo}`;
+
+        if(history.pushState) {
+            history.pushState(null, null, hash);
+        }
+        else {
+            window.location.hash = hash;
+        }
+    }
+
     demoStateChanger = (demo) => {
 
         const demos = this.state.demos;
 
         return (nextView) => {
+
+            this.changeHash(demo);
 
             demos[demo].view = nextView;
 
@@ -94,7 +114,7 @@ export default class App extends Component {
 
 
         return (<div>
-            <Header lang={this.state.lang}/>
+            <Header lang={this.state.lang} changeLang={this.changeLang}/>
             <main className="main">
                 <Menu order={this.state.order} info={this.state.demos}/>
                 <div className="layout">

@@ -10,7 +10,7 @@ export default class Header extends Component {
         const langClass = (lang) => {
             return cn({
                 'header__menu-item': true,
-                'header__menu-item--active': this.props.lang === lang
+                'header__menu-item--active': this.props.lang !== lang
             });
         };
 
@@ -35,11 +35,15 @@ export default class Header extends Component {
             </div>
 
             <ul className="header__lang">
-                <li className={langClass('en')}>
-                    <a href="">En</a>
+                <li className="header__menu-item">
+                    <button type="button" onClick={()=>{
+                        this.props.changeLang('en');
+                    }} disabled={this.props.lang === 'en'}>En</button>
                 </li>
-                <li className={langClass('ru')}>
-                    <a href="">Ru</a>
+                <li className="header__menu-item">
+                    <button type="button" onClick={()=>{
+                        this.props.changeLang('ru');
+                    }} disabled={this.props.lang === 'ru'}>Ru</button>
                 </li>
             </ul>
 
