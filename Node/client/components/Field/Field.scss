@@ -1,0 +1,114 @@
+.field {
+    position: relative;
+    margin: 20px 0 20px;
+    height: 54px;
+    width: 206px;
+    display: inline-block;
+}
+
+.field__field--error .field__bar::before,
+.field__field--error .field__bar::after   {
+    background: #d0021b;
+}
+
+.field__field--error .field__input   {
+    border-bottom: 1px solid #d0021b;
+}
+
+.field__field--error .field__message {
+    opacity: 1;
+    color: #d0021b;
+}
+
+
+.field__message {
+    position: absolute;
+    left: 0;
+    min-width: 300px;
+    bottom: -14px;
+    height: 13px;
+    text-align: left;
+    color: #717171;
+    opacity: 0;
+    font-size: 13px;
+    font-weight: 300;
+    line-height: 1.29;
+}
+
+
+.field__label {
+    position: absolute;
+    display: block;
+    font-size: 20px;
+    font-weight: 300;
+    line-height: 1.4;
+    text-align: left;
+    color: #9b9b9b;
+    left: 0;
+    bottom: 8px;
+    opacity: 0;
+    display: none;
+    transition:0.2s ease all;
+}
+
+.field__input {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 206px;
+    font-size: 20px;
+    font-weight: 300;
+    text-align: left;
+    line-height: 1.2;
+    padding: 0 0 7px 0;
+    margin: 0;
+    box-sizing: border-box;
+    border: 0;
+    border-bottom: 1px solid  #d8d8d8;
+    box-shadow: none;
+    background-color: transparent;
+}
+
+.field__input:focus {
+
+    outline: none;
+
+}
+
+.field__input:focus ~ .field__label,
+.field__input:valid ~ .field__label  {
+    transform: scale(0.65,0.65) translate(-44px,-40px);
+    opacity: 0.7;
+    display: block;
+    color: #000000;
+}
+
+.field__bar  {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width:206px;
+
+}
+
+.field__bar::before,
+.field__bar::after   {
+    content:'';
+    height: 1px;
+    width:0;
+    bottom:0;
+    position:absolute;
+    background: #00b06b;
+    transition:0.2s ease all;
+}
+.field__bar::before {
+    left:50%;
+}
+.field__bar::after {
+    right:50%;
+}
+
+.field__input:focus ~ .field__bar::before,
+.field__input:focus ~ .field__bar::after {
+    width:50%;
+}

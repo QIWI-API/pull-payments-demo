@@ -1,0 +1,85 @@
+@import 'fonts';
+
+body {
+    background-color: #FFF;
+    color: #000000;
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Museo","Helvetica Neue","Helvetica","Arial",sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+button, input {
+    font-family: "Museo","Helvetica Neue","Helvetica","Arial",sans-serif;
+}
+
+button:disabled,
+input:disabled {
+    opacity: 0.7;
+    cursor: default;
+}
+
+.values {
+    max-width: 332px;
+    padding: 0;
+    margin: 0;
+    overflow-x: hidden;
+    list-style: none;
+    font-size: 12px;
+    font-weight: 300;
+}
+
+.values__lines {
+    margin-top: 7px;
+}
+
+.values li:first-child {
+    margin-top: 0;
+}
+
+.values__lines--dotted::before {
+    float: left;
+    width: 0;
+    white-space: nowrap;
+    color: #dedede;
+    content:
+    "...................."
+    "...................."
+    "...................."
+    "...................."
+    "...................."
+    "...................."
+    "....................";
+}
+
+.values__lines--counted {
+    font-size: 16px;
+    font-weight: 500;
+    margin-top: 18px;
+}
+
+
+
+.values__lines--minor {
+    color: #9b9b9b;
+}
+
+.values span:first-child {
+    padding-right: 2px;
+    background: #FFF;
+}
+
+.values span + span {
+    float: right;
+    padding-left: 2px;
+    background: #FFF;
+    font-weight: 500;
+}
+
+.values__lines--right-minor span + span {
+    font-weight: 300;
+}

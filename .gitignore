@@ -1,6 +1,9 @@
 *.sublime-workspace
 *.sublime-project
+*.code-workspace
+.vscode
 /bower_components
 /node_modules
 /Node/node_modules
+/Node/dist
 /Node/server/config.js

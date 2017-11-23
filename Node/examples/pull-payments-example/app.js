@@ -1,4 +1,5 @@
-module.exports = ({fieldsTemp, redirectOptionsTemp,generateBillId, client}) => {
+module.exports = (fieldsTemp, redirectOptionsTemp,generateBillId, client) => {
+
 
     return (req, res) =>{
 
@@ -9,6 +10,8 @@ module.exports = ({fieldsTemp, redirectOptionsTemp,generateBillId, client}) => {
         const bill_id = generateBillId();
 
         fields.user = `tel:${req.body.tel}`;
+
+        fields.amount = req.body.amount;
 
         client.createBill(bill_id, fields).then(data => {
 
