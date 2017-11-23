@@ -3,7 +3,8 @@ const qiwiRestApi = require('pull-rest-api-node-js-sdk');
 const { generateBillId, getISOTime } = require('./utils');
 const bodyParser = require('body-parser');
 const cors = require('cors');
-const EJS = require('ejs');
+
+
 
 const paymentByBill = require('../examples/pull-payments-example/app');
 const paymentForMobile = require('../examples/pull-payments-white-label-example/app');
@@ -24,7 +25,7 @@ const app = express();
 
 const { host, port, prv_id, api_id, api_password } = config;
 
-app.use(express.static('dist'));
+app.use('/',express.static('dist'));
 
 app.use(cors());
 
@@ -51,14 +52,27 @@ const redirectionBlock = (host, prv_id, method ) => {
     };
 }
 
+
+
 const client = new qiwiRestApi(prv_id, api_id, api_password);
 
-app.get('/', function(req, res) {
-  res.sendFile(path.join(__dirname, 'dist/index.html'));
+
+
+
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, 'dist/index.html'));
 });
 
 
-app.post('/paymentByBill', paymentByBill(fieldsTemp, redirectionBlock(host, prv_id, 'qiwiWalletPayment'),generateBillId, client));
+
+const qiwiWalletPaymentRedirection = redirectionBlock(host, prv_id, 'qiwiWalletPayment');
+
+app.post('/paymentByBill', paymentByBill({
+    fieldsTemp,
+    redirectTemp: qiwiWalletPaymentRedirection,
+    generateBillId,
+    client
+}));
 
 
 app.post('/paymentForMobile', paymentForMobile({
@@ -66,6 +80,8 @@ app.post('/paymentForMobile', paymentForMobile({
     generateBillId,
     client
 }));
+
+
 
 
 app.listen(port, (err) =>  {
