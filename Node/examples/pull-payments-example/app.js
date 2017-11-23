@@ -1,11 +1,11 @@
-module.exports = (fieldsTemp, redirectOptionsTemp,generateBillId, client) => {
+module.exports = ({fieldsTemp, redirectTemp,generateBillId, client}) => {
 
 
     return (req, res) =>{
 
         const fields = fieldsTemp;
 
-        const redirectOptions = redirectOptionsTemp;
+        const redirectOptions = redirectTemp;
 
         const bill_id = generateBillId();
 
