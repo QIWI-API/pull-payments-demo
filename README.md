@@ -10,13 +10,19 @@
 git clone https://github.com/QIWI-API/demo-app.git
 cd demo-app/Node
 npm install
-npm start
+npm run start
 ~~~
 
 # Файл конфигурации
 Данные авторизации и другие параметры вынесены в конфигурационный файл. 
 ~~~shell
 Node/server/config.js
+~~~
+
+# Для разработки
+~~~shell
+npm run dev
+npm run server
 ~~~
 
 # QIWI pull-payments demo
