@@ -11,7 +11,7 @@ import './App.scss';
 
 /*
 Пример ссылки: http://localhost:5005/?method=mobilePayment&status=success#mobilePayment
- */
+*/
 
 export default class App extends Component {
 
