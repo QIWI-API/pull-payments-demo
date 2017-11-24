@@ -141,7 +141,7 @@ export default class MobilePayment extends Component {
                 view: <CheckingOrderView itemCost={itemCost} itemPic={itemPic} stateChanger={this.stateChanger('paymentByMobile')} id={id} radioButtons={radioButtons} currentPaymentMethod={currentPaymentMethod}/>
             },
             paymentByMobile:{
-                view: <MobileForm itemCost={itemCost} stateChanger={this.toConfirmation} getPhoneNumber={this.getPhoneNumber} phone={phone} id={id} icons={icons} numberError={numberError}/>
+                view: <MobileForm itemCost={itemCost} stateChanger={this.toConfirmation} getPhoneNumber={this.getPhoneNumber} phone={phone} id={id} icons={icons} numberError={numberError} returning={this.stateChanger('checkingOrder')}/>
             },
             confirmation:{
                 view: <ConfirmForm stateChanger={this.makeRequest}/>

@@ -9,7 +9,7 @@ export default class Header extends Component {
         return (<header className="header">
 
             <a href="/" className="header__logo">
-                <img alt="QIWI" src={Logo} height="43" />
+                <img alt="QIWI" src="https://static.qiwi.com/img/qiwi_com/logo/logo-qiwi-slogan.svg" height="43" />
             </a>
 
             <ul className="header__menu">

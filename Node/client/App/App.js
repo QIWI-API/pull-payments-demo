@@ -29,7 +29,7 @@ export default class App extends Component {
                     view: 'checkingOrder',
                     acceptedViews: ['success'],
                     doc: 'https://developer.qiwi.com/ru/pull-mobile-payments/',
-                    git: 'https://github.com/QIWI-API/pull-payments-demo'
+                    git: 'https://github.com/QIWI-API/pull-payments-demo/tree/master/Node/examples/pull-payments-white-label-example'
                 },
                 qiwiWalletPayment: {
                     id: 'qiwiWalletPayment',
@@ -37,7 +37,7 @@ export default class App extends Component {
                     view: 'checkingOrder',
                     acceptedViews: ['success', 'error'],
                     doc: 'https://developer.qiwi.com/ru/pull-payments/index.html',
-                    git: 'https://github.com/QIWI-API/pull-payments-demo'
+                    git: 'https://github.com/QIWI-API/pull-payments-demo/tree/master/Node/examples/pull-payments-example'
                 }
             }
         };

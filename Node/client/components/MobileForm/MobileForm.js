@@ -25,6 +25,9 @@ export default class MobileForm extends Component {
             </div>
 
             <Button buttonText={`Оплатить ${this.props.itemCost} ₽`} onClick={this.props.stateChanger} disabled={this.props.phone.length <= 10}/>
+
+            <Button buttonText={'Вернуться назад'} onClick={this.props.returning} classNames={'mobile-form__link'}/>
+
         </div>)
     }
 }
