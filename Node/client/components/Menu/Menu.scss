@@ -23,6 +23,10 @@
     opacity: 0;
 }
 
+.menu__indicator {
+    padding-top: 10px;
+}
+
 .menu__item-second-links {
     height: 0;
     transition: all 0.2s ease-out;
@@ -37,6 +41,8 @@
 .menu__item-main-link {
     padding: 10px 15px;
     display: inline-block;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .menu__item-second-link {

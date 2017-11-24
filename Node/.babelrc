@@ -1,6 +1,7 @@
 {
     "sourceMaps": true,
     "presets": [
+        "env",
         ["es2015",
         {
             "loose": true
@@ -8,6 +9,10 @@
         "stage-0"
     ],
     "plugins": [
+        "transform-async-to-generator",
+        "syntax-async-functions",
+        "transform-runtime",
+        "transform-regenerator",
         ["transform-decorators-legacy"],
         ["transform-react-jsx"]
     ]

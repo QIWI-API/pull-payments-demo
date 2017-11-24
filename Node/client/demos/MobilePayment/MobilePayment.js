@@ -73,6 +73,12 @@ export default class MobilePayment extends Component {
 
                 stateChanger();
             }
+            if(data.response.result_code === 150) {
+
+                self.setState({
+                    numberError: 'Ошибка авторизации.'
+                });
+            }
             if(data.response.result_code === 300) {
 
                 self.setState({
@@ -146,7 +152,7 @@ export default class MobilePayment extends Component {
         };
 
         return (<div>
-            <Card title={'Оплата товаров с помощью мобильного'} id={id}>{statesMap[state.view].view}</Card>
+            <Card title={state.name} id={id}>{statesMap[state.view].view}</Card>
         </div>)
     }
 }

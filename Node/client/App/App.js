@@ -21,23 +21,23 @@ export default class App extends Component {
 
         this.state = {
             lang: 'ru',
-            order: ['mobilePayment', 'qiwiWalletPayment'],
+            order: ['qiwiWalletPayment', 'mobilePayment'],
             demos: {
                 mobilePayment: {
                     id: 'mobilePayment',
-                    name: 'Оплата с баланса мобильного',
+                    name: 'Оплата с МК',
                     view: 'checkingOrder',
                     acceptedViews: ['success'],
-                    doc: 'https://developer.qiwi.com',
-                    git: 'https://github.com'
+                    doc: 'https://developer.qiwi.com/ru/pull-mobile-payments/',
+                    git: 'https://github.com/QIWI-API/pull-payments-demo'
                 },
                 qiwiWalletPayment: {
                     id: 'qiwiWalletPayment',
-                    name: 'Выставление счета на сайте партнера',
+                    name: 'Оплата с QIWI Кошелька',
                     view: 'checkingOrder',
                     acceptedViews: ['success', 'error'],
-                    doc: 'https://developer.qiwi.com',
-                    git: 'https://github.com'
+                    doc: 'https://developer.qiwi.com/ru/pull-payments/index.html',
+                    git: 'https://github.com/QIWI-API/pull-payments-demo'
                 }
             }
         };
