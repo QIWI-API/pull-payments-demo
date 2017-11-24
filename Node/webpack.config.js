@@ -11,7 +11,7 @@ module.exports = {
 
     output: {
         path: path.resolve(__dirname, "dist"),
-        publicPath: '/',
+        publicPath: '',
         filename: 'bundle.[hash].js'
     },
 
@@ -109,7 +109,7 @@ module.exports = {
     devServer: {
         port: process.env.PORT || 5005,
         hot: true,
-        publicPath: '/',
+        publicPath: '',
         contentBase: './client',
         historyApiFallback: true
     }
