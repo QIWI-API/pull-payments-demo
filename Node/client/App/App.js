@@ -78,12 +78,9 @@ export default class App extends Component {
 
         const hash = `#${demo}`;
 
-        if(history.pushState) {
-            history.pushState(null, null, hash);
-        }
-        else {
-            window.location.hash = hash;
-        }
+        window.location.hash = '';
+
+        window.location.hash = hash;
     }
 
     demoStateChanger = (demo) => {
