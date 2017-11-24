@@ -3,15 +3,15 @@ module.exports = ({fieldsTemp, redirectTemp,generateBillId, client}) => {
 
     return (req, res) =>{
 
-        const fields = fieldsTemp;
+        const fields = Object.assign(fieldsTemp, {
+            user: `tel:${req.body.tel}`,
+            amount: req.body.amount,
+            pay_source: 'qw'
+        });
 
         const redirectOptions = redirectTemp;
 
         const bill_id = generateBillId();
-
-        fields.user = `tel:${req.body.tel}`;
-
-        fields.amount = req.body.amount;
 
         client.createBill(bill_id, fields).then(data => {
 

@@ -1,12 +1,14 @@
 module.exports = ({fieldsTemp,generateBillId, client}) => {
 
+
+
     return (req, res) =>{
 
-        const fields = fieldsTemp;
-
-        fields.amount = req.body.amount;;
-        fields.pay_source = 'mobile';
-        fields.user =  `tel:${req.body.tel}`;
+        const fields = Object.assign(fieldsTemp, {
+            user: `tel:${req.body.tel}`,
+            amount: req.body.amount,
+            pay_source: 'mobile'
+        });
 
         bill_id = generateBillId();
 

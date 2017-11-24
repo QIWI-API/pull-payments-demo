@@ -138,7 +138,7 @@ export default class QiwiWalletPayment extends Component {
                 view: <CheckingOrderView itemCost={itemCost} itemPic={itemPic} stateChanger={this.stateChanger('paymentByMobile')} radioButtons={radioButtons} id={id} currentPaymentMethod={currentPaymentMethod}/>
             },
             paymentByMobile:{
-                view: <MobileForm itemCost={itemCost} stateChanger={this.makeRedirect} getPhoneNumber={this.getPhoneNumber} phone={phone} id={id}numberError={numberError} />
+                view: <MobileForm itemCost={itemCost} stateChanger={this.makeRedirect} getPhoneNumber={this.getPhoneNumber} phone={phone} id={id}numberError={numberError} returning={this.stateChanger('checkingOrder')}/>
             },
             success: {
                 view: <SuccessPage stateChanger={this.stateChanger('checkingOrder')} itemPic={itemPic} number={orderInfo.number} method={orderInfo.method} sum={orderInfo.sum}/>
