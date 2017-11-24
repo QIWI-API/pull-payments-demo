@@ -30,12 +30,12 @@ export default class Header extends Component {
                 <li className="header__menu-item">
                     <button type="button" onClick={()=>{
                         this.props.changeLang('en');
-                    }} disabled={this.props.lang === 'en'}>En</button>
+                    }} disabled={this.props.lang === 'en'}>EN</button>
                 </li>
                 <li className="header__menu-item">
                     <button type="button" onClick={()=>{
                         this.props.changeLang('ru');
-                    }} disabled={this.props.lang === 'ru'}>Ru</button>
+                    }} disabled={this.props.lang === 'ru'}>RU</button>
                 </li>
             </ul>
 

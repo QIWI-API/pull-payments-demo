@@ -72,6 +72,12 @@ export default class QiwiWalletPayment extends Component {
 
                 window.location.href = data.redirect;
             }
+            if(data.response.result_code === 150) {
+
+                self.setState({
+                    numberError: 'Ошибка авторизации.'
+                });
+            }
             if(data.response.result_code === 300) {
 
                 self.setState({
@@ -143,7 +149,7 @@ export default class QiwiWalletPayment extends Component {
         };
 
         return (<div>
-            <Card title={'Оплата товаров с помощью QIWI кошелька'} id={id}>{statesMap[state.view].view}
+            <Card title={state.name} id={id}>{statesMap[state.view].view}
             </Card>
         </div>)
     }
