@@ -10,7 +10,7 @@ const paymentByBill = require('../examples/pull-payments-example/app');
 const paymentForMobile = require('../examples/pull-payments-white-label-example/app');
 
 
-const configFileName = './config'
+const configFileName = process.env.NODE_APP_CONFIG || './config';
 
 try {
     config = require(configFileName);
