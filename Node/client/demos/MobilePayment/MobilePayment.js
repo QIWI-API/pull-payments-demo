@@ -14,9 +14,8 @@ import ConfirmForm from '../../components/ConfirmForm';
 import SuccessPage from '../../components/SuccessPage';
 import ErrorPage from '../../components/ErrorPage';
 
-/*
- ссылка вида #[метод оплаты]/[номер оплаты]/[success/fail]
- */
+
+
 
 export default class MobilePayment extends Component {
 

@@ -15,9 +15,7 @@ import MobileForm from '../../components/MobileForm';
 import SuccessPage from '../../components/SuccessPage';
 import ErrorPage from '../../components/ErrorPage';
 
-/*
- ссылка вида #[метод оплаты]/[номер оплаты]/[success/fail]
- */
+
 
 export default class QiwiWalletPayment extends Component {
 
