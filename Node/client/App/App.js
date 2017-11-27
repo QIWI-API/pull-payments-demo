@@ -25,7 +25,7 @@ export default class App extends Component {
             demos: {
                 mobilePayment: {
                     id: 'mobilePayment',
-                    name: 'Оплата с МК',
+                    name: 'Оплата с баланса мобильного',
                     view: 'checkingOrder',
                     acceptedViews: ['success'],
                     doc: 'https://developer.qiwi.com/ru/pull-mobile-payments/',
