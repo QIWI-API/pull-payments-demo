@@ -33,6 +33,7 @@ app.use(bodyParser.json());
 
 app.use(bodyParser.urlencoded({ extended: true }));
 
+
 const fieldsTemp = {
     amount: 0.01,
     ccy: 'RUB',

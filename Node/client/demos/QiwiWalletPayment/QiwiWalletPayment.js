@@ -82,6 +82,12 @@ export default class QiwiWalletPayment extends Component {
                     numberError: 'Ошибка! Ваш оператор не поддерживается.'
                 });
             }
+            if(data.response.result_code !== 0) {
+
+                self.setState({
+                    numberError: 'Произошла ошибка, попробуйте ещё раз.'
+                });
+            }
         });
     }
 
