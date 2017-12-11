@@ -14,7 +14,7 @@ function generateBillId() {
 function getISOTime() {
     const date =  new Date();
 
-    timePlused = date.getTime() + (24*60*60*1000);
+    timePlused = date.getTime() + (30*24*60*60*1000);
 
     date.setTime(timePlused);
 

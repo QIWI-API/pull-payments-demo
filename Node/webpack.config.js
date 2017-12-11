@@ -79,7 +79,10 @@ module.exports = {
         new webpack.NoEmitOnErrorsPlugin(),
         new webpack.DefinePlugin({
             __PRODUCTION__: ENV === 'production',
-            __DEV__: ENV === 'development'
+            __DEV__: ENV === 'development',
+            'process.env': {
+                'NODE_ENV': JSON.stringify(ENV)
+            }
         }),
         new HtmlWebpackPlugin({
             template: './index.html',
