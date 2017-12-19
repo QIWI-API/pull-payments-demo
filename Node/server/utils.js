@@ -7,7 +7,7 @@ function randomValueHex(len) {
 }
 
 function generateBillId() {
-    return `demo${randomValueHex(7)}`;
+    return randomValueHex(7);
 }
 
 

@@ -28,14 +28,18 @@
 }
 
 .menu__item-second-links {
-    height: 0;
-    transition: all 0.2s ease-out;
+    opacity: 0;
+    transition: transform 0.3s, opacity 0.1s, position 0.1s ease-out;
+    transform: scaleY(0);
+    transform-origin: top;
+    position: absolute;
 }
 
 .menu__item--active .menu__indicator,
 .menu__item--active .menu__item-second-links {
+    transform: scaleY(1);
     opacity: 1;
-    height: 100%;
+    position: relative;
 }
 
 .menu__item-main-link {
