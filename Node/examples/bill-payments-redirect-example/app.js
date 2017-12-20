@@ -1,4 +1,4 @@
-module.exports = ({client, public_key, generateBillId}) => {
+module.exports = ({client, public_key, generateBillId, success_url = ''}) => {
 
     return (req, res) =>{
 
@@ -6,9 +6,11 @@ module.exports = ({client, public_key, generateBillId}) => {
 
         const bill_id = generateBillId();
 
-        const redirect = client.createPaymentForm(public_key, amount, bill_id);
+        const redirect = client.createPaymentForm({public_key, amount, bill_id, success_url});
 
-        data.redirect = redirect;
+        const data = {
+            redirect
+        };
 
         res.send(data);
     };

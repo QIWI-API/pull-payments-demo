@@ -9,10 +9,21 @@ const CheckingOrderView = (props) => {
 
     const id = props.id;
 
-    const currentPaymentMethod = 'wallet';
+    document.body.style.overflow = 'auto';
+
+    if(props.errorState) {
+        document.body.style.overflow = 'hidden';
+    }
 
     return (
         <CheckingOrder itemCost={props.itemCost} itemPic={props.itemPic}>
+
+            {props.errorState?<div className="checking-order__backdrop">
+                <div className="checking-order__backdrop-text">
+                    <div>Не отображается страница QIWI?</div>
+                    <button type="button" onClick={() => window.location.reload()}>Попробуйте перезагрузить страницу</button>
+                </div>
+            </div>:null}
 
             <Button buttonText={'Оплатить'} onClick={props.stateChanger} classNames={'checking-order__redirect'}/>
 

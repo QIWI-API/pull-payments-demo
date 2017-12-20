@@ -88,7 +88,8 @@ app.post('/paymentForMobile', paymentForMobile({
 app.post('/createPaymentForm',paymentByRedirect({
     generateBillId,
     client: clientBillPayments,
-    public_key
+    public_key,
+    success_url: `${host}/?method=checkOutRedirect&status=success#checkOutRedirect`
 }));
 
 

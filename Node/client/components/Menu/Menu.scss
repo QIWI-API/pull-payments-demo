@@ -11,6 +11,7 @@
     font-weight: 300;
     padding: 10px 0;
     box-sizing: border-box;
+    z-index: 999;
 
     &__item--active > a {
         color: #f8f9fa;

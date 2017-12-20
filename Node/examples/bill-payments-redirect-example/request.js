@@ -1,4 +1,4 @@
-export default function(amount) {
+export default function(url, amount) {
 
     const options = {
         method: 'POST',
