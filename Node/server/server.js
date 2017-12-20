@@ -1,5 +1,6 @@
 const express = require('express');
-const qiwiRestApi = require('pull-rest-api-node-js-sdk');
+const qiwiPullRestApi = require('pull-rest-api-node-js-sdk');
+const QiwiBillPaymentsApi = require('bill-payments-rest-api-node-js-sdk');
 const { generateBillId, getISOTime } = require('./utils');
 const bodyParser = require('body-parser');
 const cors = require('cors');
@@ -8,6 +9,7 @@ const cors = require('cors');
 
 const paymentByBill = require('../examples/pull-payments-example/app');
 const paymentForMobile = require('../examples/pull-payments-white-label-example/app');
+const paymentByRedirect = require('../examples/bill-payments-redirect-example/app');
 
 
 const configFileName = process.env.NODE_APP_CONFIG || './config';
@@ -23,7 +25,7 @@ catch (err) {
 
 const app = express();
 
-const { host, port, prv_id, api_id, api_password } = config;
+const { host, port, prv_id, api_id, api_password, public_key } = config;
 
 app.use('/',express.static('dist'));
 
@@ -55,9 +57,9 @@ const redirectionBlock = (host, prv_id, method ) => {
 
 
 
-const client = new qiwiRestApi(prv_id, api_id, api_password);
+const clientPull = new qiwiPullRestApi(prv_id, api_id, api_password);
 
-
+const clientBillPayments = new QiwiBillPaymentsApi();
 
 
 app.get('/', (req, res) => {
@@ -72,15 +74,24 @@ app.post('/paymentByBill', paymentByBill({
     fieldsTemp,
     redirectTemp: qiwiWalletPaymentRedirection,
     generateBillId,
-    client
+    client: clientPull
 }));
 
 
 app.post('/paymentForMobile', paymentForMobile({
     fieldsTemp,
     generateBillId,
-    client
+    client: clientPull
 }));
+
+
+app.post('/createPaymentForm',paymentByRedirect({
+    generateBillId,
+    client: clientBillPayments,
+    public_key,
+    success_url: `${host}/?method=checkOutRedirect&status=success#checkOutRedirect`
+}));
+
 
 
 

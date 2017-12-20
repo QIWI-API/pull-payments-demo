@@ -6,6 +6,7 @@ import Menu from '../components/Menu';
 
 import MobilePayment from '../demos/MobilePayment';
 import QiwiWalletPayment from '../demos/QiwiWalletPayment';
+import CheckOutRedirect from '../demos/CheckOutRedirect';
 
 import './App.scss';
 
@@ -21,7 +22,7 @@ export default class App extends Component {
 
         this.state = {
             lang: 'ru',
-            order: ['qiwiWalletPayment', 'mobilePayment'],
+            order: ['qiwiWalletPayment', 'mobilePayment', 'checkOutRedirect'],
             demos: {
                 mobilePayment: {
                     id: 'mobilePayment',
@@ -37,6 +38,14 @@ export default class App extends Component {
                     view: 'checkingOrder',
                     acceptedViews: ['success', 'error'],
                     doc: 'https://developer.qiwi.com/ru/pull-payments/index.html',
+                    git: 'https://github.com/QIWI-API/pull-payments-demo/tree/master/Node/examples/pull-payments-example'
+                },
+                checkOutRedirect: {
+                    id: 'checkOutRedirect',
+                    name: 'Оплата через единый платежный протокол',
+                    view: 'checkingOrder',
+                    acceptedViews: ['success'],
+                    doc: 'https://developer.qiwi.com/ru/bill-payments/',
                     git: 'https://github.com/QIWI-API/pull-payments-demo/tree/master/Node/examples/pull-payments-example'
                 }
             }
@@ -102,11 +111,12 @@ export default class App extends Component {
 
     render() {
 
-        const { mobilePayment, qiwiWalletPayment } = this.state.demos;
+        const { mobilePayment, qiwiWalletPayment, checkOutRedirect } = this.state.demos;
 
         const demosMap = {
             mobilePayment: (index) => <MobilePayment state={mobilePayment} stateChanger={this.demoStateChanger('mobilePayment')} key={index}/>,
-            qiwiWalletPayment: (index) => <QiwiWalletPayment state={qiwiWalletPayment} stateChanger={this.demoStateChanger('qiwiWalletPayment')} key={index}/>
+            qiwiWalletPayment: (index) => <QiwiWalletPayment state={qiwiWalletPayment} stateChanger={this.demoStateChanger('qiwiWalletPayment')} key={index}/>,
+            checkOutRedirect: (index) => <CheckOutRedirect state={checkOutRedirect} stateChanger={this.demoStateChanger('checkOutRedirect')} key={index}/>
         };
 
 

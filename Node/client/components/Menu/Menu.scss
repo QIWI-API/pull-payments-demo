@@ -11,6 +11,7 @@
     font-weight: 300;
     padding: 10px 0;
     box-sizing: border-box;
+    z-index: 999;
 
     &__item--active > a {
         color: #f8f9fa;
@@ -28,14 +29,18 @@
 }
 
 .menu__item-second-links {
-    height: 0;
-    transition: all 0.2s ease-out;
+    opacity: 0;
+    transition: transform 0.3s, opacity 0.1s, position 0.1s ease-out;
+    transform: scaleY(0);
+    transform-origin: top;
+    position: absolute;
 }
 
 .menu__item--active .menu__indicator,
 .menu__item--active .menu__item-second-links {
+    transform: scaleY(1);
     opacity: 1;
-    height: 100%;
+    position: relative;
 }
 
 .menu__item-main-link {

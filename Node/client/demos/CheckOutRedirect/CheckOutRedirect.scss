@@ -1,0 +1,56 @@
+.checking-order__select-block {
+    margin: 23px 0 37px;
+}
+
+.checking-order__icon {
+    margin-right: 8px;
+}
+
+.checking-order__redirect {
+    background-color: #ff8c00;
+    font-size: 16px;
+    font-weight: 300;
+}
+
+.checking-order__payments {
+    display: block;
+    margin: 12px 0 0 6px;
+}
+
+.checking-order__backdrop {
+    position: fixed;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding-left: 230px;
+    opacity: 0.9;
+    background-color: #272727;
+    text-align: center;
+}
+
+.checking-order__backdrop-text {
+    position: relative;
+    top: 50%;
+    margin: 0 auto;
+    width: 100%;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 1.42;
+    color: #e9ecef;
+
+    & button {
+        display: block;
+        margin: 20px auto 0;
+        padding: 0;
+        border: 0;
+        cursor: pointer;
+        outline: none;
+        background-color: transparent;
+        text-decoration: underline;
+        font-size: 14px;
+        font-weight: 300;
+        color: #e9ecef;
+        vertical-align: top;
+    }
+}
