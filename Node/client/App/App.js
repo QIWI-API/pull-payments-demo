@@ -46,7 +46,7 @@ export default class App extends Component {
                     view: 'checkingOrder',
                     acceptedViews: ['success'],
                     doc: 'https://developer.qiwi.com/ru/bill-payments/',
-                    git: 'https://github.com/QIWI-API/pull-payments-demo/tree/master/Node/examples/pull-payments-example'
+                    git: 'https://github.com/QIWI-API/pull-payments-demo/tree/master/Node/examples/bill-payments-redirect-example'
                 }
             }
         };

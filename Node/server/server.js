@@ -25,7 +25,7 @@ catch (err) {
 
 const app = express();
 
-const { host, port, prv_id, api_id, api_password, public_key } = config;
+const { host, port, prv_id, api_id, api_password, public_key, urls } = config;
 
 app.use('/',express.static('dist'));
 
@@ -45,15 +45,13 @@ const fieldsTemp = {
 };
 
 
-const redirectionBlock = (host, prv_id, method ) => {
+const redirectTemp = {
+    transaction: '',
+    shop: prv_id,
+    successUrl:`${host}${urls.qiwiWalletPayment.success_url}`,
+    failUrl: `${host}${urls.qiwiWalletPayment.fail_url}`
+};
 
-    return {
-        transaction: '',
-        shop: prv_id,
-        successUrl:`${host}/?method=${method}&status=success#${method}`,
-        failUrl: `${host}/?method=${method}&status=error#${method}`
-    };
-}
 
 
 
@@ -68,11 +66,10 @@ app.get('/', (req, res) => {
 
 
 
-const qiwiWalletPaymentRedirection = redirectionBlock(host, prv_id, 'qiwiWalletPayment');
 
 app.post('/paymentByBill', paymentByBill({
     fieldsTemp,
-    redirectTemp: qiwiWalletPaymentRedirection,
+    redirectTemp,
     generateBillId,
     client: clientPull
 }));
@@ -89,7 +86,7 @@ app.post('/createPaymentForm',paymentByRedirect({
     generateBillId,
     client: clientBillPayments,
     public_key,
-    success_url: `${host}/?method=checkOutRedirect&status=success#checkOutRedirect`
+    success_url: `${host}${urls.checkOutRedirect.success_url}`
 }));
 
 

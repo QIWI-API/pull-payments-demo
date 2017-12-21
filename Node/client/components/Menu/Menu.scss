@@ -30,7 +30,7 @@
 
 .menu__item-second-links {
     opacity: 0;
-    transition: transform 0.3s, opacity 0.1s, position 0.1s ease-out;
+    transition: transform 0.2s ease-out;
     transform: scaleY(0);
     transform-origin: top;
     position: absolute;
