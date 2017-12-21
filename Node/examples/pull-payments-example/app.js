@@ -1,4 +1,4 @@
-module.exports = ({fieldsTemp, redirectTemp,generateBillId, client}) => {
+module.exports = ({fieldsTemp, redirectTemp, generateBillId, client}) => {
 
 
     return (req, res) =>{
