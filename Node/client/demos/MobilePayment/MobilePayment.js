@@ -14,11 +14,7 @@ import ConfirmForm from '../../components/ConfirmForm';
 import SuccessPage from '../../components/SuccessPage';
 import ErrorPage from '../../components/ErrorPage';
 
-
-
-
 export default class MobilePayment extends Component {
-
     constructor(props) {
         super(props);
 
@@ -34,84 +30,77 @@ export default class MobilePayment extends Component {
 
     stateChanger = (state) => {
         return () => this.props.stateChanger(state);
-    }
+    };
 
-    getPhoneNumber = (phone) =>{
-
+    getPhoneNumber = (phone) => {
         this.setState({
             phone,
             numberError: ''
         });
-    }
-
+    };
 
     makeRequest = () => {
-
         let url = 'paymentForMobile';
 
-        if(__DEV__) {
+        if (__DEV__) {
             url = `http://localhost:5000/${url}`;
         }
 
         const phone = `+${this.state.phone}`;
 
-        return paymentForMobile(url, phone, this.itemCost)
-            .then(response => response.json());
-
-    }
+        return paymentForMobile(url, phone, this.itemCost).then((response) =>
+            response.json()
+        );
+    };
 
     toConfirmation = () => {
-
         const self = this;
 
         const stateChanger = this.stateChanger('confirmation');
 
-        this.makeRequest().then((data)=>{
-
-            if(data.response.result_code === 0) {
-
+        this.makeRequest().then((data) => {
+            if (data.response.result_code === 0) {
                 stateChanger();
             }
-            if(data.response.result_code === 150) {
-
-                self.setState({
-                    numberError: 'Ошибка авторизации.'
-                });
-            }
-            if(data.response.result_code === 300) {
-
-                self.setState({
-                    numberError: 'Ошибка! Ваш оператор не поддерживается.'
-                });
-            }
-            if(data.response.result_code !== 0) {
-
+            if (data.response.result_code !== 0) {
                 self.setState({
                     numberError: 'Произошла ошибка, попробуйте ещё раз.'
                 });
             }
+            if (data.response.result_code === 150) {
+                self.setState({
+                    numberError: 'Ошибка авторизации.'
+                });
+            }
+            if (data.response.result_code === 300) {
+                self.setState({
+                    numberError: 'Ошибка! Ваш оператор не поддерживается.'
+                });
+            }
         });
-    }
+    };
 
     paymentMethod = (currentPaymentMethod) => {
-
         return () => {
             this.setState({
                 currentPaymentMethod
-            })
-        }
-    }
-
+            });
+        };
+    };
 
     render() {
-
         const state = this.props.state;
 
-        const {currentPaymentMethod, phone, numberError, paymentError} = this.state;
+        const {
+            currentPaymentMethod,
+            phone,
+            numberError,
+            paymentError
+        } = this.state;
 
         const id = state.id;
 
-        const icons = [ beeIcon, megaIcon, mtsIcon, teleIcon];
+        const icons = [beeIcon, megaIcon, mtsIcon, teleIcon];
 
         const itemCost = this.itemCost;
 
@@ -121,43 +110,79 @@ export default class MobilePayment extends Component {
             sum: itemCost
         };
 
-        const radioButtons = [{
-            main: 'Картой',
-            disabled: true,
-            additional: '1% комиссии',
-            handler: this.paymentMethod('card'),
-            icons: []
-        }, {
-            main: 'C баланса мобильного',
-            disabled: false,
-            additional: '0% комиссии',
-            handler: this.paymentMethod('mobile'),
-            icons
-        }, {
-            main: 'Наличными',
-            disabled: true,
-            additional: '0% комиссии',
-            handler: this.paymentMethod('card'),
-            icons: []
-        }];
+        const radioButtons = [
+            {
+                main: 'Картой',
+                disabled: true,
+                additional: '1% комиссии',
+                handler: this.paymentMethod('card'),
+                icons: []
+            },
+            {
+                main: 'C баланса мобильного',
+                disabled: false,
+                additional: '0% комиссии',
+                handler: this.paymentMethod('mobile'),
+                icons
+            },
+            {
+                main: 'Наличными',
+                disabled: true,
+                additional: '0% комиссии',
+                handler: this.paymentMethod('card'),
+                icons: []
+            }
+        ];
 
         const statesMap = {
-            checkingOrder:{
-                view: <CheckingOrderView itemCost={itemCost} itemPic={itemPic} stateChanger={this.stateChanger('paymentByMobile')} id={id} radioButtons={radioButtons} currentPaymentMethod={currentPaymentMethod}/>
+            checkingOrder: {
+                view: (
+                    <CheckingOrderView
+                        itemCost={itemCost}
+                        itemPic={itemPic}
+                        stateChanger={this.stateChanger('paymentByMobile')}
+                        id={id}
+                        radioButtons={radioButtons}
+                        currentPaymentMethod={currentPaymentMethod}
+                    />
+                )
             },
-            paymentByMobile:{
-                view: <MobileForm itemCost={itemCost} stateChanger={this.toConfirmation} getPhoneNumber={this.getPhoneNumber} phone={phone} id={id} icons={icons} numberError={numberError} returning={this.stateChanger('checkingOrder')}/>
+            paymentByMobile: {
+                view: (
+                    <MobileForm
+                        itemCost={itemCost}
+                        stateChanger={this.toConfirmation}
+                        getPhoneNumber={this.getPhoneNumber}
+                        phone={phone}
+                        id={id}
+                        icons={icons}
+                        numberError={numberError}
+                        returning={this.stateChanger('checkingOrder')}
+                    />
+                )
             },
-            confirmation:{
-                view: <ConfirmForm stateChanger={this.makeRequest}/>
+            confirmation: {
+                view: <ConfirmForm stateChanger={this.makeRequest} />
             },
             success: {
-                view: <SuccessPage stateChanger={this.stateChanger('checkingOrder')} itemPic={itemPic} number={orderInfo.number} method={orderInfo.method} sum={orderInfo.sum}/>
+                view: (
+                    <SuccessPage
+                        stateChanger={this.stateChanger('checkingOrder')}
+                        itemPic={itemPic}
+                        number={orderInfo.number}
+                        method={orderInfo.method}
+                        sum={orderInfo.sum}
+                    />
+                )
             }
         };
 
-        return (<div>
-            <Card title={state.name} id={id}>{statesMap[state.view].view}</Card>
-        </div>)
+        return (
+            <div>
+                <Card title={state.name} id={id}>
+                    {statesMap[state.view].view}
+                </Card>
+            </div>
+        );
     }
 }

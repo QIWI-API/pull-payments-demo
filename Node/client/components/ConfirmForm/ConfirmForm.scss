@@ -7,6 +7,10 @@
     list-style-type: none;
     padding: 0;
     margin: 0;
+    
+    @media (max-width: 895px) {
+        width: 70%;
+    }
 }
 
 .confirm-form__icon {
@@ -21,6 +25,7 @@
     text-align: left;
     color: #9b9b9b;
     padding-left: 35px;
+    position: relative;
 }
 
 .confirm-form__instruction li::before {
@@ -29,6 +34,7 @@
     font-weight: 300;
     line-height: 1.5;
     color: #000;
-    position: relative;
-    left: -15px;
+    position: absolute;
+    top: 0;
+    left: 15px;
 }

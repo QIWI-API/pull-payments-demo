@@ -9,9 +9,23 @@
     border-right: 1px solid #d8d8d8;
     font-size: 14px;
     font-weight: 300;
-    padding: 10px 0;
     box-sizing: border-box;
     z-index: 999;
+    transition: transform 0.5s ease-in;
+
+    @media (max-width: 870px) {
+        z-index: 1;
+        top: 0;
+        transform: translateX(-230px);
+
+        .translated & {            
+            transform: translateX(0);
+        }
+    }
+}
+
+.nav {
+    padding: 10px 0;
 
     &__item--active > a {
         color: #f8f9fa;
@@ -19,16 +33,16 @@
     }
 }
 
-.menu__indicator,
-.menu__item-second-links {
+.nav__indicator,
+.nav__item-second-links {
     opacity: 0;
 }
 
-.menu__indicator {
+.nav__indicator {
     padding-top: 10px;
 }
 
-.menu__item-second-links {
+.nav__item-second-links {
     opacity: 0;
     transition: transform 0.2s ease-out;
     transform: scaleY(0);
@@ -36,21 +50,21 @@
     position: absolute;
 }
 
-.menu__item--active .menu__indicator,
-.menu__item--active .menu__item-second-links {
+.nav__item--active .nav__indicator,
+.nav__item--active .nav__item-second-links {
     transform: scaleY(1);
     opacity: 1;
     position: relative;
 }
 
-.menu__item-main-link {
+.nav__item-main-link {
     padding: 10px 15px;
     display: inline-block;
     width: 100%;
     box-sizing: border-box;
 }
 
-.menu__item-second-link {
+.nav__item-second-link {
     padding: 10px 15px 10px 25px;
     display: inline-block;
     font-size: 13px;
@@ -58,18 +72,67 @@
     box-sizing: border-box;
 }
 
-.menu ul {
+.nav ul {
     margin:0;
     padding: 0;
     list-style: none;
 }
 
-.menu li {
+.nav li {
     padding: 0;
 }
-
 
 ul a {
     text-decoration: none;
     color: #000000;
+}
+
+.main-menu-wrapper {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.main-menu {
+    padding: 0;
+    margin: 0;
+    display: none;
+    height: 80px;
+    width: 500px;
+    border-bottom: 1px solid #d8d8d8;
+
+    &-item {
+        display: inline-block;
+        padding: 30px 0;
+        margin: 0 16px;
+        height: 20px;
+        position: relative;
+        font-size: 16px;
+        font-weight: 500;
+        text-align: left;
+        color: #000000;
+
+        & a {
+            color: #000000;
+            text-decoration: none;
+        }
+
+        &--active {
+
+            &::after {
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                content: '';
+                box-sizing: border-box;
+                height: 3px;
+                border-radius: 4px 4px 0 0;
+                width: 100%;
+                background-color: #ff8c00;
+            }
+        }
+    }
+
+    @media (max-width: 870px) {
+        display: block;
+    }
 }

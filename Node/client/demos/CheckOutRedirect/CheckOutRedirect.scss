@@ -27,6 +27,10 @@
     opacity: 0.9;
     background-color: #272727;
     text-align: center;
+
+    @media (max-width: 870px) {
+        padding: 0;
+    }
 }
 
 .checking-order__backdrop-text {

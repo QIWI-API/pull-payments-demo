@@ -3,17 +3,24 @@ import React, { Component } from 'react';
 import './Item.scss';
 
 const Item = (props) => {
-
     const deliveryCost = 0;
 
     return (
         <div className="item">
+            <img
+                className="item__pic"
+                src={props.itemPic}
+                alt="Item"
+            />
 
             <h3 className="item__title">Philips SHE3855</h3>
 
-            <p className="item__about">Стильные и удобные наушники-вкладыши Philips Chromz (SHE3855) с превосходным дизайном обеспечивают воспроизведение насыщенных басов. Цвета матовой отделки, выполненной методом вакуумной металлизации, соответствуют цветам iPhone 6s.</p>
-
-            <img className="item__pic" src={props.itemPic} alt="Item" height="128"/>
+            <p className="item__about">
+                Стильные и удобные наушники-вкладыши Philips Chromz (SHE3855) с
+                превосходным дизайном обеспечивают воспроизведение насыщенных
+                басов. Цвета матовой отделки, выполненной методом вакуумной
+                металлизации, соответствуют цветам iPhone 6s.
+            </p>
 
             <ul className="values">
                 <li className="values__lines values__lines--dotted">
@@ -29,7 +36,6 @@ const Item = (props) => {
                     <span>{props.itemCost + deliveryCost} ₽</span>
                 </li>
             </ul>
-
         </div>
     );
 };

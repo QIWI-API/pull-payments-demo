@@ -15,12 +15,8 @@ import MobileForm from '../../components/MobileForm';
 import SuccessPage from '../../components/SuccessPage';
 import ErrorPage from '../../components/ErrorPage';
 
-
-
 export default class QiwiWalletPayment extends Component {
-
     constructor(props) {
-
         super(props);
 
         this.state = {
@@ -35,77 +31,71 @@ export default class QiwiWalletPayment extends Component {
 
     stateChanger = (state) => {
         return () => this.props.stateChanger(state);
-    }
+    };
 
-    getPhoneNumber = (phone) =>{
-
+    getPhoneNumber = (phone) => {
         this.setState({
             phone,
             numberError: ''
         });
-    }
+    };
 
     makeRequest = () => {
-
         let url = 'paymentByBill';
 
-        if(__DEV__) {
+        if (__DEV__) {
             url = `http://localhost:5000/${url}`;
         }
 
         const phone = `+${this.state.phone}`;
 
-        return paymentByBill(url, phone, this.itemCost)
-            .then(response => response.json());
-
-    }
+        return paymentByBill(url, phone, this.itemCost).then((response) =>
+            response.json()
+        );
+    };
 
     makeRedirect = () => {
-
         const self = this;
 
-        this.makeRequest().then((data)=>{
-
-            if(data.response.result_code === 0) {
-
+        this.makeRequest().then((data) => {
+            if (data.response.result_code === 0) {
                 window.location.href = data.redirect;
             }
-            if(data.response.result_code === 150) {
-
-                self.setState({
-                    numberError: 'Ошибка авторизации.'
-                });
-            }
-            if(data.response.result_code === 300) {
-
-                self.setState({
-                    numberError: 'Ошибка! Ваш оператор не поддерживается.'
-                });
-            }
-            if(data.response.result_code !== 0) {
-
+            if (data.response.result_code !== 0) {
                 self.setState({
                     numberError: 'Произошла ошибка, попробуйте ещё раз.'
                 });
             }
+            if (data.response.result_code === 150) {
+                self.setState({
+                    numberError: 'Ошибка авторизации.'
+                });
+            }
+            if (data.response.result_code === 300) {
+                self.setState({
+                    numberError: 'Ошибка! Ваш оператор не поддерживается.'
+                });
+            }
         });
-    }
+    };
 
     paymentMethod = (currentPaymentMethod) => {
-
         return () => {
             this.setState({
                 currentPaymentMethod
-            })
-        }
-    }
-
+            });
+        };
+    };
 
     render() {
-
         const state = this.props.state;
 
-        const {currentPaymentMethod, phone, numberError, paymentError} = this.state;
+        const {
+            currentPaymentMethod,
+            phone,
+            numberError,
+            paymentError
+        } = this.state;
 
         const id = state.id;
 
@@ -117,44 +107,83 @@ export default class QiwiWalletPayment extends Component {
             sum: itemCost
         };
 
-        const radioButtons = [{
-            main: 'Картой',
-            disabled: true,
-            additional: '1% комиссии',
-            handler: this.paymentMethod('card'),
-            icons: []
-        }, {
-            main: 'Qiwi кошельком',
-            disabled: false,
-            additional: '0% комиссии',
-            handler: this.paymentMethod('wallet'),
-            icons: []
-        }, {
-            main: 'Наличными',
-            disabled: true,
-            additional: '0% комиссии',
-            handler: this.paymentMethod('cash'),
-            icons: []
-        }];
+        const radioButtons = [
+            {
+                main: 'Картой',
+                disabled: true,
+                additional: '1% комиссии',
+                handler: this.paymentMethod('card'),
+                icons: []
+            },
+            {
+                main: 'Qiwi кошельком',
+                disabled: false,
+                additional: '0% комиссии',
+                handler: this.paymentMethod('wallet'),
+                icons: []
+            },
+            {
+                main: 'Наличными',
+                disabled: true,
+                additional: '0% комиссии',
+                handler: this.paymentMethod('cash'),
+                icons: []
+            }
+        ];
 
         const statesMap = {
-            checkingOrder:{
-                view: <CheckingOrderView itemCost={itemCost} itemPic={itemPic} stateChanger={this.stateChanger('paymentByMobile')} radioButtons={radioButtons} id={id} currentPaymentMethod={currentPaymentMethod}/>
+            checkingOrder: {
+                view: (
+                    <CheckingOrderView
+                        itemCost={itemCost}
+                        itemPic={itemPic}
+                        stateChanger={this.stateChanger('paymentByMobile')}
+                        radioButtons={radioButtons}
+                        id={id}
+                        currentPaymentMethod={currentPaymentMethod}
+                    />
+                )
             },
-            paymentByMobile:{
-                view: <MobileForm itemCost={itemCost} stateChanger={this.makeRedirect} getPhoneNumber={this.getPhoneNumber} phone={phone} id={id}numberError={numberError} returning={this.stateChanger('checkingOrder')}/>
+            paymentByMobile: {
+                view: (
+                    <MobileForm
+                        itemCost={itemCost}
+                        stateChanger={this.makeRedirect}
+                        getPhoneNumber={this.getPhoneNumber}
+                        phone={phone}
+                        id={id}
+                        numberError={numberError}
+                        returning={this.stateChanger('checkingOrder')}
+                    />
+                )
             },
             success: {
-                view: <SuccessPage stateChanger={this.stateChanger('checkingOrder')} itemPic={itemPic} number={orderInfo.number} method={orderInfo.method} sum={orderInfo.sum}/>
+                view: (
+                    <SuccessPage
+                        stateChanger={this.stateChanger('checkingOrder')}
+                        itemPic={itemPic}
+                        number={orderInfo.number}
+                        method={orderInfo.method}
+                        sum={orderInfo.sum}
+                    />
+                )
             },
             error: {
-                view: <ErrorPage stateChanger={this.stateChanger('paymentByMobile')} errorText={paymentError}/>
+                view: (
+                    <ErrorPage
+                        stateChanger={this.stateChanger('paymentByMobile')}
+                        errorText={paymentError}
+                    />
+                )
             }
         };
 
-        return (<div>
-            <Card title={state.name} id={id}>{statesMap[state.view].view}
-            </Card>
-        </div>)
+        return (
+            <div>
+                <Card title={state.name} id={id}>
+                    {statesMap[state.view].view}
+                </Card>
+            </div>
+        );
     }
 }
