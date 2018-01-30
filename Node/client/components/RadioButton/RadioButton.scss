@@ -26,6 +26,10 @@
     display: inline-block;
     margin-left: 15px;
     vertical-align: top;
+
+    @media (max-width: 870px) {
+        margin: 15px 0 0 30px;
+    }
 }
 
 [type="radio"]:checked,

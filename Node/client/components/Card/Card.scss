@@ -7,9 +7,18 @@
     max-width: 620px;
     box-sizing: border-box;
     min-height: 685px;
+
+    @media (max-width: 870px) {
+        padding: 24px;
+        margin: 23px auto 48px;
+    }
 }
 
 
 .card-anchor {
     padding-top: 48px;
+
+    @media (max-width: 870px) {
+        padding-top: 24px;
+    }
 }

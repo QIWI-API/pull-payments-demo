@@ -6,6 +6,11 @@
     display: inline-block;
     vertical-align: top;
     padding: 40px 0 0 15px;
+
+    @media (max-width: 870px) {
+        display: block;
+        padding: 0;
+    }
 }
 
 .mobile-form__link {
@@ -17,4 +22,9 @@
     font-weight: 300;
     text-align: left;
     color: #868e96;
+
+    @media (max-width: 870px) {
+        display: block;
+        margin: 15px 0 0;
+    }
 }

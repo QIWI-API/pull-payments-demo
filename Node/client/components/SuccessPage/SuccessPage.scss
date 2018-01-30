@@ -4,13 +4,36 @@
     position: relative;
     border-bottom: 1px solid #f1f3f5;
     height: 148px;
+
+    @media (max-width: 870px) {
+        margin: 19px -24px 22px -24px;
+        height: auto;
+        padding-bottom: 40px; 
+    }
 }
 
+.success-form__result {
+    margin: 0;
+    
+    @media (max-width: 870px) {
+        margin: 10px auto 0;
+        text-align: center;
+    }
+}
 
 .success-form__pic {
     position: absolute;
     top: 0;
     right: 52px;
+    height: 128px;
+    
+    @media (max-width: 870px) {
+        position: relative;
+        display: block;
+        margin: 0 auto;
+        height: 187px;
+        right: 0;
+    }
 }
 
 .success-form__status {
@@ -23,6 +46,10 @@
     color: #9b9b9b;
     padding: 0;
     margin: 0 0 0 20px;
+
+    @media (max-width: 870px) {
+        width: 70%;
+    }
 }
 
 .success-form__item {

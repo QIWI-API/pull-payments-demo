@@ -11,6 +11,11 @@ body {
     font-family: "Museo","Helvetica Neue","Helvetica","Arial",sans-serif;
     font-size: 16px;
     font-weight: 500;
+
+    @media (max-width: 870px) {
+        overflow-x: hidden !important;
+    }
+    
 }
 
 button, input {
@@ -30,6 +35,11 @@ h1 {
     color: #000000;
     margin: 0;
     padding: 0;
+
+    @media (max-width: 870px) {
+        margin: 0 auto;
+        max-width: 620px;
+    }
 }
 
 h2 {
@@ -48,6 +58,10 @@ h2 {
     list-style: none;
     font-size: 12px;
     font-weight: 300;
+
+    @media (max-width: 870px) {
+        max-width: 100%;
+    }
 }
 
 .values__lines {
@@ -64,6 +78,11 @@ h2 {
     white-space: nowrap;
     color: #dedede;
     content:
+    "...................."
+    "...................."
+    "...................."
+    "...................."
+    "...................."
     "...................."
     "...................."
     "...................."
