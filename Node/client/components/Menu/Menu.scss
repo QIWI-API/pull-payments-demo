@@ -11,7 +11,7 @@
     font-weight: 300;
     box-sizing: border-box;
     z-index: 999;
-    transition: transform 0.5s ease-in;
+    transition: transform 0.5s ease-in 0.2s;
 
     @media (max-width: 870px) {
         z-index: 1;
@@ -97,7 +97,7 @@ ul a {
     margin: 0;
     display: none;
     height: 80px;
-    width: 500px;
+    width: 100%;
     border-bottom: 1px solid #d8d8d8;
 
     &-item {

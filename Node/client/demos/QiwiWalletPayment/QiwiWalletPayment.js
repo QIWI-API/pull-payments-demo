@@ -109,13 +109,6 @@ export default class QiwiWalletPayment extends Component {
 
         const radioButtons = [
             {
-                main: 'Картой',
-                disabled: true,
-                additional: '1% комиссии',
-                handler: this.paymentMethod('card'),
-                icons: []
-            },
-            {
                 main: 'Qiwi кошельком',
                 disabled: false,
                 additional: '0% комиссии',
@@ -123,10 +116,10 @@ export default class QiwiWalletPayment extends Component {
                 icons: []
             },
             {
-                main: 'Наличными',
+                main: 'Неудобный способ оплаты',
                 disabled: true,
-                additional: '0% комиссии',
-                handler: this.paymentMethod('cash'),
+                additional: '50% комиссии',
+                handler: this.paymentMethod('other'),
                 icons: []
             }
         ];

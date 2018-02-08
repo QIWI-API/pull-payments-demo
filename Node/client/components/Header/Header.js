@@ -34,14 +34,6 @@ export default class Header extends Component {
                     <li className="header__menu-item header__menu-item--active">
                         <a href="https://developer.qiwi.com/demo">Демо</a>
                     </li>
-                    <li className="header__menu-item">
-                        <a href="https://developer.qiwi.com/#news">Новости</a>
-                    </li>
-                    <li className="header__menu-item">
-                        <a href="https://developer.qiwi.com/#contacts">
-                            Контакты
-                        </a>
-                    </li>
                 </ul>
 
                 <div className="header__help">

@@ -112,13 +112,6 @@ export default class MobilePayment extends Component {
 
         const radioButtons = [
             {
-                main: 'Картой',
-                disabled: true,
-                additional: '1% комиссии',
-                handler: this.paymentMethod('card'),
-                icons: []
-            },
-            {
                 main: 'C баланса мобильного',
                 disabled: false,
                 additional: '0% комиссии',
@@ -126,10 +119,10 @@ export default class MobilePayment extends Component {
                 icons
             },
             {
-                main: 'Наличными',
+                main: 'Неудобный способ оплаты',
                 disabled: true,
-                additional: '0% комиссии',
-                handler: this.paymentMethod('card'),
+                additional: '50% комиссии',
+                handler: this.paymentMethod('other'),
                 icons: []
             }
         ];
