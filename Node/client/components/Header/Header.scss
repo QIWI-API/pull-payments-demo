@@ -11,7 +11,7 @@
     text-align: left;
     border-bottom: 1px solid #d8d8d8;
     z-index: 1000;
-    transition: transform 0.5s ease-in;
+    transition: transform 0.5s ease-in 0.2s;
 
     .translated &{
         transform: translateX(0);
@@ -102,7 +102,8 @@
 .header__help {
     position: absolute;
     top: 26px;
-    right: 158px;
+    /* right: 158px; */
+    right: 16px;
 
     &-title {
         font-size: 12px;
@@ -135,6 +136,7 @@
     right: 44px;
     padding: 0;
     margin: 0;
+    display: none;
 
     & .header__menu-item {
         display: inline-block;

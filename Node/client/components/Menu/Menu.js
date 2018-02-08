@@ -31,16 +31,6 @@ export default class Menu extends Component {
                         <li className="main-menu-item main-menu-item--active">
                             <a href="https://developer.qiwi.com/demo">Демо</a>
                         </li>
-                        <li className="main-menu-item">
-                            <a href="https://developer.qiwi.com/#news">
-                                Новости
-                            </a>
-                        </li>
-                        <li className="main-menu-item">
-                            <a href="https://developer.qiwi.com/#contacts">
-                                Контакты
-                            </a>
-                        </li>
                     </ul>
                 </div>
 

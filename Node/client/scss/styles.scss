@@ -28,6 +28,10 @@ input:disabled {
     cursor: default;
 }
 
+input:disabled + label {
+    color: #b3b3b3;
+}
+
 h1 {
     font-size: 24px;
     font-weight: 900;
