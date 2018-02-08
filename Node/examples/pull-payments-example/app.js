@@ -17,7 +17,7 @@ module.exports = ({fieldsTemp, redirectTemp, generateBillId, client}) => {
 
             redirectOptions.transaction = bill_id;
 
-            const redirect = client.paymentForm(redirectOptions);
+            const redirect = client.createPaymentForm(redirectOptions);
 
             data.redirect = redirect;
 
