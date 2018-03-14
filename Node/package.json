@@ -51,10 +51,10 @@
         "webpack-dev-server": "^2.5.1"
     },
     "dependencies": {
-        "bill-payments-node-js-sdk": "git://github.com/QIWI-API/bill-payments-node-js-sdk.git",
+        "@qiwi/bill-payments-node-js-sdk": "^2.0.1",
+        "@qiwi/pull-rest-api-node-js-sdk": "^2.2.2",
         "classnames": "^2.2.5",
         "es6-promise": "^4.1.1",
-        "pull-rest-api-node-js-sdk": "git://github.com/QIWI-API/pull-payments-node-js-sdk.git",
         "react": "^16.0.0",
         "react-dom": "^16.0.0",
         "react-input-mask": "^1.0.7",

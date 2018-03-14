@@ -1,7 +1,7 @@
 const express = require('express');
-const qiwiPullRestApi = require('pull-rest-api-node-js-sdk');
-const QiwiBillPaymentsApi = require('bill-payments-node-js-sdk');
-const { generateBillId, getISOTime } = require('./utils');
+const qiwiPullRestApi = require('@qiwi/pull-rest-api-node-js-sdk');
+const QiwiBillPaymentsApi = require('@qiwi/bill-payments-node-js-sdk');
+const { getISOTime } = require('./utils');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 
@@ -39,15 +39,12 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use(function(err, req, res, next) {
-    res
-    .status(500)
-    .send('Something went wrong...');
+    res.status(500).send('Something went wrong...');
 });
 
 const fieldsTemp = {
     amount: 0.01,
     ccy: 'RUB',
-    lifetime: getISOTime(),
     user: 'tel:',
     comment: 'demo'
 };
@@ -82,7 +79,6 @@ app.post(
     paymentByBill({
         fieldsTemp,
         redirectTemp,
-        generateBillId,
         client: qiwiWalletPaymentClient
     })
 );
@@ -91,7 +87,6 @@ app.post(
     '/paymentForMobile',
     paymentForMobile({
         fieldsTemp,
-        generateBillId,
         client: mobilePaymentClient
     })
 );
@@ -99,7 +94,6 @@ app.post(
 app.post(
     '/createPaymentForm',
     paymentByRedirect({
-        generateBillId,
         client: clientBillPayments,
         public_key: checkOutRedirect.public_key,
         success_url: `${host}${urls.checkOutRedirect.success_url}`
