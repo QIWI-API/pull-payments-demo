@@ -113,7 +113,8 @@ export default class QiwiWalletPayment extends Component {
                 disabled: false,
                 additional: '0% комиссии',
                 handler: this.paymentMethod('wallet'),
-                icons: []
+                icons: [],
+                type: "withlogo"
             },
             {
                 main: 'Неудобный способ оплаты',
@@ -123,6 +124,7 @@ export default class QiwiWalletPayment extends Component {
                 icons: []
             }
         ];
+
 
         const statesMap = {
             checkingOrder: {
