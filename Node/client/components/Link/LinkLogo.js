@@ -1,30 +1,21 @@
 import React, {Component} from 'react';
 
 import './LinkLogo.scss';
+import Button from "../Button/Button";
 
 const LinkLogo = (props) => {
     return (
-        <div
-            /*type={props.type ? props.type : 'button'}
-            className={`main-action ${props.classNames}`}
-            disabled={props.disabled}
-            onClick={props.onClick}>
-            {props.buttonText}
-            */
+        <div class={'LinkButton ' + props.className}>
 
-            class="LinkButton">
+            <img id="pic" src="assets/qiwi_sign_rgb.png"/>
 
-            <div id="pic" className="img">
-                <img src="assets/qiwi_sign_rgb.png" width="50" height="50"/>
-            </div>
-            <a id="text" class="LinkCSS" href="https://corp.qiwi.com/business/connect/logotype.action">
+            <a id="text" href="https://corp.qiwi.com/business/connect/logotype.action">
                 Выбрать логотип QIWI
             </a>
-
         </div>
-
     );
 };
-
-
+LinkLogo.defaultProps = {
+    classNames: '',
+};
 export default LinkLogo;
