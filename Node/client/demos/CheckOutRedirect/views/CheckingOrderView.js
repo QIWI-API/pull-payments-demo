@@ -27,9 +27,10 @@ const CheckingOrderView = (props) => {
                     <button type="button" onClick={() => window.location.reload()}>Попробуйте перезагрузить страницу</button>
                 </div>
             </div>:null}
-     <div style={{display: "flex"}}>
+     <div class="checking-order_Link">
          <Button  buttonText={'Оплатить'} onClick={props.stateChanger} classNames={'checking-order__redirect'}/>
-         <LinkLogo className={'LinkLogoCheckOutRedirect'}/>
+         <LinkLogo className={'LinkLogoCheckOutRedirect'} textLogo={'Выбрать логотип QIWI'} link = {'https://corp.qiwi.com/business/connect/logotype.action'}
+                   imgLink={'assets/qiwi_sign_rgb.png'}/>
      </div>
 
 

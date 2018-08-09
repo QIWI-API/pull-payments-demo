@@ -1,3 +1,3 @@
-import LinkLogo from './LinkLogo';
+import LinkLogo from './LinkWithIcon';
 
 export default LinkLogo;

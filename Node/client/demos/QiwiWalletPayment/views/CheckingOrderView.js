@@ -22,7 +22,7 @@ const CheckingOrderView = (props) => {
                         return (
                             <div style={{display: "flex"}}>
                                 <RadioButton labelText={button.main} labelTextAdditional={button.additional} index={index} key={index} nameGroup={id} disabled={button.disabled} handler={button.handler}/>
-                                <LinkLogo/>
+                                <LinkLogo imgLink={button.imgLink} link={button.link} textLogo={button.textLogo} />
                         </div>
                         )
                     }
