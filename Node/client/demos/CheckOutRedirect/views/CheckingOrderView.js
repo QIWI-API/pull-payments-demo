@@ -4,7 +4,7 @@ import CheckingOrder from '../../../components/CheckingOrder';
 import Button from '../../../components/Button';
 
 import payments from '../../../assets/payments.png';
-import LinkLogo from '../../../components/Link';
+import Link from '../../../components/Link';
 
 const CheckingOrderView = (props) => {
 
@@ -27,14 +27,14 @@ const CheckingOrderView = (props) => {
                     <button type="button" onClick={() => window.location.reload()}>Попробуйте перезагрузить страницу</button>
                 </div>
             </div>:null}
-     <div class="checking-order_Link">
+
          <Button  buttonText={'Оплатить'} onClick={props.stateChanger} classNames={'checking-order__redirect'}/>
-         <LinkLogo className={'LinkLogoCheckOutRedirect'} textLogo={'Выбрать логотип QIWI'} link = {'https://corp.qiwi.com/business/connect/logotype.action'}
-                   imgLink={'assets/qiwi_sign_rgb.png'}/>
-     </div>
+
+
 
 
             <img src={payments} className="checking-order__payments" alt="payments" width="189"/>
+            <Link className={'checking-order__link'} textLogo={'Выбрать логотип QIWI'} link = {'https://corp.qiwi.com/business/connect/logotype.action'}/>
 
         </CheckingOrder>
     );

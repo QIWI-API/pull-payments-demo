@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import CheckingOrder from '../../../components/CheckingOrder';
 import Button from '../../../components/Button';
 import RadioButton from '../../../components/RadioButton';
-import LinkLogo from '../../../components/Link';
+import LinkWithIcon from '../../../components/LinkWithIcon';
 
 const CheckingOrderView = (props) => {
 
@@ -22,7 +22,7 @@ const CheckingOrderView = (props) => {
                         return (
                             <div style={{display: "flex"}}>
                                 <RadioButton labelText={button.main} labelTextAdditional={button.additional} index={index} key={index} nameGroup={id} disabled={button.disabled} handler={button.handler}/>
-                                <LinkLogo imgLink={"assets/qiwi_sign_rgb.png"} link={"https://corp.qiwi.com/business/connect/logotype.action"} textLogo={"Выбрать логотип QIWI"} />
+                                <LinkWithIcon imgLink={"assets/qiwi_sign_rgb.png"} link={"https://corp.qiwi.com/business/connect/logotype.action"} textLogo={"Выбрать логотип QIWI"} />
                         </div>
                         )
                     }
