@@ -30,10 +30,8 @@ const CheckingOrderView = (props) => {
 
          <Button  buttonText={'Оплатить'} onClick={props.stateChanger} classNames={'checking-order__redirect'}/>
 
-
-
-
             <img src={payments} className="checking-order__payments" alt="payments" width="189"/>
+
             <Link className={'checking-order__link'} textLogo={'Выбрать логотип QIWI'} link = {'https://corp.qiwi.com/business/connect/logotype.action'}/>
 
         </CheckingOrder>

@@ -31,9 +31,6 @@ const CheckingOrderView = (props) => {
 
             </div>
 
-
-
-
             <Button buttonText={`Оплатить ${props.itemCost} ₽`} onClick={props.stateChanger} disabled={!(props.currentPaymentMethod === currentPaymentMethod) }/>
         </CheckingOrder>
     );

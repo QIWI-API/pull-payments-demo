@@ -7,7 +7,6 @@ const OnlyLink = (props) => {
             <a class={'link ' + props.className} href={props.link}>
                 {props.textLogo}
             </a>
-
     );
 };
 export default OnlyLink;
