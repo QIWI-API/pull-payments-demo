@@ -115,9 +115,6 @@ export default class QiwiWalletPayment extends Component {
                 handler: this.paymentMethod('wallet'),
                 icons: [],
                 type: "withlogo",
-                textLogo: "Выбрать логотип QIWI",
-                link: "https://corp.qiwi.com/business/connect/logotype.action",
-                imgLink: "assets/qiwi_sign_rgb.png"
             },
             {
                 main: 'Неудобный способ оплаты',
