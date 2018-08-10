@@ -15,6 +15,10 @@ import MobileForm from '../../components/MobileForm';
 import SuccessPage from '../../components/SuccessPage';
 import ErrorPage from '../../components/ErrorPage';
 
+export const radioButtonsTypes={
+    BUTTON_WITH_LINK: "BUTTON_WITH_LINK"
+}
+
 export default class QiwiWalletPayment extends Component {
     constructor(props) {
         super(props);
@@ -113,7 +117,8 @@ export default class QiwiWalletPayment extends Component {
                 disabled: false,
                 additional: '0% комиссии',
                 handler: this.paymentMethod('wallet'),
-                icons: []
+                icons: [],
+                type: radioButtonsTypes.BUTTON_WITH_LINK,
             },
             {
                 main: 'Неудобный способ оплаты',
@@ -123,6 +128,7 @@ export default class QiwiWalletPayment extends Component {
                 icons: []
             }
         ];
+
 
         const statesMap = {
             checkingOrder: {

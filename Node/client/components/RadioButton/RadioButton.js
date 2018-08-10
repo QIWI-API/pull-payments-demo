@@ -14,13 +14,17 @@ const RadioButton = (props) => {
                 </div>
             </label>
             <div className="select-payment-method__icons">{props.children}</div>
+
         </div>
+
     );
 };
 
 RadioButton.defaultProps = {
     labelText: 'Оплатить',
-    nameGroup: 'group'
+    nameGroup: 'group',
+    type: ''
+
 };
 
 export default RadioButton;
