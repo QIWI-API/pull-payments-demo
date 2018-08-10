@@ -27,7 +27,6 @@ const CheckingOrderView = (props) => {
                         </div>
                         )
                     }
-                   // <LinkWithIcon imgLink={"assets/qiwi_sign_rgb.png"} link={"https://corp.qiwi.com/business/connect/logotype.action"} textLogo={"Выбрать логотип QIWI"} />
                     return (<RadioButton labelText={button.main} labelTextAdditional={button.additional} index={index} key={index} nameGroup={id} disabled={button.disabled} handler={button.handler}/>);
                 })}
 
