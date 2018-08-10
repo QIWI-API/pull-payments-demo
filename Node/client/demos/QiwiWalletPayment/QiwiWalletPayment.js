@@ -16,7 +16,7 @@ import SuccessPage from '../../components/SuccessPage';
 import ErrorPage from '../../components/ErrorPage';
 
 export const radioButtonsTypes={
-    BUTTON_WITH_LINK: "BUTTON_WITH_LINK";
+    BUTTON_WITH_LINK: "BUTTON_WITH_LINK"
 }
 
 export default class QiwiWalletPayment extends Component {
