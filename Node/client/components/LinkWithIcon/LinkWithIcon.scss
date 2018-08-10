@@ -1,4 +1,4 @@
-.LinkWithIcon {
+.link-with-icon {
   padding: 0px;
   max-height: 20px;
   display: flex;
@@ -6,7 +6,7 @@
   justify-content: center;
 }
 
-.text {
+.link-with-icon__text {
   font-size: 12px;
   font-weight: 300;
   font-style: normal;
@@ -18,13 +18,7 @@
   text-decoration: none;
 }
 
-.imgLogo {
+.link-with-icon__img-logo {
   width: 20px;
   height: 20px;
-}
-.OnlyLink{
-  padding: 0px;
-  max-height: 20px;
-  align-items: center;
-  justify-content: center;
 }

@@ -4,6 +4,7 @@ import CheckingOrder from '../../../components/CheckingOrder';
 import Button from '../../../components/Button';
 import RadioButton from '../../../components/RadioButton';
 import LinkWithIcon from '../../../components/LinkWithIcon';
+import {radioButtonsTypes} from '../QiwiWalletPayment';
 
 const CheckingOrderView = (props) => {
 
@@ -18,7 +19,7 @@ const CheckingOrderView = (props) => {
             <div className="checking-order__select-block">
 
                 {props.radioButtons.map((button, index)=>{
-                    if(button.type == "withlogo"){
+                    if(button.type == radioButtonsTypes.BUTTON_WITH_LINK){
                         return (
                             <div style={{display: "flex"}}>
                                 <RadioButton labelText={button.main} labelTextAdditional={button.additional} index={index} key={index} nameGroup={id} disabled={button.disabled} handler={button.handler}/>
@@ -26,6 +27,7 @@ const CheckingOrderView = (props) => {
                         </div>
                         )
                     }
+                   // <LinkWithIcon imgLink={"assets/qiwi_sign_rgb.png"} link={"https://corp.qiwi.com/business/connect/logotype.action"} textLogo={"Выбрать логотип QIWI"} />
                     return (<RadioButton labelText={button.main} labelTextAdditional={button.additional} index={index} key={index} nameGroup={id} disabled={button.disabled} handler={button.handler}/>);
                 })}
 

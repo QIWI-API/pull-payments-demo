@@ -4,11 +4,11 @@ import './LinkWithIcon.scss';
 
 const LinkWithIcon = (props) => {
     return (
-        <div class={'LinkWithIcon ' + props.className}>
+        <div class={'link-with-icon ' + props.className}>
 
-            <img class="imgLogo" src={props.imgLink}/>
+            <img class="link-with-icon__img-logo" src={props.imgLink}/>
 
-            <a class="text" href={props.link}>
+            <a class="link-with-icon__text" href={props.link}>
                 {props.textLogo}
             </a>
         </div>
