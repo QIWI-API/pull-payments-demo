@@ -2,39 +2,26 @@
   "translations": {
     "key": "Оплатить",
 
-    "header_menu_documentation": "Документация",
-    "header_menu_demo": "Демо",
-    "header_help-title": "Вопросы",
-
-    "menu_item-main_payment-qiwi": "Оплата с QIWI Кошелька",
-    "menu_item-second_documentation": "Документация",
-    "menu_item-second_git": "Github",
-    "menu_item-main_payment-mobile": "Оплата с баланса мобильного",
-    "menu_item-main_payment-single-protocol": "Оплата через единый платежный протокол",
-
-    "qiwi_main-caption": "Оплата с QIWI Кошелька",
-    "qiwi_radio-batton-first_main": "Qiwi кошельком",
-    "qiwi_radio-button-first_additional": "0% комиссии",
-    "qiwi_radio-button-second_main": "Неудобный способ оплаты",
-    "qiwi_radio-button-second_additional": "50% комиссии",
-    "qiwi_link-with-icon": "Выбрать логотип QIWI",
-
-    "mobile-payment_main-caption": "Оплата с баланса мобильного",
-    "mobile-payment_radio-button-first_main": "С баланса мобильного",
-    "mobile-payment_radio-button-first_additional": "0% комиссии",
-    "mobile-payment_radio-button-second_main": "Неудобный способ оплаты",
-    "mobile-payment_radio-button-second_additional": "50% комиссии",
-
-    "check-out-redirect_main-caption": "Оплата через единый протокол",
-    "check-out-redirect_button": "Оплатить",
-    "check-out-redirect_link": "Выбрать логотип QIWI",
-
+    "documentation": "Документация",
+    "demo": "Демо",
+    "feedback": "Вопросы",
+    "pay-wallet": "Оплата с QIWI Кошелька",
+    "pay-mobile": "Оплата с баланса мобильного",
+    "pay-invoicing": "Оплата через единый платежный протокол",
+    "version-control": "Github",
+    "pay-qiwi-wallet": "Qiwi кошельком",
+    "qiwi-commission": "0% комиссии",
+    "non-qiwi": "Неудобный способ оплаты",
+    "non-qiwi-commission": "50% комиссии",
+    "standards-of-representation": "Выбрать логотип QIWI",
+    "mobile": "С баланса мобильного",
+    "pay": "Оплатить",
     "card_first-title": "Проверьте ваш заказ",
-    "card_item_title": "Philips SHE3855",
-    "card_item_about": "Стильные и удобные наушники-вкладыши Philips Chromz (SHE3855) с превосходным дизайном обеспечивают воспроизведение насыщенных басов. Цвета матовой отделки, выполненной методом вакуумной металлизации, соответствуют цветам iPhone 6s.",
-    "card_item_quantity": "1 шт",
-    "card_item_delivery": "Доставка",
-    "card_item_total": "Итог",
+    "card_item-title": "Philips SHE3855",
+    "card_item-about": "Стильные и удобные наушники-вкладыши Philips Chromz (SHE3855) с превосходным дизайном обеспечивают воспроизведение насыщенных басов. Цвета матовой отделки, выполненной методом вакуумной металлизации, соответствуют цветам iPhone 6s.",
+    "card_item-quantity": "1 шт",
+    "card_item-delivery": "Доставка",
+    "card_item-total": "Итог",
     "card_second-title": "Выберите способ оплаты"
   }
 }

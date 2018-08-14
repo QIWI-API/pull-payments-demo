@@ -14,12 +14,8 @@ i18n.use(reactI18nextModule).init({
     ns: ['translations'],
     defaultNS: 'translations',
 
-    keySeparator: false, // we use content as keys
+    keySeparator: true, // we use content as keys
 
-    interpolation: {
-        escapeValue: false, // not needed for react!!
-        formatSeparator: ','
-    },
     react: {
         wait: true
     }
