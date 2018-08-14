@@ -82,6 +82,9 @@ export default class App extends Component {
 
     changeLang = (lang) => {
         i18n.changeLanguage(lang);
+        this.setState({
+            lang
+        });
     };
 
 
@@ -131,7 +134,7 @@ export default class App extends Component {
         const isMenuOpen = this.state.isMenuOpen;
 
         const demosMap = {
-            mobilePayment: (index, t) => (
+            mobilePayment: (index) => (
                 <MobilePayment
                     state={mobilePayment}
                     stateChanger={this.demoStateChanger('mobilePayment')}
@@ -147,7 +150,7 @@ export default class App extends Component {
                 />
 
             ),
-            checkOutRedirect: (index, t) => (
+            checkOutRedirect: (index) => (
                 <CheckOutRedirect
                     state={checkOutRedirect}
                     stateChanger={this.demoStateChanger('checkOutRedirect')}
