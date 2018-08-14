@@ -2,9 +2,10 @@ import React, { Component } from 'react';
 
 import './Button.scss';
 
+
 const Button = (props) => {
     return (
-        <button
+        <button id="button-translateion-text"
             type={props.type ? props.type : 'button'}
             className={`main-action ${props.classNames}`}
             disabled={props.disabled}
@@ -13,6 +14,10 @@ const Button = (props) => {
         </button>
     );
 };
+
+
+
+
 
 Button.defaultProps = {
     classNames: '',

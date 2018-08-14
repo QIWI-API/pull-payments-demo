@@ -6,6 +6,8 @@ import RadioButton from '../../../components/RadioButton';
 import LinkWithIcon from '../../../components/LinkWithIcon';
 import {radioButtonsTypes} from '../QiwiWalletPayment';
 import qiwiSign from "../../../assets/qiwi_sign_rgb.png";
+import i18next from 'i18next';
+
 const CheckingOrderView = (props) => {
 
     const id = props.id;
@@ -32,7 +34,7 @@ const CheckingOrderView = (props) => {
 
             </div>
 
-            <Button buttonText={`Оплатить ${props.itemCost} ₽`} onClick={props.stateChanger} disabled={!(props.currentPaymentMethod === currentPaymentMethod) }/>
+            <Button buttonText={`${props.buttonText} ${props.itemCost} ₽`} onClick={props.stateChanger} disabled={!(props.currentPaymentMethod === currentPaymentMethod) }/>
         </CheckingOrder>
     );
 };

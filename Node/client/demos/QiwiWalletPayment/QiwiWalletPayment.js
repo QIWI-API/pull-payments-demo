@@ -140,6 +140,7 @@ export default class QiwiWalletPayment extends Component {
                         radioButtons={radioButtons}
                         id={id}
                         currentPaymentMethod={currentPaymentMethod}
+                        buttonText={this.props.buttonText}
                     />
                 )
             },

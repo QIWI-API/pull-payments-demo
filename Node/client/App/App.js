@@ -1,6 +1,7 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import 'url-search-params-polyfill';
 import cn from 'classnames';
+import {I18nextProvider, translate} from 'react-i18next';
 
 import Header from '../components/Header';
 import Menu from '../components/Menu';
@@ -9,12 +10,13 @@ import MobilePayment from '../demos/MobilePayment';
 import QiwiWalletPayment from '../demos/QiwiWalletPayment';
 import CheckOutRedirect from '../demos/CheckOutRedirect';
 
+import i18n from '../localization';
 import './App.scss';
 
 /*
 Пример ссылки: http://localhost:5005/?method=mobilePayment&status=success#mobilePayment
 */
-
+@translate('translations')
 export default class App extends Component {
     constructor(props) {
         super(props);
@@ -79,10 +81,9 @@ export default class App extends Component {
     }
 
     changeLang = (lang) => {
-        this.setState({
-            lang
-        });
+        i18n.changeLanguage(lang);
     };
+
 
     changeHash = (demo) => {
         const hash = `#${demo}`;
@@ -127,12 +128,9 @@ export default class App extends Component {
             checkOutRedirect
         } = this.state.demos;
 
-        const isMenuOpen = this.state.isMenuOpen;
+        const { t, i18n } = this.props;
 
-        /* const layoutClass = cn({
-            layout: true,
-            'layout--translated': isMenuOpen
-        }); */
+        const isMenuOpen = this.state.isMenuOpen;
 
         const demosMap = {
             mobilePayment: (index) => (
@@ -147,7 +145,9 @@ export default class App extends Component {
                     state={qiwiWalletPayment}
                     stateChanger={this.demoStateChanger('qiwiWalletPayment')}
                     key={index}
+                    buttonText={t()}
                 />
+
             ),
             checkOutRedirect: (index) => (
                 <CheckOutRedirect
@@ -162,26 +162,33 @@ export default class App extends Component {
             translated: isMenuOpen
         });
 
+
         return (
-            <div className={translated}>
-                <Header
-                    lang={this.state.lang}
-                    changeLang={this.changeLang}
-                    toggleMenu={this.toggleMenu}
-                />
+            <I18nextProvider i18n={i18n}>
+                <div className={translated}>
 
-                <Menu
-                    order={this.state.order}
-                    info={this.state.demos}
-                    toggleMenu={this.toggleMenu}
-                />
+                    <Header
+                        lang={this.state.lang}
+                        changeLang={this.changeLang}
+                        toggleMenu={this.toggleMenu}
+                    />
 
-                <main className="layout">
-                    {this.state.order.map((demo, index) => {
-                        return demosMap[demo](index);
-                    })}
-                </main>
-            </div>
+                    <Menu
+                        order={this.state.order}
+                        info={this.state.demos}
+                        toggleMenu={this.toggleMenu}
+
+                    />
+
+                    <main className="layout">
+                        {this.state.order.map((demo, index) => {
+                            return demosMap[demo](index);
+                        })}
+                    </main>
+
+                </div>
+            </I18nextProvider>
+
         );
     }
 }
