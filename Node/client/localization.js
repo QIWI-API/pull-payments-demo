@@ -1,23 +1,17 @@
 import i18n from 'i18next';
-import LanguageDetector from "i18next-browser-languagedetector";
+import {reactI18nextModule} from 'react-i18next';
+import en from "./locale/en";
+import ru from "./locale/ru";
 
-i18n.use(LanguageDetector).init({
+i18n.use(reactI18nextModule).init({
     lng: 'ru',
     fallbackLng: "ru",
     debug: true,
 
 
     resources: {
-        ru: {
-            translations: {
-                "key": "Оплатить",
-            }
-        },
-        en: {
-            translations: {
-                "key": "Pay now",
-            }
-        }
+        ru,
+        en
     },
     ns: ["translations"],
     defaultNS: "translations",
