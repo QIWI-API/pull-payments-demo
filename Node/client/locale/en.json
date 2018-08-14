@@ -1,5 +1,40 @@
 {
   "translations": {
-    "key": "Pay now"
+    "key": "Pay now",
+
+    "header_menu_documentation": "Documentation",
+    "header_menu_demo": "Demo",
+    "header_help-title": "Feedback",
+
+    "menu_item-main_payment-qiwi": "Payment with QIWI Wallet",
+    "menu_item-second_documentation": "Documentation",
+    "menu_item-second_git": "Github",
+    "menu_item-main_payment-mobile": "Payment from the mobile balance",
+    "menu_item-main_payment-single-protocol": "Payment through a single payment protocol",
+
+    "qiwi_main-caption": "Payment with QIWI Wallet",
+    "qiwi_radio-batton-first_main": "Qiwi wallet",
+    "qiwi_radio-button-first_additional": "0% коммисии",
+    "qiwi_radio-button-second_main": "Неудобный способ оплаты",
+    "qiwi_radio-button-second_additional": "50% комиссии",
+    "qiwi_link-with-icon": "Выбрать логотип QIWI",
+
+    "mobile-payment_main-caption": "Оплата с баланса мобильного",
+    "mobile-payment_radio-button-first_main": "С баланса мобильного",
+    "mobile-payment_radio-button-first_additional": "0% комиссии",
+    "mobile-payment_radio-button-second_main": "Неудобный способ оплаты",
+    "mobile-payment_radio-button-second_additional": "50% комиссии",
+
+    "check-out-redirect_main-caption": "Оплата через единый протокол",
+    "check-out-redirect_button": "Оплатить",
+    "check-out-redirect_link": "Выбрать логотип QIWI",
+
+    "card_first-title": "Проверьте ваш заказ",
+    "card_item_title": "Philips SHE3855",
+    "card_item_about": "Стильные и удобные наушники-вкладыши Philips Chromz (SHE3855) с превосходным дизайном обеспечивают воспроизведение насыщенных басов. Цвета матовой отделки, выполненной методом вакуумной металлизации, соответствуют цветам iPhone 6s.",
+    "card_item_quantity": "1 шт",
+    "card_item_delivery": "Доставка",
+    "card_item_total": "Итог",
+    "card_second-title": "Выберите способ оплаты"
   }
 }
