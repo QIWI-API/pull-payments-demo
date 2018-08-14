@@ -7,8 +7,6 @@ i18n.use(reactI18nextModule).init({
     lng: 'ru',
     fallbackLng: 'ru',
     debug: true,
-
-
     resources: {
         ru,
         en
