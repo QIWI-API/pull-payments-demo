@@ -6,7 +6,7 @@ import RadioButton from '../../../components/RadioButton';
 import LinkWithIcon from '../../../components/LinkWithIcon';
 import {radioButtonsTypes} from '../QiwiWalletPayment';
 import qiwiSign from "../../../assets/qiwi_sign_rgb.png";
-import i18next from 'i18next';
+
 
 const CheckingOrderView = (props) => {
 

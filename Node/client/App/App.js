@@ -17,6 +17,7 @@ import './App.scss';
 /*
 Пример ссылки: http://localhost:5005/?method=mobilePayment&status=success#mobilePayment
 */
+@translate()
 export default class App extends Component {
     constructor(props) {
         super(props);
@@ -133,7 +134,9 @@ export default class App extends Component {
 
         const isMenuOpen = this.state.isMenuOpen;
 
-        const demosMap = {
+        const { t, tReady } = this.props;
+
+            const demosMap = {
             mobilePayment: (index) => (
                 <MobilePayment
                     state={mobilePayment}
@@ -165,36 +168,27 @@ export default class App extends Component {
 
 
         return (
-            <I18nextProvider i18n={i18n}>
-                <I18n>
-                    {
-                        t => {
-                            return (<div className={translated}>
 
-                                <Header
-                                    lang={this.state.lang}
-                                    changeLang={this.changeLang}
-                                    toggleMenu={this.toggleMenu}
-                                />
+        <div className={translated}>
+            <Header
+                lang={this.state.lang}
+                changeLang={this.changeLang}
+                toggleMenu={this.toggleMenu}
+            />
 
-                                <Menu
-                                    order={this.state.order}
-                                    info={this.state.demos}
-                                    toggleMenu={this.toggleMenu}
+            <Menu
+                order={this.state.order}
+                info={this.state.demos}
+                toggleMenu={this.toggleMenu}
+            />
 
-                                />
+            <main className="layout">
+                {this.state.order.map((demo, index) => {
+                    return demosMap[demo](index, t);
+                })}
+                </main>
 
-                                <main className="layout">
-                                    {this.state.order.map((demo, index) => {
-                                        return demosMap[demo](index, t);
-                                    })}
-                                </main>
-
-                            </div>)
-                        }
-                    }
-                </I18n>
-            </I18nextProvider>
+        </div>
 
         );
     }
