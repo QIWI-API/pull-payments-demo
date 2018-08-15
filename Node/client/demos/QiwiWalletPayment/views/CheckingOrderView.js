@@ -22,7 +22,7 @@ const CheckingOrderView = (props) => {
                 {props.radioButtons.map((button, index)=>{
                     if(button.type == radioButtonsTypes.BUTTON_WITH_LINK){
                         return (
-                            <div style={{display: "flex"}}>
+                            <div style={{display: "flex"} } key={index}>
                                 <RadioButton labelText={button.main} labelTextAdditional={button.additional} index={index} key={index} nameGroup={id} disabled={button.disabled} handler={button.handler}/>
                                 <LinkWithIcon imgLink={qiwiSign} link={"https://corp.qiwi.com/business/connect/logotype.action"} textLogo={t('standards-of-representation')} />
                         </div>
