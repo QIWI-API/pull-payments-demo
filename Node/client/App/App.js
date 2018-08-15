@@ -30,8 +30,6 @@ export default class App extends Component {
     constructor(props) {
         super(props);
 
-        const { t } = this.props;
-
         this.state = {
             lang: 'ru',
             isMenuOpen: false,

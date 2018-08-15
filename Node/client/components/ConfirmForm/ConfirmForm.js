@@ -11,7 +11,7 @@ import { translate } from 'react-i18next';
 @translate()
 export default class ConfirmForm extends Component {
     render() {
-    const{ t }= this.props;
+    const{ t }= props;
         return (<div>
             <h2>{t('confirmation-by-SMS_main')}</h2>
 

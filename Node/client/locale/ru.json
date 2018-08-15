@@ -27,6 +27,9 @@
     "field_phone-number": "Номер телефона:",
     "mobile-form": "Введите номер телефона",
     "come-back": "Вернуться назад",
+    "qiwiWalletPayment": "Оплата с QIWI Кошелька",
+    "mobilePayment": "Оплата с баланса мобильного",
+    "checkOutRedirect": "Оплата через единый платежный протокол"
 
     "confirmation-by-SMS_main": "Ждем подтверждения по СМС",
     "confirmation-by-SMS_secondary-first": "Следуйте SMS-инструкциям вашего оператора сотовой связи.",
@@ -36,9 +39,13 @@
     "error-with-payment": "Возникла ошибка при оплате",
     "error-with-payment_status": "Не удалось совершить платеж.",
     "error-with-payment_button": "Повторить платеж",
-
-    "qiwiWalletPayment": "Оплата с QIWI Кошелька",
-    "mobilePayment": "Оплата с баланса мобильного",
-    "checkOutRedirect": "Оплата через единый платежный протокол"
+    "success-page_main": "Оплата прошла успешно",
+    "success-page_status": "Вы успешно совершили покупку",
+    "headphones": "наушников",
+    "success-page_about-payment-title": "Данные платежа",
+    "product-order-number": "Номер закза",
+    "product-payment": "Способ оплаты",
+    "product_sum": "Сумма платежа",
+    "success-page_button": "Вернуться на главную страницу"
   }
 }
