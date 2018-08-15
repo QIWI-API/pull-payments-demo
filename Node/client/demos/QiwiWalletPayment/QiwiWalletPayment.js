@@ -121,6 +121,7 @@ export default class QiwiWalletPayment extends Component {
                 disabled: false,
                 additional: t('qiwi-commission'),
                 handler: this.paymentMethod('wallet'),
+                buttonPaymentMethod: "wallet",
                 icons: [],
                 type: radioButtonsTypes.BUTTON_WITH_LINK,
             },
@@ -129,6 +130,7 @@ export default class QiwiWalletPayment extends Component {
                 disabled: true,
                 additional: t('non-qiwi-commission'),
                 handler: this.paymentMethod('other'),
+                buttonPaymentMethod: "other",
                 icons: []
             }
         ];
