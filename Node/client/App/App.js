@@ -183,9 +183,6 @@ export default class App extends Component {
                 order={this.state.order}
                 info={this.state.demos}
                 toggleMenu={this.toggleMenu}
-                menu_documentation={t('documentation')}
-                menu_demo={t('demo')}
-                menu_versionControl={t('version-control')}
             />
 
             <main className="layout">

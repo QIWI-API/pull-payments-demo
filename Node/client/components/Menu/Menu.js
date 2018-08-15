@@ -29,12 +29,12 @@ export default class Menu extends Component {
                     <ul className="main-menu">
                         <li className="main-menu-item">
                             <a href="https://developer.qiwi.com/#products">
-                                {this.props.menu_documentation}
+                                {t('documentation')}
                             </a>
                         </li>
                         <li className="main-menu-item main-menu-item--active">
                             <a href="https://developer.qiwi.com/demo">
-                                {this.props.menu_demo}
+                                {t('demo')}
                             </a>
                         </li>
                     </ul>
@@ -62,7 +62,7 @@ export default class Menu extends Component {
                                                     href={info[method].doc}
                                                     target="_blank"
                                                     className="nav__item-second-link">
-                                                    {`${this.props.menu_documentation} `}
+                                                    {`${t('documentation')} `}
 
                                                     <img
                                                         src={link}
@@ -78,7 +78,7 @@ export default class Menu extends Component {
                                                     href={info[method].git}
                                                     target="_blank"
                                                     className="nav__item-second-link">
-                                                    {`${this.props.menu_versionControl} `}
+                                                    {`${t('version-control')} `}
                                                     <img
                                                         src={link}
                                                         alt="link"
