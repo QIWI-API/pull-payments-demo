@@ -3,8 +3,11 @@ import Scrollspy from 'react-scrollspy';
 
 import link from '../../assets/external-link.svg';
 
+import { translate } from 'react-i18next';
+
 import './Menu.scss';
 
+@translate()
 export default class Menu extends Component {
     constructor(props) {
         super(props);
@@ -18,6 +21,7 @@ export default class Menu extends Component {
         const toggleMenu = this.props.toggleMenu;
 
         const isMenuOpen = this.props.isMenuOpen;
+        const { t } = this.props;
 
         return (
             <nav className="menu">
@@ -25,11 +29,13 @@ export default class Menu extends Component {
                     <ul className="main-menu">
                         <li className="main-menu-item">
                             <a href="https://developer.qiwi.com/#products">
-                                Документация
+                                {this.props.menu_documentation}
                             </a>
                         </li>
                         <li className="main-menu-item main-menu-item--active">
-                            <a href="https://developer.qiwi.com/demo">Демо</a>
+                            <a href="https://developer.qiwi.com/demo">
+                                {this.props.menu_demo}
+                            </a>
                         </li>
                     </ul>
                 </div>
@@ -44,7 +50,7 @@ export default class Menu extends Component {
                                     <a
                                         href={`#${info[method].id}`}
                                         className="nav__item-main-link">
-                                        {info[method].name}{' '}
+                                        {t(info[method].id)}{' '}
                                         <span className="nav__indicator">
                                             →
                                         </span>
@@ -56,7 +62,8 @@ export default class Menu extends Component {
                                                     href={info[method].doc}
                                                     target="_blank"
                                                     className="nav__item-second-link">
-                                                    Документация{' '}
+                                                    {`${this.props.menu_documentation} `}
+
                                                     <img
                                                         src={link}
                                                         alt="link"
@@ -71,7 +78,7 @@ export default class Menu extends Component {
                                                     href={info[method].git}
                                                     target="_blank"
                                                     className="nav__item-second-link">
-                                                    Github{' '}
+                                                    {`${this.props.menu_versionControl} `}
                                                     <img
                                                         src={link}
                                                         alt="link"

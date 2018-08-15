@@ -1,5 +1,34 @@
 {
   "translations": {
-      "key": "Pay now"
+    "key": "Pay now",
+
+    "demo": "Demo",
+    "documentation": "Documentation",
+    "feedback": "Feedback",
+    "version-control": "Github",
+    "pay-wallet": "Payment with QIWI Wallet",
+    "standards-of-representation": "Choose the QIWI logo",
+    "card_item-delivery": "Delivery",
+    "card_item-about": "Stylish and comfortable Philips Chromz headphones (SHE3855) with excellent design ensure the reproduction of saturated bass. The colors of the matte finish, made by the method of vacuum metallization, correspond to the colors of the iPhone 6s",
+    "card_item-total": "The result",
+    "card_first-title": "Check your order",
+    "card_item-quantity": "1 pc",
+    "card_second-title": "Select a payment method",
+    "pay-qiwi-wallet": "Qiwi wallet",
+    "qiwi-commission": "0% commission",
+    "non-qiwi": "Inconvenient method of payment",
+    "non-qiwi-commission": "50% commission",
+    "mobile": "From mobile balance",
+    "error-displaying-page": "QIWI page is not displayed?",
+    "error-solution-with-page-display": "Try reloading the page",
+    "pay-invoicing": "Payment through a single payment protocol",
+    "pay": "Pay now",
+    "pay-mobile": "Payment from mobile balance",
+    "field_phone-number": "Phone number:",
+    "mobile-form": "Enter phone number",
+    "come-back": "Come back",
+    "qiwiWalletPayment": "Payment with QIWI Wallet",
+    "mobilePayment": "Payment from mobile balance",
+    "checkOutRedirect": "Payment through a single payment protocol"
+   }
   }
-}

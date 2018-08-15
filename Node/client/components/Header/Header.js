@@ -28,16 +28,20 @@ export default class Header extends Component {
                 <ul className="header__menu">
                     <li className="header__menu-item">
                         <a href="https://developer.qiwi.com/#products">
-                            Документация
+                            {this.props.head_documetation}
                         </a>
                     </li>
                     <li className="header__menu-item header__menu-item--active">
-                        <a href="https://developer.qiwi.com/demo">Демо</a>
+                        <a href="https://developer.qiwi.com/demo">
+                            {this.props.head_demo}
+                            </a>
                     </li>
                 </ul>
 
                 <div className="header__help">
-                    <div className="header__help-title">Вопросы</div>
+                    <div className="header__help-title">
+                        {this.props.head_feedback}
+                    </div>
                     <a href="mailto:api_help@qiwi.com">api_help@qiwi.com</a>
                 </div>
 

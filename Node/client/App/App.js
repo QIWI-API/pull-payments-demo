@@ -19,17 +19,27 @@ import './App.scss';
 */
 @translate()
 export default class App extends Component {
+
+    changeLang = (lang) => {
+        i18n.changeLanguage(lang);
+        this.setState({
+            lang
+        });
+    };
+
     constructor(props) {
         super(props);
+
+        const { t } = this.props;
 
         this.state = {
             lang: 'ru',
             isMenuOpen: false,
+
             order: ['qiwiWalletPayment', 'mobilePayment', 'checkOutRedirect'],
             demos: {
                 mobilePayment: {
                     id: 'mobilePayment',
-                    name: 'Оплата с баланса мобильного',
                     view: 'checkingOrder',
                     acceptedViews: ['success'],
                     doc: 'https://developer.qiwi.com/ru/pull-mobile-payments/',
@@ -38,7 +48,6 @@ export default class App extends Component {
                 },
                 qiwiWalletPayment: {
                     id: 'qiwiWalletPayment',
-                    name: 'Оплата с QIWI Кошелька',
                     view: 'checkingOrder',
                     acceptedViews: ['success', 'error'],
                     doc:
@@ -48,7 +57,6 @@ export default class App extends Component {
                 },
                 checkOutRedirect: {
                     id: 'checkOutRedirect',
-                    name: 'Оплата через единый платежный протокол',
                     view: 'checkingOrder',
                     acceptedViews: ['success'],
                     doc: 'https://developer.qiwi.com/ru/bill-payments/',
@@ -81,12 +89,7 @@ export default class App extends Component {
         }
     }
 
-    changeLang = (lang) => {
-        i18n.changeLanguage(lang);
-        this.setState({
-            lang
-        });
-    };
+
 
 
     changeHash = (demo) => {
@@ -134,7 +137,7 @@ export default class App extends Component {
 
         const isMenuOpen = this.state.isMenuOpen;
 
-        const { t, tReady } = this.props;
+        const { t } = this.props;
 
             const demosMap = {
             mobilePayment: (index) => (
@@ -149,7 +152,6 @@ export default class App extends Component {
                     state={qiwiWalletPayment}
                     stateChanger={this.demoStateChanger('qiwiWalletPayment')}
                     key={index}
-                    buttonText={t('key')}
                 />
 
             ),
@@ -174,12 +176,18 @@ export default class App extends Component {
                 lang={this.state.lang}
                 changeLang={this.changeLang}
                 toggleMenu={this.toggleMenu}
+                head_documetation={t('documentation')}
+                head_demo={t('demo')}
+                head_feedback={t('feedback')}
             />
 
             <Menu
                 order={this.state.order}
                 info={this.state.demos}
                 toggleMenu={this.toggleMenu}
+                menu_documentation={t('documentation')}
+                menu_demo={t('demo')}
+                menu_versionControl={t('version-control')}
             />
 
             <main className="layout">

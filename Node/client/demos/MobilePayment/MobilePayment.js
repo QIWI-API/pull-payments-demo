@@ -7,6 +7,8 @@ import megaIcon from '../../assets/mega.svg';
 import mtsIcon from '../../assets/mts.svg';
 import teleIcon from '../../assets/tele.svg';
 
+import { translate } from 'react-i18next';
+
 import Card from '../../components/Card';
 import CheckingOrderView from './views/CheckingOrderView';
 import MobileForm from '../../components/MobileForm';
@@ -14,6 +16,7 @@ import ConfirmForm from '../../components/ConfirmForm';
 import SuccessPage from '../../components/SuccessPage';
 import ErrorPage from '../../components/ErrorPage';
 
+@translate()
 export default class MobilePayment extends Component {
     constructor(props) {
         super(props);
@@ -90,7 +93,7 @@ export default class MobilePayment extends Component {
 
     render() {
         const state = this.props.state;
-
+        const { t, tReady } = this.props;
         const {
             currentPaymentMethod,
             phone,
@@ -112,16 +115,16 @@ export default class MobilePayment extends Component {
 
         const radioButtons = [
             {
-                main: 'C баланса мобильного',
+                main: t('mobile'),
                 disabled: false,
-                additional: '0% комиссии',
+                additional: t('qiwi-commission'),
                 handler: this.paymentMethod('mobile'),
                 icons
             },
             {
-                main: 'Неудобный способ оплаты',
+                main: t('non-qiwi'),
                 disabled: true,
-                additional: '50% комиссии',
+                additional: t('non-qiwi-commission'),
                 handler: this.paymentMethod('other'),
                 icons: []
             }
@@ -172,7 +175,7 @@ export default class MobilePayment extends Component {
 
         return (
             <div>
-                <Card title={state.name} id={id}>
+                <Card title={t('pay-mobile')} id={id}>
                     {statesMap[state.view].view}
                 </Card>
             </div>

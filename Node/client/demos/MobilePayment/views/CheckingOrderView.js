@@ -5,6 +5,8 @@ import Button from '../../../components/Button';
 import RadioButton from '../../../components/RadioButton';
 import IconsRaw from '../../../components/IconsRow';
 
+import { translate } from 'react-i18next';
+
 
 const CheckingOrderView = (props) => {
 
@@ -12,20 +14,22 @@ const CheckingOrderView = (props) => {
 
     const currentPaymentMethod = 'mobile';
 
+    const { t, tReady } = props;
+
     return (
         <CheckingOrder itemCost={props.itemCost} itemPic={props.itemPic}>
 
-            <h2 className="checking-order__title">Выберите способ оплаты</h2>
+            <h2 className="checking-order__title">{t('card_second-title')}</h2>
             <div className="checking-order__select-block">
                 {props.radioButtons.map((button, index)=>{
                     return (<RadioButton labelText={button.main} labelTextAdditional={button.additional} index={index} key={index} nameGroup={id} disabled={button.disabled} handler={button.handler}><IconsRaw icons={button.icons}/></RadioButton>);
                 })}
             </div>
 
-            <Button buttonText={`Оплатить ${props.itemCost} ₽`} onClick={props.stateChanger} disabled={!(props.currentPaymentMethod === currentPaymentMethod)}/>
+            <Button buttonText={`${t('key')} ${props.itemCost} ₽`} onClick={props.stateChanger} disabled={!(props.currentPaymentMethod === currentPaymentMethod)}/>
 
         </CheckingOrder>
     );
 };
 
-export default CheckingOrderView;
+export default translate()(CheckingOrderView);

@@ -9,6 +9,8 @@ import megaIcon from '../../assets/mega.svg';
 import mtsIcon from '../../assets/mts.svg';
 import teleIcon from '../../assets/tele.svg';
 
+import { translate } from 'react-i18next';
+
 import Card from '../../components/Card';
 import CheckingOrderView from './views/CheckingOrderView';
 import MobileForm from '../../components/MobileForm';
@@ -18,7 +20,7 @@ import ErrorPage from '../../components/ErrorPage';
 export const radioButtonsTypes={
     BUTTON_WITH_LINK: "BUTTON_WITH_LINK"
 }
-
+@translate()
 export default class QiwiWalletPayment extends Component {
     constructor(props) {
         super(props);
@@ -94,6 +96,8 @@ export default class QiwiWalletPayment extends Component {
     render() {
         const state = this.props.state;
 
+        const { t } = this.props;
+
         const {
             currentPaymentMethod,
             phone,
@@ -113,17 +117,17 @@ export default class QiwiWalletPayment extends Component {
 
         const radioButtons = [
             {
-                main: 'Qiwi кошельком',
+                main: t('pay-qiwi-wallet'),
                 disabled: false,
-                additional: '0% комиссии',
+                additional: t('qiwi-commission'),
                 handler: this.paymentMethod('wallet'),
                 icons: [],
                 type: radioButtonsTypes.BUTTON_WITH_LINK,
             },
             {
-                main: 'Неудобный способ оплаты',
+                main: t('non-qiwi'),
                 disabled: true,
-                additional: '50% комиссии',
+                additional: t('non-qiwi-commission'),
                 handler: this.paymentMethod('other'),
                 icons: []
             }
@@ -141,6 +145,7 @@ export default class QiwiWalletPayment extends Component {
                         id={id}
                         currentPaymentMethod={currentPaymentMethod}
                         buttonText={this.props.buttonText}
+                        textLogo={this.props.textLogo}
                     />
                 )
             },
@@ -180,7 +185,7 @@ export default class QiwiWalletPayment extends Component {
 
         return (
             <div>
-                <Card title={state.name} id={id}>
+                <Card title={t('pay-wallet')} id={id}>
                     {statesMap[state.view].view}
                 </Card>
             </div>

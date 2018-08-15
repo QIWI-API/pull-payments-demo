@@ -17,11 +17,28 @@
     "mobile": "С баланса мобильного",
     "pay": "Оплатить",
     "card_first-title": "Проверьте ваш заказ",
-    "card_item-title": "Philips SHE3855",
     "card_item-about": "Стильные и удобные наушники-вкладыши Philips Chromz (SHE3855) с превосходным дизайном обеспечивают воспроизведение насыщенных басов. Цвета матовой отделки, выполненной методом вакуумной металлизации, соответствуют цветам iPhone 6s.",
     "card_item-quantity": "1 шт",
     "card_item-delivery": "Доставка",
     "card_item-total": "Итог",
-    "card_second-title": "Выберите способ оплаты"
+    "card_second-title": "Выберите способ оплаты",
+    "error-displaying-page": "Не отображается страница QIWI?",
+    "error-solution-with-page-display": "Попробуйте перезагрузить страницу",
+    "field_phone-number": "Номер телефона:",
+    "mobile-form": "Введите номер телефона",
+    "come-back": "Вернуться назад",
+
+    "confirmation-by-SMS_main": "Ждем подтверждения по СМС",
+    "confirmation-by-SMS_secondary-first": "Следуйте SMS-инструкциям вашего оператора сотовой связи.",
+    "confirmation-by-SMS_secondary-second": "Деньги будут списаны с баланса только после подтверждения.",
+    "confirmation-by-SMS_secondary-third": "Если по какой-то причине SMS не пришла, попробуйте еще раз.",
+    "confirmation-by-SMS_button": "Выслать SMS повторно",
+    "error-with-payment": "Возникла ошибка при оплате",
+    "error-with-payment_status": "Не удалось совершить платеж.",
+    "error-with-payment_button": "Повторить платеж",
+
+    "qiwiWalletPayment": "Оплата с QIWI Кошелька",
+    "mobilePayment": "Оплата с баланса мобильного",
+    "checkOutRedirect": "Оплата через единый платежный протокол"
   }
 }
