@@ -30,7 +30,7 @@ export default class Header extends Component {
 
                 <ul className="header__menu">
                     <li className="header__menu-item">
-                        <a href="https://developer.qiwi.com/#products">
+                        <a href={this.props.header_documentation}>
                             {t('documentation')}
                         </a>
                     </li>

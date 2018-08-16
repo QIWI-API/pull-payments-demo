@@ -19,7 +19,6 @@ import './App.scss';
 
 export default class App extends Component {
 
-
     changeLang = (lang) => {
 
         i18n.changeLanguage(lang);
@@ -89,6 +88,8 @@ export default class App extends Component {
             }
         }
         this.changeLang(this.state.lang);
+
+
 
     }
 
@@ -170,7 +171,6 @@ export default class App extends Component {
             translated: isMenuOpen
         });
 
-
         return (
 
         <div className={translated}>
@@ -178,6 +178,7 @@ export default class App extends Component {
                 lang={this.state.lang}
                 changeLang={this.changeLang}
                 toggleMenu={this.toggleMenu}
+                header_documentation={`${window.location.host}/index-${this.state.lang}.html#products`}
             />
 
             <Menu
