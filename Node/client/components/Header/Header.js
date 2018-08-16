@@ -4,10 +4,13 @@ import burgerMenu from './assets/burger.svg';
 
 import './Header.scss';
 
+import { translate } from 'react-i18next';
+
+@translate()
 export default class Header extends Component {
     render() {
         const isMenuOpen = this.props.isMenuOpen;
-
+        const { t } = this.props;
         return (
             <header className="header">
                 <button
@@ -28,19 +31,19 @@ export default class Header extends Component {
                 <ul className="header__menu">
                     <li className="header__menu-item">
                         <a href="https://developer.qiwi.com/#products">
-                            {this.props.head_documetation}
+                            {t('documentation')}
                         </a>
                     </li>
                     <li className="header__menu-item header__menu-item--active">
                         <a href="https://developer.qiwi.com/demo">
-                            {this.props.head_demo}
+                            {t('demo')}
                             </a>
                     </li>
                 </ul>
 
                 <div className="header__help">
                     <div className="header__help-title">
-                        {this.props.head_feedback}
+                        {t('feedback')}
                     </div>
                     <a href="mailto:api_help@qiwi.com">api_help@qiwi.com</a>
                 </div>

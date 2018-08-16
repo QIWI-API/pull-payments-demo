@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import 'url-search-params-polyfill';
 import cn from 'classnames';
-import {I18n, I18nextProvider, translate} from 'react-i18next';
 
 import Header from '../components/Header';
 import Menu from '../components/Menu';
@@ -17,7 +16,7 @@ import './App.scss';
 /*
 Пример ссылки: http://localhost:5005/?method=mobilePayment&status=success#mobilePayment
 */
-@translate()
+
 export default class App extends Component {
 
     changeLang = (lang) => {
@@ -30,8 +29,9 @@ export default class App extends Component {
     constructor(props) {
         super(props);
 
+
         this.state = {
-            lang: 'ru',
+            lang: (/.*\/ru$/.test(window.location.href)) ? 'ru':'en',
             isMenuOpen: false,
 
             order: ['qiwiWalletPayment', 'mobilePayment', 'checkOutRedirect'],
@@ -63,6 +63,7 @@ export default class App extends Component {
                 }
             }
         };
+
     }
 
     componentDidMount() {
@@ -85,6 +86,7 @@ export default class App extends Component {
                 });
             }
         }
+        this.changeLang(this.state.lang);
     }
 
 
@@ -135,8 +137,6 @@ export default class App extends Component {
 
         const isMenuOpen = this.state.isMenuOpen;
 
-        const { t } = this.props;
-
             const demosMap = {
             mobilePayment: (index) => (
                 <MobilePayment
@@ -145,7 +145,7 @@ export default class App extends Component {
                     key={index}
                 />
             ),
-            qiwiWalletPayment: (index, t) => (
+            qiwiWalletPayment: (index) => (
                 <QiwiWalletPayment
                     state={qiwiWalletPayment}
                     stateChanger={this.demoStateChanger('qiwiWalletPayment')}
@@ -174,9 +174,6 @@ export default class App extends Component {
                 lang={this.state.lang}
                 changeLang={this.changeLang}
                 toggleMenu={this.toggleMenu}
-                head_documetation={t('documentation')}
-                head_demo={t('demo')}
-                head_feedback={t('feedback')}
             />
 
             <Menu
@@ -187,10 +184,9 @@ export default class App extends Component {
 
             <main className="layout">
                 {this.state.order.map((demo, index) => {
-                    return demosMap[demo](index, t);
+                    return demosMap[demo](index);
                 })}
                 </main>
-
         </div>
 
         );

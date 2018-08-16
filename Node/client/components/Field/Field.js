@@ -72,7 +72,7 @@ export default class Field extends Component {
                     value={this.state.phone}
                 />
                 <label className="field__label" htmlFor={this.props.id}>
-                    {this.props.phoneNumber}
+                    {t('field_phone-number')}
                 </label>
 
                 <div className="field__bar" />

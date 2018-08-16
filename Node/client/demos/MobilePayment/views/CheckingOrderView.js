@@ -26,7 +26,7 @@ const CheckingOrderView = (props) => {
                 })}
             </div>
 
-            <Button buttonText={`${t('key')} ${props.itemCost} ₽`} onClick={props.stateChanger} disabled={!(props.currentPaymentMethod === currentPaymentMethod)}/>
+            <Button buttonText={`${t('pay')} ${props.itemCost} ₽`} onClick={props.stateChanger} disabled={!(props.currentPaymentMethod === currentPaymentMethod)}/>
 
         </CheckingOrder>
     );
