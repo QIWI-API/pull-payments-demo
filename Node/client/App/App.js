@@ -19,7 +19,9 @@ import './App.scss';
 
 export default class App extends Component {
 
+
     changeLang = (lang) => {
+
         i18n.changeLanguage(lang);
         this.setState({
             lang
@@ -87,6 +89,7 @@ export default class App extends Component {
             }
         }
         this.changeLang(this.state.lang);
+
     }
 
 
@@ -129,6 +132,7 @@ export default class App extends Component {
     };
 
     render() {
+
         const {
             mobilePayment,
             qiwiWalletPayment,

@@ -4,7 +4,6 @@ import en from './locale/en';
 import ru from './locale/ru';
 
 i18n.use(reactI18nextModule).init({
-
     debug: true,
     resources: {
         ru,

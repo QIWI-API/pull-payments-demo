@@ -53,17 +53,18 @@ export default class Header extends Component {
                         <button
                             type="button"
                             onClick={() => {
-                                this.props.changeLang('en');
+                                window.open(window.location.href.replace("/ru", "/en"), "_self")
                             }}
                             disabled={this.props.lang === 'en'}>
                             EN
                         </button>
                     </li>
+
                     <li className="header__menu-item">
                         <button
                             type="button"
                             onClick={() => {
-                                this.props.changeLang('ru');
+                                window.open(window.location.href.replace("/en", "/ru"), "_self");
                             }}
                             disabled={this.props.lang === 'ru'}>
                             RU
