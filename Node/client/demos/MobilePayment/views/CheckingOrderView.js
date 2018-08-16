@@ -14,7 +14,7 @@ const CheckingOrderView = (props) => {
 
     const currentPaymentMethod = 'mobile';
 
-    const { t, tReady } = props;
+    const { t } = props;
 
     return (
         <CheckingOrder itemCost={props.itemCost} itemPic={props.itemPic}>

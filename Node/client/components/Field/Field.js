@@ -54,7 +54,6 @@ export default class Field extends Component {
 
         const { t } = this.props;
 
-
         const defaultValue = '+7';
 
         return (
