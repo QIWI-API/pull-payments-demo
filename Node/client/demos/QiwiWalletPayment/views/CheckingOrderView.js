@@ -23,17 +23,16 @@ const CheckingOrderView = (props) => {
                     if(button.type == radioButtonsTypes.BUTTON_WITH_LINK){
                         return (
                             <div style={{display: "flex"} } key={index}>
-                                <RadioButton labelText={button.main} labelTextAdditional={button.additional} index={index} key={index} nameGroup={id} disabled={button.disabled} handler={button.handler}/>
+                                <RadioButton labelText={button.main} labelTextAdditional={button.additional} index={index} key={index} nameGroup={id} disabled={button.disabled} checked={props.currentPaymentMethod === button.buttonPaymentMethod} handler={button.handler}/>
                                 <LinkWithIcon imgLink={qiwiSign} link={"https://corp.qiwi.com/business/connect/logotype.action"} textLogo={t('standards-of-representation')} />
                         </div>
                         )
                     }
-                    return (<RadioButton labelText={button.main} labelTextAdditional={button.additional} index={index} key={index} nameGroup={id} disabled={button.disabled} handler={button.handler}/>);
+                    return (<RadioButton labelText={button.main} labelTextAdditional={button.additional} index={index} key={index} nameGroup={id} disabled={button.disabled}  handler={button.handler} checked={props.currentPaymentMethod === button.buttonPaymentMethod}/>);
                 })}
 
             </div>
-
-            <Button buttonText={`${t('pay')} ${props.itemCost} ₽`} onClick={props.stateChanger} disabled={!(props.currentPaymentMethod === currentPaymentMethod) }/>
+            <Button buttonText={`${t('pay')} ${props.itemCost} ₽`} onClick={props.stateChanger} disabled={!(props.currentPaymentMethod === currentPaymentMethod)} />
         </CheckingOrder>
     );
 };
