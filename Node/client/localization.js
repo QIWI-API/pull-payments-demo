@@ -4,8 +4,7 @@ import en from './locale/en';
 import ru from './locale/ru';
 
 i18n.use(reactI18nextModule).init({
-    lng: 'ru',
-    fallbackLng: 'ru',
+
     debug: true,
     resources: {
         ru,
@@ -14,7 +13,7 @@ i18n.use(reactI18nextModule).init({
     ns: ['translations'],
     defaultNS: 'translations',
 
-    keySeparator: true, // we use content as keys
+    keySeparator: true,
 
     react: {
         wait: true
