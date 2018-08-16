@@ -93,7 +93,7 @@ export default class MobilePayment extends Component {
 
     render() {
         const state = this.props.state;
-        const { t, tReady } = this.props;
+        const { t } = this.props;
         const {
             currentPaymentMethod,
             phone,

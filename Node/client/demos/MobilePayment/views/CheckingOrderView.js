@@ -14,7 +14,7 @@ const CheckingOrderView = (props) => {
 
     const currentPaymentMethod = 'mobile';
 
-    const { t, tReady } = props;
+    const { t } = props;
 
     return (
         <CheckingOrder itemCost={props.itemCost} itemPic={props.itemPic}>
@@ -26,7 +26,7 @@ const CheckingOrderView = (props) => {
                 })}
             </div>
 
-            <Button buttonText={`${t('key')} ${props.itemCost} ₽`} onClick={props.stateChanger} disabled={!(props.currentPaymentMethod === currentPaymentMethod)}/>
+            <Button buttonText={`${t('pay')} ${props.itemCost} ₽`} onClick={props.stateChanger} disabled={!(props.currentPaymentMethod === currentPaymentMethod)}/>
 
         </CheckingOrder>
     );

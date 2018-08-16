@@ -13,7 +13,7 @@ const CheckingOrderView = (props) => {
     const id = props.id;
 
     const currentPaymentMethod = 'wallet';
-    const { t, tReady } = props;
+    const { t } = props;
     return (
         <CheckingOrder itemCost={props.itemCost} itemPic={props.itemPic}>
             <h2 className="checking-order__title">{t('card_second-title')}</h2>
@@ -33,7 +33,7 @@ const CheckingOrderView = (props) => {
 
             </div>
 
-            <Button buttonText={`${t('key')} ${props.itemCost} ₽`} onClick={props.stateChanger} disabled={!(props.currentPaymentMethod === currentPaymentMethod) }/>
+            <Button buttonText={`${t('pay')} ${props.itemCost} ₽`} onClick={props.stateChanger} disabled={!(props.currentPaymentMethod === currentPaymentMethod) }/>
         </CheckingOrder>
     );
 };

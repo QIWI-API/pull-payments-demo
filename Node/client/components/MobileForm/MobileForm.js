@@ -32,7 +32,6 @@ export default class MobileForm extends Component {
                         id={this.props.id}
                         error={this.props.numberError}
                         handler={this.props.getPhoneNumber}
-                        phoneNumber={t('field_phone-number')}
                     />
 
                     {this.props.icons ? (

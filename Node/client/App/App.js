@@ -145,7 +145,7 @@ export default class App extends Component {
                     key={index}
                 />
             ),
-            qiwiWalletPayment: (index, t) => (
+            qiwiWalletPayment: (index) => (
                 <QiwiWalletPayment
                     state={qiwiWalletPayment}
                     stateChanger={this.demoStateChanger('qiwiWalletPayment')}
@@ -174,9 +174,6 @@ export default class App extends Component {
                 lang={this.state.lang}
                 changeLang={this.changeLang}
                 toggleMenu={this.toggleMenu}
-                head_documetation={t('documentation')}
-                head_demo={t('demo')}
-                head_feedback={t('feedback')}
             />
 
             <Menu
@@ -187,10 +184,9 @@ export default class App extends Component {
 
             <main className="layout">
                 {this.state.order.map((demo, index) => {
-                    return demosMap[demo](index, t);
+                    return demosMap[demo](index);
                 })}
                 </main>
-
         </div>
 
         );

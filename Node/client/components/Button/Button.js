@@ -5,7 +5,7 @@ import './Button.scss';
 
 const Button = (props) => {
     return (
-        <button id="button-translateion-text"
+        <button
             type={props.type ? props.type : 'button'}
             className={`main-action ${props.classNames}`}
             disabled={props.disabled}
