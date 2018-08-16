@@ -22,7 +22,7 @@ const CheckingOrderView = (props) => {
             <h2 className="checking-order__title">{t('card_second-title')}</h2>
             <div className="checking-order__select-block">
                 {props.radioButtons.map((button, index)=>{
-                    return (<RadioButton labelText={button.main} labelTextAdditional={button.additional} index={index} key={index} nameGroup={id} disabled={button.disabled} handler={button.handler}><IconsRaw icons={button.icons}/></RadioButton>);
+                    return (<RadioButton labelText={button.main} labelTextAdditional={button.additional} index={index} key={index} nameGroup={id} disabled={button.disabled} handler={button.handler} checked={props.currentPaymentMethod === button.buttonPaymentMethod}><IconsRaw icons={button.icons}/></RadioButton>);
                 })}
             </div>
 

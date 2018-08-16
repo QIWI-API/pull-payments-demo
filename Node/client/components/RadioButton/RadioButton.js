@@ -26,5 +26,5 @@ RadioButton.defaultProps = {
     type: ''
 
 };
-
+//исправить для другого окошка, и для телефона
 export default RadioButton;

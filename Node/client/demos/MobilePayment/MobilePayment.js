@@ -119,6 +119,7 @@ export default class MobilePayment extends Component {
                 disabled: false,
                 additional: t('qiwi-commission'),
                 handler: this.paymentMethod('mobile'),
+                buttonPaymentMethod: "mobile",
                 icons
             },
             {
@@ -126,6 +127,7 @@ export default class MobilePayment extends Component {
                 disabled: true,
                 additional: t('non-qiwi-commission'),
                 handler: this.paymentMethod('other'),
+                buttonPaymentMethod: "other",
                 icons: []
             }
         ];
