@@ -8,7 +8,6 @@ import Link from '../../../components/Link';
 
 import { translate } from 'react-i18next';
 
-
 const CheckingOrderView = (props) => {
 
     const id = props.id;

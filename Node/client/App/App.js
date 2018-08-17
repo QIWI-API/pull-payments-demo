@@ -20,10 +20,18 @@ import './App.scss';
 export default class App extends Component {
 
     changeLang = (lang) => {
+
         i18n.changeLanguage(lang);
+
         this.setState({
             lang
         });
+    };
+
+    changeLangAndURL = (lang) =>{
+        let resultURL = window.location.href.match(/\/demo\/([^\/]+)/);
+        window.open(window.location.href.replace(`/${resultURL[1]}/`, lang), "_self");
+        i18n.changeLanguage(lang);
     };
 
     constructor(props) {
@@ -31,7 +39,7 @@ export default class App extends Component {
 
 
         this.state = {
-            lang: (/.*\/ru$/.test(window.location.href)) ? 'ru':'en',
+            lang: (/.*\/ru\/$/.test(window.location.href)) ? 'ru':'en',
             isMenuOpen: false,
 
             order: ['qiwiWalletPayment', 'mobilePayment', 'checkOutRedirect'],
@@ -63,9 +71,6 @@ export default class App extends Component {
                 }
             }
         };
-        if(!(/.*\/en$/.test(window.location.href)) && !(/.*\/ru$/.test(window.location.href))) {
-            window.open(`${window.location.href}${this.state.lang}`, "_self");
-        }
 
     }
 
@@ -90,13 +95,7 @@ export default class App extends Component {
             }
         }
         this.changeLang(this.state.lang);
-
-
-
     }
-
-
-
 
     changeHash = (demo) => {
         const hash = `#${demo}`;
@@ -172,13 +171,12 @@ export default class App extends Component {
         const translated = cn({
             translated: isMenuOpen
         });
-
         return (
 
         <div className={translated}>
             <Header
                 lang={this.state.lang}
-                changeLang={this.changeLang}
+                changeLang={this.changeLangAndURL}
                 toggleMenu={this.toggleMenu}
                 header_documentation={`${window.location.host}/index-${this.state.lang}.html#products`}
             />

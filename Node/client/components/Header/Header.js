@@ -11,6 +11,7 @@ export default class Header extends Component {
     render() {
         const isMenuOpen = this.props.isMenuOpen;
         const { t } = this.props;
+
         return (
             <header className="header">
                 <button
@@ -35,7 +36,7 @@ export default class Header extends Component {
                         </a>
                     </li>
                     <li className="header__menu-item header__menu-item--active">
-                        <a href="https://developer.qiwi.com/demo">
+                        <a href={window.location.href}>
                             {t('demo')}
                             </a>
                     </li>
@@ -53,18 +54,19 @@ export default class Header extends Component {
                         <button
                             type="button"
                             onClick={() => {
-                                window.open(window.location.href.replace("/ru", "/en"), "_self")
+                                this.props.changeLang('/en/');
+
                             }}
                             disabled={this.props.lang === 'en'}>
                             EN
                         </button>
                     </li>
-
                     <li className="header__menu-item">
                         <button
                             type="button"
                             onClick={() => {
-                                window.open(window.location.href.replace("/en", "/ru"), "_self");
+                                this.props.changeLang('/ru/');
+
                             }}
                             disabled={this.props.lang === 'ru'}>
                             RU

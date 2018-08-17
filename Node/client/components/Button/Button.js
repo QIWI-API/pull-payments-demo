@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 
 import './Button.scss';
 
-
 const Button = (props) => {
     return (
         <button
@@ -14,10 +13,6 @@ const Button = (props) => {
         </button>
     );
 };
-
-
-
-
 
 Button.defaultProps = {
     classNames: '',
