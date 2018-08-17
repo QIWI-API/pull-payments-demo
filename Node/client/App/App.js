@@ -36,10 +36,10 @@ export default class App extends Component {
 
     constructor(props) {
         super(props);
-
+        let resultURL = window.location.href.match(/\/demo\/([^\/]+)/);
 
         this.state = {
-            lang: (/.*\/ru\/$/.test(window.location.href)) ? 'ru':'en',
+            lang: resultURL[1],
             isMenuOpen: false,
 
             order: ['qiwiWalletPayment', 'mobilePayment', 'checkOutRedirect'],

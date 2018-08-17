@@ -112,7 +112,7 @@ module.exports = {
     devServer: {
         port: process.env.PORT || 5005,
         hot: true,
-        publicPath: '/demo/en/',
+        publicPath: '/demo/ru/',
         contentBase: './client',
         historyApiFallback: true
     }

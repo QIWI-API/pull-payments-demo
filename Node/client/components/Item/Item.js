@@ -5,7 +5,7 @@ import './Item.scss';
 const Item = (props) => {
 
     const deliveryCost = 0;
-    const { t, tReady } = props;
+    const { t } = props;
     return (
 
         <div className="item">
