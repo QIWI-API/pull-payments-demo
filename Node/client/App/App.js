@@ -20,7 +20,6 @@ import './App.scss';
 export default class App extends Component {
 
     changeLang = (lang) => {
-
         i18n.changeLanguage(lang);
         this.setState({
             lang
@@ -64,6 +63,9 @@ export default class App extends Component {
                 }
             }
         };
+        if(!(/.*\/en$/.test(window.location.href)) && !(/.*\/ru$/.test(window.location.href))) {
+            window.open(`${window.location.href}${this.state.lang}`, "_self");
+        }
 
     }
 
