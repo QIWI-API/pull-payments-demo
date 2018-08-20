@@ -30,7 +30,7 @@ export default class App extends Component {
 
     changeLangAndURL = (lang) =>{
         let resultURL = window.location.href.match(/\/demo\/([^\/]+)/);
-        window.open(window.location.href.replace(`/${resultURL[1]}/`, lang), "_self");
+        window.open(window.location.href.replace(`/${resultURL[1]}/`, `/${lang}/`), "_self");
         i18n.changeLanguage(lang);
     };
 

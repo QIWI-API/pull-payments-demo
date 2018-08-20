@@ -11,7 +11,10 @@ export default class Header extends Component {
     render() {
         const isMenuOpen = this.props.isMenuOpen;
         const { t } = this.props;
-
+        const languages={
+            EN: 'en',
+            RU: 'ru'
+        }
         return (
             <header className="header">
                 <button
@@ -54,7 +57,7 @@ export default class Header extends Component {
                         <button
                             type="button"
                             onClick={() => {
-                                this.props.changeLang('/en/');
+                                this.props.changeLang(languages.EN);
 
                             }}
                             disabled={this.props.lang === 'en'}>
@@ -65,7 +68,7 @@ export default class Header extends Component {
                         <button
                             type="button"
                             onClick={() => {
-                                this.props.changeLang('/ru/');
+                                this.props.changeLang(languages.RU);
 
                             }}
                             disabled={this.props.lang === 'ru'}>
