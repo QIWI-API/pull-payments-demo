@@ -4,10 +4,17 @@ import burgerMenu from './assets/burger.svg';
 
 import './Header.scss';
 
+import { translate } from 'react-i18next';
+
+@translate()
 export default class Header extends Component {
     render() {
         const isMenuOpen = this.props.isMenuOpen;
-
+        const { t } = this.props;
+        const Languages={
+            EN: 'en',
+            RU: 'ru'
+        }
         return (
             <header className="header">
                 <button
@@ -27,17 +34,21 @@ export default class Header extends Component {
 
                 <ul className="header__menu">
                     <li className="header__menu-item">
-                        <a href="https://developer.qiwi.com/#products">
-                            Документация
+                        <a href={this.props.header_documentation}>
+                            {t('documentation')}
                         </a>
                     </li>
                     <li className="header__menu-item header__menu-item--active">
-                        <a href="https://developer.qiwi.com/demo">Демо</a>
+                        <a href={window.location.href}>
+                            {t('demo')}
+                            </a>
                     </li>
                 </ul>
 
                 <div className="header__help">
-                    <div className="header__help-title">Вопросы</div>
+                    <div className="header__help-title">
+                        {t('feedback')}
+                    </div>
                     <a href="mailto:api_help@qiwi.com">api_help@qiwi.com</a>
                 </div>
 
@@ -46,7 +57,8 @@ export default class Header extends Component {
                         <button
                             type="button"
                             onClick={() => {
-                                this.props.changeLang('en');
+                                this.props.changeLang(Languages.EN);
+
                             }}
                             disabled={this.props.lang === 'en'}>
                             EN
@@ -56,7 +68,8 @@ export default class Header extends Component {
                         <button
                             type="button"
                             onClick={() => {
-                                this.props.changeLang('ru');
+                                this.props.changeLang(Languages.RU);
+
                             }}
                             disabled={this.props.lang === 'ru'}>
                             RU

@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import 'url-search-params-polyfill';
 import cn from 'classnames';
 
@@ -9,24 +9,42 @@ import MobilePayment from '../demos/MobilePayment';
 import QiwiWalletPayment from '../demos/QiwiWalletPayment';
 import CheckOutRedirect from '../demos/CheckOutRedirect';
 
+import i18n from '../localization';
 import './App.scss';
+
 
 /*
 Пример ссылки: http://localhost:5005/?method=mobilePayment&status=success#mobilePayment
 */
 
 export default class App extends Component {
+
+    changeLang = (lang) => {
+
+        i18n.changeLanguage(lang);
+
+        this.setState({
+            lang
+        });
+    };
+
+    changeLangAndURL = (lang) =>{
+        const localeURLMatches = window.location.href.match(/\/demo\/([^\/]+)/);
+        window.open(window.location.href.replace(`/${localeURLMatches[1]}/`, `/${lang}/`), "_self");
+        i18n.changeLanguage(lang);
+    };
+
     constructor(props) {
         super(props);
+        const localeURLMatches = window.location.href.match(/\/demo\/([^\/]+)/);
 
         this.state = {
-            lang: 'ru',
+            lang: localeURLMatches[1],
             isMenuOpen: false,
             order: ['qiwiWalletPayment', 'mobilePayment', 'checkOutRedirect'],
             demos: {
                 mobilePayment: {
                     id: 'mobilePayment',
-                    name: 'Оплата с баланса мобильного',
                     view: 'checkingOrder',
                     acceptedViews: ['success'],
                     doc: 'https://developer.qiwi.com/ru/pull-mobile-payments/',
@@ -35,7 +53,6 @@ export default class App extends Component {
                 },
                 qiwiWalletPayment: {
                     id: 'qiwiWalletPayment',
-                    name: 'Оплата с QIWI Кошелька',
                     view: 'checkingOrder',
                     acceptedViews: ['success', 'error'],
                     doc:
@@ -45,7 +62,6 @@ export default class App extends Component {
                 },
                 checkOutRedirect: {
                     id: 'checkOutRedirect',
-                    name: 'Оплата через единый платежный протокол',
                     view: 'checkingOrder',
                     acceptedViews: ['success'],
                     doc: 'https://developer.qiwi.com/ru/bill-payments/',
@@ -54,6 +70,7 @@ export default class App extends Component {
                 }
             }
         };
+
     }
 
     componentDidMount() {
@@ -76,13 +93,8 @@ export default class App extends Component {
                 });
             }
         }
+        this.changeLang(this.state.lang);
     }
-
-    changeLang = (lang) => {
-        this.setState({
-            lang
-        });
-    };
 
     changeHash = (demo) => {
         const hash = `#${demo}`;
@@ -121,6 +133,7 @@ export default class App extends Component {
     };
 
     render() {
+
         const {
             mobilePayment,
             qiwiWalletPayment,
@@ -129,12 +142,7 @@ export default class App extends Component {
 
         const isMenuOpen = this.state.isMenuOpen;
 
-        /* const layoutClass = cn({
-            layout: true,
-            'layout--translated': isMenuOpen
-        }); */
-
-        const demosMap = {
+            const demosMap = {
             mobilePayment: (index) => (
                 <MobilePayment
                     state={mobilePayment}
@@ -148,6 +156,7 @@ export default class App extends Component {
                     stateChanger={this.demoStateChanger('qiwiWalletPayment')}
                     key={index}
                 />
+
             ),
             checkOutRedirect: (index) => (
                 <CheckOutRedirect
@@ -161,27 +170,29 @@ export default class App extends Component {
         const translated = cn({
             translated: isMenuOpen
         });
-
         return (
-            <div className={translated}>
-                <Header
-                    lang={this.state.lang}
-                    changeLang={this.changeLang}
-                    toggleMenu={this.toggleMenu}
-                />
 
-                <Menu
-                    order={this.state.order}
-                    info={this.state.demos}
-                    toggleMenu={this.toggleMenu}
-                />
+        <div className={translated}>
+            <Header
+                lang={this.state.lang}
+                changeLang={this.changeLangAndURL}
+                toggleMenu={this.toggleMenu}
+                header_documentation={`${window.location.host}/index-${this.state.lang}.html#products`}
+            />
 
-                <main className="layout">
-                    {this.state.order.map((demo, index) => {
-                        return demosMap[demo](index);
-                    })}
+            <Menu
+                order={this.state.order}
+                info={this.state.demos}
+                toggleMenu={this.toggleMenu}
+            />
+
+            <main className="layout">
+                {this.state.order.map((demo, index) => {
+                    return demosMap[demo](index);
+                })}
                 </main>
-            </div>
+        </div>
+
         );
     }
 }

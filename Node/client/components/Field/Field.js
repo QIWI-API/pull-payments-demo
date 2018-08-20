@@ -2,8 +2,11 @@ import React, { Component } from 'react';
 import cn from 'classnames';
 import MaskedInput from 'react-input-mask';
 
+import { translate } from 'react-i18next';
+
 import './Field.scss';
 
+@translate()
 export default class Field extends Component {
     constructor(props) {
         super(props);
@@ -49,6 +52,8 @@ export default class Field extends Component {
             });
         };
 
+        const { t } = this.props;
+
         const defaultValue = '+7';
 
         return (
@@ -67,7 +72,7 @@ export default class Field extends Component {
                     value={this.state.phone}
                 />
                 <label className="field__label" htmlFor={this.props.id}>
-                    Номер телефона:
+                    {t('field_phone-number')}
                 </label>
 
                 <div className="field__bar" />

@@ -6,10 +6,12 @@ import Button from '../../../components/Button';
 import payments from '../../../assets/payments.png';
 import Link from '../../../components/Link';
 
+import { translate } from 'react-i18next';
+
 const CheckingOrderView = (props) => {
 
     const id = props.id;
-
+    const { t } = props;
     document.body.style.overflow = 'auto';
 
     if(props.errorState) {
@@ -22,20 +24,20 @@ const CheckingOrderView = (props) => {
 
             {props.errorState?<div className="checking-order__backdrop">
                 <div className="checking-order__backdrop-text">
-                    <div>Не отображается страница QIWI?</div>
+                    <div>{t('error-displaying-page')}</div>
 
-                    <button type="button" onClick={() => window.location.reload()}>Попробуйте перезагрузить страницу</button>
+                    <button type="button" onClick={() => window.location.reload()}>{t('error-solution-with-page-display')}</button>
                 </div>
             </div>:null}
 
-         <Button  buttonText={'Оплатить'} onClick={props.stateChanger} classNames={'checking-order__redirect'}/>
+         <Button  buttonText={t('pay')} onClick={props.stateChanger} classNames={'checking-order__redirect'}/>
 
             <img src={payments} className="checking-order__payments" alt="payments" width="189"/>
 
-            <Link className={'checking-order__link'} textLogo={'Выбрать логотип QIWI'} link = {'https://corp.qiwi.com/business/connect/logotype.action'}/>
+            <Link className={'checking-order__link'} textLogo={t('standards-of-representation')} link = {'https://corp.qiwi.com/business/connect/logotype.action'}/>
 
         </CheckingOrder>
     );
 };
 
-export default CheckingOrderView;
+export default translate() (CheckingOrderView);

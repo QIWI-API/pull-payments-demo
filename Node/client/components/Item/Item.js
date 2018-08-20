@@ -1,11 +1,13 @@
-import React, { Component } from 'react';
-
+import React from 'react';
+import {translate} from 'react-i18next';
 import './Item.scss';
 
 const Item = (props) => {
-    const deliveryCost = 0;
 
+    const deliveryCost = 0;
+    const { t } = props;
     return (
+
         <div className="item">
             <img
                 className="item__pic"
@@ -16,23 +18,20 @@ const Item = (props) => {
             <h3 className="item__title">Philips SHE3855</h3>
 
             <p className="item__about">
-                Стильные и удобные наушники-вкладыши Philips Chromz (SHE3855) с
-                превосходным дизайном обеспечивают воспроизведение насыщенных
-                басов. Цвета матовой отделки, выполненной методом вакуумной
-                металлизации, соответствуют цветам iPhone 6s.
+                {t('card_item-about')}
             </p>
 
             <ul className="values">
                 <li className="values__lines values__lines--dotted">
-                    <span>1 шт</span>
+                    <span>{t('card_item-quantity')}</span>
                     <span>{props.itemCost} ₽</span>
                 </li>
                 <li className="values__lines values__lines--dotted values__lines--minor">
-                    <span>Доставка</span>
+                    <span>{t('card_item-delivery')}</span>
                     <span>{deliveryCost} ₽</span>
                 </li>
                 <li className="values__lines values__lines--counted">
-                    <span>Итог</span>
+                    <span>{t('card_item-total')}</span>
                     <span>{props.itemCost + deliveryCost} ₽</span>
                 </li>
             </ul>
@@ -40,4 +39,4 @@ const Item = (props) => {
     );
 };
 
-export default Item;
+export default translate()(Item);

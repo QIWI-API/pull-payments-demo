@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import paymentByRedirect from '../../../examples/bill-payments-redirect-example/request.js';
 
+import { translate } from 'react-i18next';
+
 import './CheckOutRedirect.scss';
 
 import itemPic from '../../assets/item.png';
@@ -10,7 +12,7 @@ import Card from '../../components/Card';
 import CheckingOrderView from './views/CheckingOrderView';
 import SuccessPage from '../../components/SuccessPage';
 
-
+@translate()
 export default class CheckOutRedirect extends Component {
 
     constructor(props) {
@@ -58,7 +60,7 @@ export default class CheckOutRedirect extends Component {
     render() {
 
         const state = this.props.state;
-
+        const { t } = this.props;
         const id = state.id;
 
         const itemCost = this.itemCost;
@@ -82,7 +84,7 @@ export default class CheckOutRedirect extends Component {
         };
 
         return (<div>
-            <Card title={state.name} id={id}>{statesMap[state.view].view}
+            <Card title={t('pay-invoicing')} id={id}>{statesMap[state.view].view}
             </Card>
         </div>)
     }

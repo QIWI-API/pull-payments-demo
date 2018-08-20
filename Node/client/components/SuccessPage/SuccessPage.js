@@ -6,11 +6,16 @@ import successIcon from '../../assets/success.svg';
 
 import Button from '../Button';
 
+import { translate } from 'react-i18next';
+
+@translate()
 export default class SuccessPage extends Component {
     render() {
+
+        const { t } = props
         return (
             <div>
-                <h2>Оплата прошла успешно</h2>
+                <h2>{t('success-page_main')}</h2>
 
                 <div className="success-form">
                     <img
@@ -27,35 +32,35 @@ export default class SuccessPage extends Component {
                             height="32"
                         />
                         <p className="success-form__status">
-                            Вы успешно совершили покупку{' '}
+                            {t('success-page_status')}{' '}
                             <span className="success-form__item">
-                                наушников Philips SHE3855
+                                {t('headphones')} Philips SHE3855
                             </span>
                         </p>
                     </div>
                 </div>
 
                 <h3 className="success-form__about-payment-title">
-                    Данные платежа
+                    {t('success-page_about-payment-title')}
                 </h3>
 
                 <ul className="values">
                     <li className="values__lines values__lines--dotted values__lines--minor values__lines--right-minor">
-                        <span>Номер закза</span>
+                        <span>{t('product-order-number')}</span>
                         <span>{this.props.number}</span>
                     </li>
                     <li className="values__lines values__lines--dotted values__lines--minor values__lines--right-minor">
-                        <span>Способ оплаты</span>
+                        <span>{t('product-payment')}</span>
                         <span>{this.props.method}</span>
                     </li>
                     <li className="values__lines values__lines--dotted">
-                        <span>Сумма платежа</span>
+                        <span>{t('product_sum')}</span>
                         <span>{this.props.sum} ₽</span>
                     </li>
                 </ul>
 
                 <Button
-                    buttonText={'Вернуться на главную страницу'}
+                    buttonText={t('success-page_button')}
                     onClick={this.props.stateChanger}
                     classNames={'success-form__link'}
                 />

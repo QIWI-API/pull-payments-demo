@@ -102,8 +102,7 @@
 .header__help {
     position: absolute;
     top: 26px;
-    /* right: 158px; */
-    right: 16px;
+    right: 158px;
 
     &-title {
         font-size: 12px;
@@ -136,7 +135,6 @@
     right: 44px;
     padding: 0;
     margin: 0;
-    display: none;
 
     & .header__menu-item {
         display: inline-block;
