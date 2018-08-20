@@ -11,7 +11,7 @@ export default class Header extends Component {
     render() {
         const isMenuOpen = this.props.isMenuOpen;
         const { t } = this.props;
-        const languages={
+        const Languages={
             EN: 'en',
             RU: 'ru'
         }
@@ -57,7 +57,7 @@ export default class Header extends Component {
                         <button
                             type="button"
                             onClick={() => {
-                                this.props.changeLang(languages.EN);
+                                this.props.changeLang(Languages.EN);
 
                             }}
                             disabled={this.props.lang === 'en'}>
@@ -68,7 +68,7 @@ export default class Header extends Component {
                         <button
                             type="button"
                             onClick={() => {
-                                this.props.changeLang(languages.RU);
+                                this.props.changeLang(Languages.RU);
 
                             }}
                             disabled={this.props.lang === 'ru'}>
