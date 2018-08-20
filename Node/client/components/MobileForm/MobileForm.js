@@ -22,8 +22,6 @@ export default class MobileForm extends Component {
 
     render() {
         const { t } = this.props;
-
-
         return (
 
             <form onSubmit={this.onSubmitForm}>
@@ -34,7 +32,6 @@ export default class MobileForm extends Component {
                         id={this.props.id}
                         error={this.props.numberError}
                         handler={this.props.getPhoneNumber}
-
                     />
 
                     {this.props.icons ? (

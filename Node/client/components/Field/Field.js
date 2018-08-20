@@ -36,7 +36,10 @@ export default class Field extends Component {
             mask = '';
         }
 
-
+        this.setState({
+            mask,
+            phone
+        });
 
         this.props.handler(phone);
     };
