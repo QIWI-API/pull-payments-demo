@@ -29,17 +29,17 @@ export default class App extends Component {
     };
 
     changeLangAndURL = (lang) =>{
-        let resultURL = window.location.href.match(/\/demo\/([^\/]+)/);
-        window.open(window.location.href.replace(`/${resultURL[1]}/`, `/${lang}/`), "_self");
+        let LocaleURLMatches = window.location.href.match(/\/demo\/([^\/]+)/);
+        window.open(window.location.href.replace(`/${LocaleURLMatches[1]}/`, `/${lang}/`), "_self");
         i18n.changeLanguage(lang);
     };
 
     constructor(props) {
         super(props);
-        let resultURL = window.location.href.match(/\/demo\/([^\/]+)/);
+        let LocaleURLMatches = window.location.href.match(/\/demo\/([^\/]+)/);
 
         this.state = {
-            lang: resultURL[1],
+            lang: LocaleURLMatches[1],
             isMenuOpen: false,
 
             order: ['qiwiWalletPayment', 'mobilePayment', 'checkOutRedirect'],
