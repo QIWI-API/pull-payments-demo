@@ -6,15 +6,14 @@ import './Header.scss';
 
 import { translate } from 'react-i18next';
 
+import Languages from '../../lang';
+
 @translate()
 export default class Header extends Component {
     render() {
         const isMenuOpen = this.props.isMenuOpen;
         const { t } = this.props;
-        const Languages={
-            EN: 'en',
-            RU: 'ru'
-        }
+
         return (
             <header className="header">
                 <button
@@ -58,7 +57,6 @@ export default class Header extends Component {
                             type="button"
                             onClick={() => {
                                 this.props.changeLang(Languages.EN);
-
                             }}
                             disabled={this.props.lang === 'en'}>
                             EN
@@ -69,7 +67,6 @@ export default class Header extends Component {
                             type="button"
                             onClick={() => {
                                 this.props.changeLang(Languages.RU);
-
                             }}
                             disabled={this.props.lang === 'ru'}>
                             RU

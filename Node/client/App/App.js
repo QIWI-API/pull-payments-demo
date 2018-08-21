@@ -12,6 +12,7 @@ import CheckOutRedirect from '../demos/CheckOutRedirect';
 import i18n from '../localization';
 import './App.scss';
 
+import Languages from '../lang';
 
 /*
 Пример ссылки: http://localhost:5005/?method=mobilePayment&status=success#mobilePayment
@@ -28,18 +29,17 @@ export default class App extends Component {
         });
     };
 
-    changeLangAndURL = (lang) =>{
+    changeLangAndURL = (lang) => {
         const localeURLMatches = window.location.href.match(/\/demo\/([^\/]+)/);
-        window.open(window.location.href.replace(`/${localeURLMatches[1]}/`, `/${lang}/`), "_self");
-        i18n.changeLanguage(lang);
+        (localeURLMatches === null) ? window.open(`${window.location.href}${lang}/`, "_self") : window.open(window.location.href.replace(`/${localeURLMatches[1]}/`, `/${lang}/`), "_self")
     };
 
     constructor(props) {
         super(props);
         const localeURLMatches = window.location.href.match(/\/demo\/([^\/]+)/);
-
         this.state = {
-            lang: localeURLMatches[1],
+
+            lang: (localeURLMatches === null) ? Languages.RU : localeURLMatches,
             isMenuOpen: false,
             order: ['qiwiWalletPayment', 'mobilePayment', 'checkOutRedirect'],
             demos: {
@@ -140,9 +140,10 @@ export default class App extends Component {
             checkOutRedirect
         } = this.state.demos;
 
+
         const isMenuOpen = this.state.isMenuOpen;
 
-            const demosMap = {
+        const demosMap = {
             mobilePayment: (index) => (
                 <MobilePayment
                     state={mobilePayment}
@@ -172,26 +173,26 @@ export default class App extends Component {
         });
         return (
 
-        <div className={translated}>
-            <Header
-                lang={this.state.lang}
-                changeLang={this.changeLangAndURL}
-                toggleMenu={this.toggleMenu}
-                header_documentation={`${window.location.host}/index-${this.state.lang}.html#products`}
-            />
+            <div className={translated}>
+                <Header
+                    lang={this.state.lang}
+                    changeLang={this.changeLangAndURL}
+                    toggleMenu={this.toggleMenu}
+                    header_documentation={`${window.location.host}/index-${this.state.lang}.html#products`}
+                />
 
-            <Menu
-                order={this.state.order}
-                info={this.state.demos}
-                toggleMenu={this.toggleMenu}
-            />
+                <Menu
+                    order={this.state.order}
+                    info={this.state.demos}
+                    toggleMenu={this.toggleMenu}
+                />
 
-            <main className="layout">
-                {this.state.order.map((demo, index) => {
-                    return demosMap[demo](index);
-                })}
+                <main className="layout">
+                    {this.state.order.map((demo, index) => {
+                        return demosMap[demo](index);
+                    })}
                 </main>
-        </div>
+            </div>
 
         );
     }
