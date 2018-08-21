@@ -47,7 +47,7 @@ export default class QiwiWalletPayment extends Component {
     };
 
     makeRequest = () => {
-        let url = 'paymentByBill';
+        let url = '/demo/api/paymentByBill';
 
         if (__DEV__) {
             url = `http://localhost:5000/${url}`;
