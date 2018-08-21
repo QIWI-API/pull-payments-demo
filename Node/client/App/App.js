@@ -30,16 +30,28 @@ export default class App extends Component {
 
     changeLangAndURL = (lang) =>{
         const localeURLMatches = window.location.href.match(/\/demo\/([^\/]+)/);
-        window.open(window.location.href.replace(`/${localeURLMatches[1]}/`, `/${lang}/`), "_self");
-        i18n.changeLanguage(lang);
+        if(localeURLMatches === null){
+            window.open(`${window.location.href}${lang}/` , "_self");
+        }
+        else {
+            window.open(window.location.href.replace(`/${localeURLMatches[1]}/`, `/${lang}/`), "_self");
+            i18n.changeLanguage(lang);
+        }
     };
 
     constructor(props) {
         super(props);
         const localeURLMatches = window.location.href.match(/\/demo\/([^\/]+)/);
+        let lang = 'ru';
+        if(localeURLMatches === null){
+            lang = 'ru';
+        }
+        else{
+            lang = localeURLMatches
+        }
 
         this.state = {
-            lang: localeURLMatches[1],
+            lang: lang,
             isMenuOpen: false,
             order: ['qiwiWalletPayment', 'mobilePayment', 'checkOutRedirect'],
             demos: {
