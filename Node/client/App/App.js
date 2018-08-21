@@ -36,8 +36,13 @@ export default class App extends Component {
     constructor(props) {
         super(props);
         const localeURLMatches = window.location.href.match(/\/demo\/([^\/]+)/);
+        const Languages={
+                EN: 'en',
+                RU: 'ru'
+        };
         this.state = {
-            lang: (localeURLMatches === null) ? this.props.languages.RU : localeURLMatches,
+            Languages:Languages,
+            lang: (localeURLMatches === null) ? Languages.RU : localeURLMatches,
             isMenuOpen: false,
             order: ['qiwiWalletPayment', 'mobilePayment', 'checkOutRedirect'],
             demos: {
@@ -138,8 +143,12 @@ export default class App extends Component {
             checkOutRedirect
         } = this.state.demos;
 
-        const isMenuOpen = this.state.isMenuOpen;
 
+        const isMenuOpen = this.state.isMenuOpen;
+        const Languages={
+            EN: 'en',
+            RU: 'ru'
+        };
         const demosMap = {
             mobilePayment: (index) => (
                 <MobilePayment
@@ -176,6 +185,7 @@ export default class App extends Component {
                     changeLang={this.changeLangAndURL}
                     toggleMenu={this.toggleMenu}
                     header_documentation={`${window.location.host}/index-${this.state.lang}.html#products`}
+                    languages={this.state.Languages}
                 />
 
                 <Menu
