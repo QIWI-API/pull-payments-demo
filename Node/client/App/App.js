@@ -12,6 +12,7 @@ import CheckOutRedirect from '../demos/CheckOutRedirect';
 import i18n from '../localization';
 import './App.scss';
 
+import Languages from '../lang';
 
 /*
 Пример ссылки: http://localhost:5005/?method=mobilePayment&status=success#mobilePayment
@@ -36,12 +37,8 @@ export default class App extends Component {
     constructor(props) {
         super(props);
         const localeURLMatches = window.location.href.match(/\/demo\/([^\/]+)/);
-        const Languages={
-                EN: 'en',
-                RU: 'ru'
-        };
         this.state = {
-            Languages:Languages,
+
             lang: (localeURLMatches === null) ? Languages.RU : localeURLMatches,
             isMenuOpen: false,
             order: ['qiwiWalletPayment', 'mobilePayment', 'checkOutRedirect'],
@@ -145,10 +142,7 @@ export default class App extends Component {
 
 
         const isMenuOpen = this.state.isMenuOpen;
-        const Languages={
-            EN: 'en',
-            RU: 'ru'
-        };
+
         const demosMap = {
             mobilePayment: (index) => (
                 <MobilePayment
@@ -185,7 +179,6 @@ export default class App extends Component {
                     changeLang={this.changeLangAndURL}
                     toggleMenu={this.toggleMenu}
                     header_documentation={`${window.location.host}/index-${this.state.lang}.html#products`}
-                    languages={this.state.Languages}
                 />
 
                 <Menu
