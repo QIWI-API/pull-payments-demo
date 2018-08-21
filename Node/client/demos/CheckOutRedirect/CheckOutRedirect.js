@@ -28,7 +28,7 @@ export default class CheckOutRedirect extends Component {
 
     makeRequest = () => {
 
-        let url = 'createPaymentForm';
+        let url = '/demo/api/createPaymentForm';
 
         if(__DEV__) {
             url = `http://localhost:5000/${url}`;

@@ -43,7 +43,7 @@ export default class MobilePayment extends Component {
     };
 
     makeRequest = () => {
-        let url = 'paymentForMobile';
+        let url = '/demo/api/paymentForMobile';
 
         if (__DEV__) {
             url = `http://localhost:5000/${url}`;
