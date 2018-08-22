@@ -43,6 +43,10 @@
     "product-order-number": "Order number",
     "product-payment": "Payment method",
     "product_sum": "Amount of payment",
-    "success-page_button": "Go back to main page"
+    "success-page_button": "Go back to main page",
+    "numberError": "There was an error, please try again.",
+    "error-with-authorization":"Authorisation Error.",
+    "error-with-operator":"Error! Your operator is not supported.",
+    "error-with-money": "Insufficient funds on the account."
    }
   }

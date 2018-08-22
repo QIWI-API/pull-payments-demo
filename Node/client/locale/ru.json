@@ -44,6 +44,10 @@
     "product-order-number": "Номер закза",
     "product-payment": "Способ оплаты",
     "product_sum": "Сумма платежа",
-    "success-page_button": "Вернуться на главную страницу"
+    "success-page_button": "Вернуться на главную страницу",
+    "numberError": "Произошла ошибка, попробуйте ещё раз.",
+    "error-with-authorization":"Ошибка авторизации.",
+    "error-with-operator":"Ошибка! Ваш оператор не поддерживается.",
+    "error-with-money": "Недостаточно средств на счете."
   }
 }

@@ -20,12 +20,12 @@ import ErrorPage from '../../components/ErrorPage';
 export default class MobilePayment extends Component {
     constructor(props) {
         super(props);
-
+        const { t } = this.props;
         this.state = {
             currentPaymentMethod: '',
             phone: '',
             numberError: '',
-            paymentError: 'Недостаточно средств на счете.'
+            paymentError: t('error-with-money')
         };
 
         this.itemCost = 5;
@@ -58,7 +58,7 @@ export default class MobilePayment extends Component {
 
     toConfirmation = () => {
         const self = this;
-
+        const { t } = this.props;
         const stateChanger = this.stateChanger('confirmation');
 
         this.makeRequest().then((data) => {
@@ -67,17 +67,17 @@ export default class MobilePayment extends Component {
             }
             if (data.response.result_code !== 0) {
                 self.setState({
-                    numberError: 'Произошла ошибка, попробуйте ещё раз.'
+                    numberError: t('numberError')
                 });
             }
             if (data.response.result_code === 150) {
                 self.setState({
-                    numberError: 'Ошибка авторизации.'
+                    numberError: t('error-with-authorization')
                 });
             }
             if (data.response.result_code === 300) {
                 self.setState({
-                    numberError: 'Ошибка! Ваш оператор не поддерживается.'
+                    numberError: t('error-with-operator')
                 });
             }
         });

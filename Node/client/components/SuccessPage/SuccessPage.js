@@ -12,7 +12,7 @@ import { translate } from 'react-i18next';
 export default class SuccessPage extends Component {
     render() {
 
-        const { t } = props
+        const { t } = this.props;
         return (
             <div>
                 <h2>{t('success-page_main')}</h2>
