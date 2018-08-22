@@ -39,7 +39,7 @@ export default class App extends Component {
         const localeURLMatches = window.location.href.match(/\/demo\/([^\/]+)/);
         this.state = {
 
-            lang: (localeURLMatches === null) ? this.changeLangAndURL('ru') : localeURLMatches,
+            lang: (localeURLMatches === null) ? this.changeLangAndURL(Languages.RU) : localeURLMatches[1],
             isMenuOpen: false,
             order: ['qiwiWalletPayment', 'mobilePayment', 'checkOutRedirect'],
             demos: {
@@ -178,7 +178,7 @@ export default class App extends Component {
                     lang={this.state.lang}
                     changeLang={this.changeLangAndURL}
                     toggleMenu={this.toggleMenu}
-                    header_documentation={`https://${window.location.host}/index-${this.state.lang}.html#products`}
+                    header_documentation={`//${window.location.host}/index-${this.state.lang}.html#products`}
                 />
 
                 <Menu
