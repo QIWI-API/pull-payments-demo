@@ -30,13 +30,13 @@ export default class App extends Component {
     };
 
     changeLangAndURL = (lang) => {
-        const localeURLMatches = window.location.href.match(/\/demo\/([^\/]+)/);
-        (localeURLMatches === null) ? window.open(`${window.location.href}${lang}/`, "_self") : window.open(window.location.href.replace(`/${localeURLMatches[1]}/`, `/${lang}/`), "_self")
+        const localeURLMatches = window.location.href.match(/\/demo\/([^\/]+)\//);
+        (localeURLMatches === null) ? window.open(`//${window.location.host}/demo/${lang}/`, "_self") : window.open(window.location.href.replace(`/${localeURLMatches[1]}/`, `/${lang}/`), "_self")
     };
 
     constructor(props) {
         super(props);
-        const localeURLMatches = window.location.href.match(/\/demo\/([^\/]+)/);
+        const localeURLMatches = window.location.href.match(/\/demo\/([^\/]+)\//);
         this.state = {
 
             lang: (localeURLMatches === null) ? this.changeLangAndURL(Languages.RU) : localeURLMatches[1],
