@@ -47,7 +47,7 @@ export default class App extends Component {
                     id: 'mobilePayment',
                     view: 'checkingOrder',
                     acceptedViews: ['success'],
-                    doc: 'https://developer.qiwi.com/ru/pull-mobile-payments/',
+                    doc: `https://developer.qiwi.com/${localeURLMatches[1]}/pull-mobile-payments/`,
                     git:
                         'https://github.com/QIWI-API/pull-payments-demo/tree/master/Node/examples/pull-payments-white-label-example'
                 },
@@ -56,7 +56,7 @@ export default class App extends Component {
                     view: 'checkingOrder',
                     acceptedViews: ['success', 'error'],
                     doc:
-                        'https://developer.qiwi.com/ru/pull-payments/index.html',
+                        `https://developer.qiwi.com/${localeURLMatches[1]}/pull-payments/index.html`,
                     git:
                         'https://github.com/QIWI-API/pull-payments-demo/tree/master/Node/examples/pull-payments-example'
                 },
@@ -64,7 +64,7 @@ export default class App extends Component {
                     id: 'checkOutRedirect',
                     view: 'checkingOrder',
                     acceptedViews: ['success'],
-                    doc: 'https://developer.qiwi.com/ru/bill-payments/',
+                    doc: `https://developer.qiwi.com/${localeURLMatches[1]}/bill-payments/`,
                     git:
                         'https://github.com/QIWI-API/pull-payments-demo/tree/master/Node/examples/bill-payments-redirect-example'
                 }
