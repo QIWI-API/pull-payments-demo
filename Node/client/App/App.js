@@ -37,9 +37,10 @@ export default class App extends Component {
     constructor(props) {
         super(props);
         const localeURLMatches = window.location.href.match(/\/demo\/([^\/]+)\//);
+        const langOfURL = localeURLMatches[1];
         this.state = {
 
-            lang: (localeURLMatches === null) ? this.changeLangAndURL(Languages.RU) : localeURLMatches[1],
+            lang: (localeURLMatches === null) ? this.changeLangAndURL(Languages.RU) : langOfURL,
             isMenuOpen: false,
             order: ['qiwiWalletPayment', 'mobilePayment', 'checkOutRedirect'],
             demos: {
@@ -47,7 +48,7 @@ export default class App extends Component {
                     id: 'mobilePayment',
                     view: 'checkingOrder',
                     acceptedViews: ['success'],
-                    doc: `https://developer.qiwi.com/${localeURLMatches[1]}/pull-mobile-payments/`,
+                    doc: `https://developer.qiwi.com/${langOfURL}/pull-mobile-payments/`,
                     git:
                         'https://github.com/QIWI-API/pull-payments-demo/tree/master/Node/examples/pull-payments-white-label-example'
                 },
@@ -56,7 +57,7 @@ export default class App extends Component {
                     view: 'checkingOrder',
                     acceptedViews: ['success', 'error'],
                     doc:
-                        `https://developer.qiwi.com/${localeURLMatches[1]}/pull-payments/index.html`,
+                        `https://developer.qiwi.com/${langOfURL]}/pull-payments/index.html`,
                     git:
                         'https://github.com/QIWI-API/pull-payments-demo/tree/master/Node/examples/pull-payments-example'
                 },
@@ -64,7 +65,7 @@ export default class App extends Component {
                     id: 'checkOutRedirect',
                     view: 'checkingOrder',
                     acceptedViews: ['success'],
-                    doc: `https://developer.qiwi.com/${localeURLMatches[1]}/bill-payments/`,
+                    doc: `https://developer.qiwi.com/${langOfURL}/bill-payments/`,
                     git:
                         'https://github.com/QIWI-API/pull-payments-demo/tree/master/Node/examples/bill-payments-redirect-example'
                 }
