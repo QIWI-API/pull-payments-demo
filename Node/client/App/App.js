@@ -37,10 +37,12 @@ export default class App extends Component {
     constructor(props) {
         super(props);
         const localeURLMatches = window.location.href.match(/\/demo\/([^\/]+)\//);
-        const langOfURL = localeURLMatches[1];
+        let langOfURL;
+        if(Array.isArray(localeURLMatches) && localeURLMatches[1] !== null){
+            langOfURL = localeURLMatches[1];
+        }
         this.state = {
-
-            lang: (localeURLMatches === null) ? this.changeLangAndURL(Languages.RU) : langOfURL,
+            lang: langOfURL || this.changeLangAndURL(Languages.RU),
             isMenuOpen: false,
             order: ['qiwiWalletPayment', 'mobilePayment', 'checkOutRedirect'],
             demos: {
