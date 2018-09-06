@@ -44,7 +44,7 @@ export default class App extends Component {
         this.state = {
             lang: langOfURL || this.changeLangAndURL(Languages.RU),
             isMenuOpen: false,
-            order: ['qiwiWalletPayment', 'mobilePayment', 'checkOutRedirect'],
+            order: ['checkOutRedirect', 'qiwiWalletPayment', 'mobilePayment'],
             demos: {
                 mobilePayment: {
                     id: 'mobilePayment',
