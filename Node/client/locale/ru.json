@@ -5,7 +5,7 @@
     "feedback": "Вопросы",
     "pay-wallet": "Оплата с QIWI Кошелька",
     "pay-mobile": "Оплата с баланса мобильного",
-    "pay-invoicing": "Оплата через универсальный  платежный протокол",
+    "pay-invoicing": "Универсальный платежный протокол",
     "version-control": "Github",
     "pay-qiwi-wallet": "Qiwi кошельком",
     "qiwi-commission": "0% комиссии",
@@ -27,7 +27,7 @@
     "come-back": "Вернуться назад",
     "qiwiWalletPayment": "Оплата с QIWI Кошелька",
     "mobilePayment": "Оплата с баланса мобильного",
-    "checkOutRedirect": "Оплата через универсальный  платежный протокол",
+    "checkOutRedirect": "Универсальный платежный протокол",
 
     "confirmation-by-SMS_main": "Ждем подтверждения по СМС",
     "confirmation-by-SMS_secondary-first": "Следуйте SMS-инструкциям вашего оператора сотовой связи.",
