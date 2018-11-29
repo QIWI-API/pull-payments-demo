@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import CheckingOrder from '../../../components/CheckingOrder';
 import Button from '../../../components/Button';
 
-import payments from '../../../assets/payments.png';
+import payments from '../../../assets/payments.svg';
 import Link from '../../../components/Link';
 
 import { translate } from 'react-i18next';
