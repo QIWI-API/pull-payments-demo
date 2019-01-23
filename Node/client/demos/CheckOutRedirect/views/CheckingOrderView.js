@@ -14,7 +14,7 @@ const CheckingOrderView = (props) => {
     const { t } = props;
     document.body.style.overflow = 'auto';
 
-    if(props.errorState) {
+    if (props.errorState) {
         document.body.style.overflow = 'hidden';
     }
 
@@ -22,22 +22,14 @@ const CheckingOrderView = (props) => {
 
         <CheckingOrder itemCost={props.itemCost} itemPic={props.itemPic}>
 
-            {props.errorState?<div className="checking-order__backdrop">
-                <div className="checking-order__backdrop-text">
-                    <div>{t('error-displaying-page')}</div>
+            <Button buttonText={t('pay')} onClick={props.stateChanger} classNames={'checking-order__redirect'} />
 
-                    <button type="button" onClick={() => window.location.reload()}>{t('error-solution-with-page-display')}</button>
-                </div>
-            </div>:null}
+            <img src={payments} className="checking-order__payments" alt="payments" width="189" />
 
-         <Button  buttonText={t('pay')} onClick={props.stateChanger} classNames={'checking-order__redirect'}/>
-
-            <img src={payments} className="checking-order__payments" alt="payments" width="189"/>
-
-            <Link className={'checking-order__link'} textLogo={t('standards-of-representation')} link = {'https://corp.qiwi.com/business/connect/logotype.action'}/>
+            <Link className={'checking-order__link'} textLogo={t('standards-of-representation')} link={'https://corp.qiwi.com/business/connect/logotype.action'} />
 
         </CheckingOrder>
     );
 };
 
-export default translate() (CheckingOrderView);
+export default translate()(CheckingOrderView);

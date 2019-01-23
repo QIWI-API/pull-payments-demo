@@ -89,9 +89,7 @@ app.post(
 app.post(
     '/demo/api/createPaymentForm',
     paymentByRedirect({
-        client: clientBillPayments,
-        public_key: checkOutRedirect.public_key,
-        success_url: `${host}${urls.checkOutRedirect.success_url}`
+        public_key: checkOutRedirect.public_key
     })
 );
 

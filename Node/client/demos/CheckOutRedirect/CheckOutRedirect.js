@@ -30,7 +30,7 @@ export default class CheckOutRedirect extends Component {
 
         let url = '/demo/api/createPaymentForm';
 
-        if(__DEV__) {
+        if (__DEV__) {
             url = `http://localhost:5000/${url}`;
         }
 
@@ -39,21 +39,11 @@ export default class CheckOutRedirect extends Component {
     }
 
     makeRedirect = () => {
+        const stateChangerToError = this.stateChanger('checkingOrderError');
 
-        const self = this;
-
-        const stateChangerToError = self.stateChanger('checkingOrderError');
-
-        this.makeRequest().then( data =>{
-
-            if(data.redirect) {
-                window.location.href = data.redirect;
-            } else {
-                stateChangerToError();
-            }
-        }).catch( err => {
-            stateChangerToError();
-        });
+        this.makeRequest()
+            .then(({ public_key: publicKey, amount: amount }) => QiwiCheckout.createInvoice({ publicKey, amount }))
+            .then(this.stateChanger('success'));;
     }
 
 
@@ -72,14 +62,14 @@ export default class CheckOutRedirect extends Component {
         };
 
         const statesMap = {
-            checkingOrder:{
+            checkingOrder: {
                 view: <CheckingOrderView itemCost={itemCost} itemPic={itemPic} stateChanger={this.makeRedirect} id={id} />
             },
-            checkingOrderError:{
-                view: <CheckingOrderView itemCost={itemCost} itemPic={itemPic} stateChanger={this.makeRedirect} id={id} errorState={true}/>
+            checkingOrderError: {
+                view: <CheckingOrderView itemCost={itemCost} itemPic={itemPic} stateChanger={this.makeRedirect} id={id} errorState={true} />
             },
             success: {
-                view: <SuccessPage stateChanger={this.stateChanger('checkingOrder')} itemPic={itemPic} number={orderInfo.number} method={orderInfo.method} sum={orderInfo.sum}/>
+                view: <SuccessPage stateChanger={this.stateChanger('checkingOrder')} itemPic={itemPic} number={orderInfo.number} method={orderInfo.method} sum={orderInfo.sum} />
             }
         };
 
